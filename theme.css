@@ -1,0 +1,62 @@
+/* ============================================================================
+   theme.css · Esquema de colores y estilos base de TODO el sitio
+   ----------------------------------------------------------------------------
+   Este es el ÚNICO lugar que debes tocar para cambiar la identidad visual.
+   Lo usan tanto index.html (el deck de slides) como
+   claude-commands-infografia.html (la hoja de referencia).
+
+   Cómo personalizar:
+     · Cambia un color de sección (--proj, --info, …) y se actualiza en
+       títulos, acentos, cintas y tarjetas de ambas páginas.
+     · Cambia --ink / --muted / --line / --paper para el esquema neutro.
+     · Cambia --font / --mono para la tipografía global.
+   ============================================================================ */
+
+:root{
+  /* ---- Tipografía ---- */
+  --font: 'Segoe UI', Tahoma, Arial, sans-serif;   /* texto general */
+  --mono: 'Consolas', 'Courier New', monospace;    /* comandos y código */
+
+  /* ---- Neutros / base ---- */
+  --ink:    #1a1a2e;   /* texto principal               */
+  --muted:  #5b5b6b;   /* texto secundario / descripciones */
+  --line:   #e4e4ec;   /* bordes, separadores           */
+  --paper:  #ffffff;   /* fondo de slides y tarjetas     */
+  --stage-bg:#0d0d14;  /* fondo detrás del deck al presentar */
+
+  /* ---- Colores de sección / acentos ---- */
+  /* Cada uno se expone como clase .s-xxx (abajo) para teñir un slide o tarjeta */
+  --proj:  #d9480f;   /* project management   (naranja) */
+  --mode:  #7048e8;   /* mode & model         (morado)  */
+  --feat:  #2b8a3e;   /* features             (verde)   */
+  --info:  #1971c2;   /* información          (azul)    */
+  --env:   #0c8599;   /* entorno              (cian)    */
+  --integ: #e8590c;   /* integraciones        (naranja oscuro) */
+  --flow:  #c2255c;   /* workflows            (magenta) */
+  --cli:   #495057;   /* CLI                  (gris)    */
+  --flag:  #5f3dc4;   /* flags                (violeta) */
+  --short: #087f5b;   /* shortcuts            (verde azulado) */
+
+  /* Acento por defecto cuando un elemento no fija --accent */
+  --accent-default: var(--proj);
+}
+
+/* ---- Reset y base compartidos ---- */
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ font-family:var(--font); color:var(--ink); }
+
+/* ============================================================================
+   Clases de acento de sección
+   Aplica una de estas a un contenedor para fijar su color de acento; los
+   componentes internos usan var(--accent) para teñirse.
+   ============================================================================ */
+.s-proj { --accent: var(--proj);  }
+.s-mode { --accent: var(--mode);  }
+.s-feat { --accent: var(--feat);  }
+.s-info { --accent: var(--info);  }
+.s-env  { --accent: var(--env);   }
+.s-integ{ --accent: var(--integ); }
+.s-flow { --accent: var(--flow);  }
+.s-cli  { --accent: var(--cli);   }
+.s-flag { --accent: var(--flag);  }
+.s-short{ --accent: var(--short); }
