@@ -253,6 +253,55 @@
     .slide[data-title="installing-claude"] .install-left{width:100%;}
   }
 
+  /* ── Controles (no se exportan) ── */
+  #bar{
+    position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
+    display:flex; gap:8px; align-items:center;
+    background:rgba(20,20,30,.82); backdrop-filter:blur(6px);
+    border:1px solid #2a2a3a; border-radius:14px; padding:8px 12px; z-index:50;
+    opacity:.35; transition:opacity .2s;
+  }
+  #bar:hover{opacity:1;}
+  #bar button{background:#23233a; color:#e8e8f0; border:1px solid #34344e; border-radius:9px; padding:8px 12px; font-size:14px; cursor:pointer; font-weight:600;}
+  #bar button:hover{background:#32324f;}
+  #bar .count{color:#9a9ab0; font-size:14px; padding:4px 8px; min-width:64px; text-align:center; cursor:pointer; border-radius:8px; position:relative; transition:background .15s;}
+  #bar .count:hover{background:#23233a; color:#e8e8f0;}
+  #bar .sep{width:1px; height:24px; background:#34344e; margin:0 4px;}
+  /* Language button active state */
+  #lang-btn.lang-es{background:#2a2a42; color:#a0a0e8; border-color:#5050a0;}
+  /* ── Slide picker (dropdown del contador) ── */
+  #slide-picker{
+    display:none; flex-direction:column; gap:5px;
+    position:absolute; bottom:calc(100% + 10px); left:50%; transform:translateX(-50%);
+    background:rgba(18,18,28,.97); backdrop-filter:blur(10px);
+    border:1px solid #2a2a3a; border-radius:12px; padding:8px;
+    min-width:230px; max-width:300px;
+    box-shadow:0 -6px 24px rgba(0,0,0,.5);
+    z-index:60;
+  }
+  #slide-picker.open{display:flex;}
+  #picker-input{
+    background:#23233a; border:1px solid #3a3a54; border-radius:7px;
+    color:#e8e8f4; padding:6px 10px; font-size:13px; width:100%;
+    outline:none; font-family:var(--font);
+  }
+  #picker-input:focus{border-color:#5b5b8b;}
+  #picker-list{list-style:none; margin:0; padding:0; max-height:240px; overflow-y:auto;}
+  #picker-list::-webkit-scrollbar{width:4px;}
+  #picker-list::-webkit-scrollbar-thumb{background:#3a3a54; border-radius:4px;}
+  #picker-list li{
+    display:flex; gap:8px; align-items:baseline;
+    padding:5px 8px; border-radius:7px; cursor:pointer;
+    color:#9a9ab0; font-size:12px; transition:background .1s;
+  }
+  #picker-list li:hover{background:#23233a; color:#e8e8f4;}
+  #picker-list li.picker-active{color:#e8e8f4; background:#2a2a42;}
+  #picker-list li .pi-num{font-family:var(--mono); font-size:11px; color:#5b5b7b; min-width:20px; flex-shrink:0;}
+  #picker-list li .pi-title{flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  #picker-list li.picker-active .pi-num{color:var(--accent-default);}
+  #hint{position:fixed; top:14px; left:50%; transform:translateX(-50%); color:#6a6a82; font-size:13px; z-index:50; opacity:.6;}
+  body.exporting #bar, body.exporting #hint{display:none;}
+
   /* ───────────────────────────────────────────────────────────────
      VISTA MÓVIL (pantallas angostas). En vertical el lado menor del
      contenedor es el ancho, por lo que las unidades cqmin generan texto
@@ -260,6 +309,8 @@
      resulta ilegible. Aquí desacoplamos la tipografía del escalado
      fit-to-screen: tamaños fijos y legibles, el contenido fluye desde
      arriba y la slide hace scroll vertical si no cabe.
+     COLOCADO AL FINAL del <style> a propósito: así, con igual especificidad
+     que las reglas base (p. ej. #bar), gana por orden de cascada sin !important.
      No afecta presentación de escritorio ni la exportación 1:1.
      ─────────────────────────────────────────────────────────────── */
   @media (max-width: 700px){
@@ -268,7 +319,7 @@
     .slide{
       overflow-y:auto; overflow-x:hidden;
       -webkit-overflow-scrolling:touch;
-      padding:26px 20px 96px;            /* el extra inferior libera la barra de controles flotante */
+      padding:26px 20px 84px;            /* el extra inferior libera la barra de controles inferior */
     }
 
     /* El contenido fluye desde arriba y conserva su altura natural */
@@ -325,8 +376,7 @@
 
     /* La barra de controles: una sola línea, full-width pegada al borde inferior
        (sin márgenes ni esquinas redondeadas) para aprovechar todo el ancho.
-       La exportación 1:1 es una acción de escritorio, así que se oculta en móvil
-       para que naveg./idioma/pantalla completa quepan sin envolver. */
+       Fullscreen y exportación 1:1 son acciones de escritorio: se ocultan en móvil. */
     #bar{
       left:0; right:0; bottom:0; transform:none;
       width:100%; max-width:none;
@@ -336,57 +386,8 @@
     }
     #bar button{padding:6px 9px; font-size:13px;}
     #bar .count{min-width:auto; font-size:13px; padding:4px 6px;}
-    #exp, #expAll, #bar .sep{display:none;}
+    #full, #exp, #expAll, #bar .sep{display:none;}
   }
-
-  /* ── Controles (no se exportan) ── */
-  #bar{
-    position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
-    display:flex; gap:8px; align-items:center;
-    background:rgba(20,20,30,.82); backdrop-filter:blur(6px);
-    border:1px solid #2a2a3a; border-radius:14px; padding:8px 12px; z-index:50;
-    opacity:.35; transition:opacity .2s;
-  }
-  #bar:hover{opacity:1;}
-  #bar button{background:#23233a; color:#e8e8f0; border:1px solid #34344e; border-radius:9px; padding:8px 12px; font-size:14px; cursor:pointer; font-weight:600;}
-  #bar button:hover{background:#32324f;}
-  #bar .count{color:#9a9ab0; font-size:14px; padding:4px 8px; min-width:64px; text-align:center; cursor:pointer; border-radius:8px; position:relative; transition:background .15s;}
-  #bar .count:hover{background:#23233a; color:#e8e8f0;}
-  #bar .sep{width:1px; height:24px; background:#34344e; margin:0 4px;}
-  /* Language button active state */
-  #lang-btn.lang-es{background:#2a2a42; color:#a0a0e8; border-color:#5050a0;}
-  /* ── Slide picker (dropdown del contador) ── */
-  #slide-picker{
-    display:none; flex-direction:column; gap:5px;
-    position:absolute; bottom:calc(100% + 10px); left:50%; transform:translateX(-50%);
-    background:rgba(18,18,28,.97); backdrop-filter:blur(10px);
-    border:1px solid #2a2a3a; border-radius:12px; padding:8px;
-    min-width:230px; max-width:300px;
-    box-shadow:0 -6px 24px rgba(0,0,0,.5);
-    z-index:60;
-  }
-  #slide-picker.open{display:flex;}
-  #picker-input{
-    background:#23233a; border:1px solid #3a3a54; border-radius:7px;
-    color:#e8e8f4; padding:6px 10px; font-size:13px; width:100%;
-    outline:none; font-family:var(--font);
-  }
-  #picker-input:focus{border-color:#5b5b8b;}
-  #picker-list{list-style:none; margin:0; padding:0; max-height:240px; overflow-y:auto;}
-  #picker-list::-webkit-scrollbar{width:4px;}
-  #picker-list::-webkit-scrollbar-thumb{background:#3a3a54; border-radius:4px;}
-  #picker-list li{
-    display:flex; gap:8px; align-items:baseline;
-    padding:5px 8px; border-radius:7px; cursor:pointer;
-    color:#9a9ab0; font-size:12px; transition:background .1s;
-  }
-  #picker-list li:hover{background:#23233a; color:#e8e8f4;}
-  #picker-list li.picker-active{color:#e8e8f4; background:#2a2a42;}
-  #picker-list li .pi-num{font-family:var(--mono); font-size:11px; color:#5b5b7b; min-width:20px; flex-shrink:0;}
-  #picker-list li .pi-title{flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
-  #picker-list li.picker-active .pi-num{color:var(--accent-default);}
-  #hint{position:fixed; top:14px; left:50%; transform:translateX(-50%); color:#6a6a82; font-size:13px; z-index:50; opacity:.6;}
-  body.exporting #bar, body.exporting #hint{display:none;}
 </style>
 </head>
 <body>
