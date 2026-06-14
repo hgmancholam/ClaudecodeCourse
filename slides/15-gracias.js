@@ -12,7 +12,7 @@ en: `
       We appreciate your feedback — tell us here!
     </a>
   </div>
-  <footer><span class="brand">AI capabilities Training <span class="dot">·</span> Claude Code</span><span>2026</span></footer>
+  <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Claude Code</span><span>2026</span></footer>
 </section>
 `,
 es: `
@@ -28,7 +28,7 @@ es: `
       ¡Apreciamos tu feedback — haz clic aqui!
     </a>
   </div>
-  <footer><span class="brand">AI capabilities Training <span class="dot">·</span> Claude Code</span><span>2026</span></footer>
+  <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Claude Code</span><span>2026</span></footer>
 </section>
 `
 });
