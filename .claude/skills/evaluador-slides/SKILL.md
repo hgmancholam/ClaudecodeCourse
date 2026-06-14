@@ -67,7 +67,10 @@ Evalúa cada slide en estas dimensiones:
    dentro del template literal. **El footer (en ambos idiomas) debe incluir la nota de
    autor `<span class="author">Giovanny Manchola</span>` inmediatamente a la izquierda del
    paginador** (justo antes de `<span class="pg"></span>`, o `<span>2026</span>` en la
-   portada). Si editas un footer, conserva esta nota; si falta, agrégala.
+   portada). Si editas un footer, conserva esta nota; si falta, agrégala. La nota de autor
+   está estilizada **deliberadamente pequeña y discreta** (`.author` con `font-size:1.6cqmin;
+   opacity:.6`, más pequeña que el resto del footer; `9px` en el bloque móvil): debe
+   acreditarse sin robar protagonismo. No la agrandes ni la pongas al mismo tamaño del footer.
 
 ## Principios de un buen slide de capacitación (guíate por esto al proponer mejoras)
 
