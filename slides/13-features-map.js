@@ -51,7 +51,7 @@ en: `
       </tr>
       <tr>
         <td class="feat">Skills</td>
-        <td class="loc">.claude/commands/ · ~/.claude/commands/</td>
+        <td class="loc">.claude/skills/&lt;name&gt;/SKILL.md · ~/.claude/skills/</td>
         <td>Custom commands</td>
         <td class="trg">/name or auto-triggered by description</td>
         <td>Reusable workflows, code review, deploys, team standards</td>
@@ -65,7 +65,7 @@ en: `
       </tr>
       <tr>
         <td class="feat">MCP</td>
-        <td class="loc">settings.json → "mcpServers"</td>
+        <td class="loc">.mcp.json (repo root) · ~/.claude.json</td>
         <td>Tool extension</td>
         <td class="trg">JSON-RPC over stdio / SSE / HTTP</td>
         <td>DBs, internal APIs, cloud services, custom tool ecosystems</td>
@@ -134,7 +134,7 @@ es: `
       </tr>
       <tr>
         <td class="feat">Skills</td>
-        <td class="loc">.claude/commands/ · ~/.claude/commands/</td>
+        <td class="loc">.claude/skills/&lt;nombre&gt;/SKILL.md · ~/.claude/skills/</td>
         <td>Comandos personalizados</td>
         <td class="trg">/nombre o auto por campo description</td>
         <td>Flujos reutilizables, code review, deploys, estándares de equipo</td>
@@ -148,7 +148,7 @@ es: `
       </tr>
       <tr>
         <td class="feat">MCP</td>
-        <td class="loc">settings.json → "mcpServers"</td>
+        <td class="loc">.mcp.json (raíz del repo) · ~/.claude.json</td>
         <td>Extensión de herramientas</td>
         <td class="trg">JSON-RPC sobre stdio / SSE / HTTP</td>
         <td>BDs, APIs internas, servicios cloud, ecosistemas de herramientas</td>

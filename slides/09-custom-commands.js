@@ -7,7 +7,7 @@ en: `
 
     <div class="skills-left">
       <ul class="points">
-        <li><span class="ico">📄</span><span><b>Markdown files</b> that add <code class="inline">/name</code> to Claude. Write them once, use them in any session.</span></li>
+        <li><span class="ico">📄</span><span><b>Markdown files</b> that add <code class="inline">/name</code> to Claude — custom commands are now <b>Skills</b>. Write once, use in any session.</span></li>
         <li><span class="ico">📁</span><span><b>Two scopes:</b> project (<code class="inline">.claude/skills/</code>) for the repo, or personal (<code class="inline">~/.claude/skills/</code>) for all your projects.</span></li>
         <li><span class="ico">⚡</span><span><b>Dynamic context:</b> <code class="inline">!\`git diff HEAD\`</code> runs the command and injects its output into the prompt before sending to Claude.</span></li>
         <li><span class="ico">🔍</span><span>Invoke with <code class="inline">/name</code> or let Claude activate them <b>automatically</b> based on the <code class="inline">description</code>.</span></li>
@@ -45,7 +45,7 @@ es: `
 
     <div class="skills-left">
       <ul class="points">
-        <li><span class="ico">📄</span><span><b>Archivos Markdown</b> que añaden <code class="inline">/nombre</code> a Claude. Escríbelos una vez, úsalos en cualquier sesión.</span></li>
+        <li><span class="ico">📄</span><span><b>Archivos Markdown</b> que añaden <code class="inline">/nombre</code> a Claude — los comandos personalizados ahora son <b>Skills</b>. Escríbelos una vez, úsalos en cualquier sesión.</span></li>
         <li><span class="ico">📁</span><span><b>Dos alcances:</b> proyecto (<code class="inline">.claude/skills/</code>) para el repo, o personal (<code class="inline">~/.claude/skills/</code>) para todos tus proyectos.</span></li>
         <li><span class="ico">⚡</span><span><b>Contexto dinámico:</b> <code class="inline">!\`git diff HEAD\`</code> ejecuta el comando e inyecta su salida en el prompt antes de enviarlo a Claude.</span></li>
         <li><span class="ico">🔍</span><span>Invoca con <code class="inline">/nombre</code> o deja que Claude los active <b>automáticamente</b> según la <code class="inline">description</code>.</span></li>

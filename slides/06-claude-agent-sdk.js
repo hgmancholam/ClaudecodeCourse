@@ -8,7 +8,7 @@ en: `
     <div class="sdk-left">
       <ul class="points">
         <li><span class="ico">→</span><span><b>Same capabilities as the CLI,</b> but programmatic. Your app calls <code class="inline">query()</code> and Claude acts autonomously.</span></li>
-        <li><span class="ico">⚙</span><span><b>Built-in tools:</b> Read, Write, Edit, Bash, Glob, Grep, WebSearch — no need to implement the loop yourself.</span></li>
+        <li><span class="ico">⚙</span><span><b>Built-in tools:</b> Read, Write, Edit, Bash, Glob, Grep, WebSearch, WebFetch — no need to implement the loop yourself.</span></li>
         <li><span class="ico">🔗</span><span><b>Extensible:</b> hooks, subagents, MCP, and per-tool permission control.</span></li>
         <li><span class="ico">📦</span><span><b>Python</b> <code class="inline">claude-agent-sdk</code> · <b>TypeScript</b> <code class="inline">@anthropic-ai/claude-agent-sdk</code></span></li>
       </ul>
@@ -19,7 +19,7 @@ en: `
         <div class="cb-dots"><span></span><span></span><span></span></div>
         <span class="cb-lang">Python</span>
       </div>
-      <pre><span class="kw">from</span> claude_agent_sdk <span class="kw">import</span> <span class="fn">query</span>, ClaudeAgentOptions
+      <pre><span class="kw">from</span> claude_agent_sdk <span class="kw">import</span> <span class="fn">query</span>, ClaudeAgentOptions, ResultMessage
 <span class="kw">import</span> asyncio
 
 <span class="kw">async def</span> <span class="fn">main</span>():
@@ -29,7 +29,7 @@ en: `
             allowed_tools=[<span class="st">"Read"</span>, <span class="st">"Edit"</span>, <span class="st">"Bash"</span>]
         ),
     ):
-        <span class="kw">if</span> <span class="fn">hasattr</span>(msg, <span class="st">"result"</span>):
+        <span class="kw">if</span> <span class="kw">isinstance</span>(msg, ResultMessage):
             <span class="fn">print</span>(msg.result)
 
 asyncio.<span class="fn">run</span>(<span class="fn">main</span>())</pre>
@@ -48,7 +48,7 @@ es: `
     <div class="sdk-left">
       <ul class="points">
         <li><span class="ico">→</span><span><b>Mismas capacidades que la CLI,</b> pero programáticas. Tu app llama a <code class="inline">query()</code> y Claude actúa de forma autónoma.</span></li>
-        <li><span class="ico">⚙</span><span><b>Herramientas built-in:</b> Read, Write, Edit, Bash, Glob, Grep, WebSearch — sin implementar el loop tú.</span></li>
+        <li><span class="ico">⚙</span><span><b>Herramientas built-in:</b> Read, Write, Edit, Bash, Glob, Grep, WebSearch, WebFetch — sin implementar el loop tú.</span></li>
         <li><span class="ico">🔗</span><span><b>Extensible:</b> hooks, subagentes, MCP y control de permisos por herramienta.</span></li>
         <li><span class="ico">📦</span><span><b>Python</b> <code class="inline">claude-agent-sdk</code> · <b>TypeScript</b> <code class="inline">@anthropic-ai/claude-agent-sdk</code></span></li>
       </ul>
@@ -59,7 +59,7 @@ es: `
         <div class="cb-dots"><span></span><span></span><span></span></div>
         <span class="cb-lang">Python</span>
       </div>
-      <pre><span class="kw">from</span> claude_agent_sdk <span class="kw">import</span> <span class="fn">query</span>, ClaudeAgentOptions
+      <pre><span class="kw">from</span> claude_agent_sdk <span class="kw">import</span> <span class="fn">query</span>, ClaudeAgentOptions, ResultMessage
 <span class="kw">import</span> asyncio
 
 <span class="kw">async def</span> <span class="fn">main</span>():
@@ -69,7 +69,7 @@ es: `
             allowed_tools=[<span class="st">"Read"</span>, <span class="st">"Edit"</span>, <span class="st">"Bash"</span>]
         ),
     ):
-        <span class="kw">if</span> <span class="fn">hasattr</span>(msg, <span class="st">"result"</span>):
+        <span class="kw">if</span> <span class="kw">isinstance</span>(msg, ResultMessage):
             <span class="fn">print</span>(msg.result)
 
 asyncio.<span class="fn">run</span>(<span class="fn">main</span>())</pre>

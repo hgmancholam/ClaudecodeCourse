@@ -8,14 +8,14 @@ en: `
     <div class="filetree">
 <span class="dir">my-project/</span>
 ├── <span class="dir">CLAUDE.md</span>
+├── <span class="dir">.mcp.json</span>  <span class="note">← project MCP servers</span>
 ├── <span class="dir">.claude/</span>
 │   ├── settings.json
 │   ├── <span class="optional">settings.local.json</span>  <span class="note">← gitignore</span>
-│   ├── mcp.json
 │   ├── <span class="dir">agents/</span>  <span class="note">← subagents</span>
 │   │   └── my-subagent.md
-│   ├── <span class="dir">commands/</span>  <span class="note">← skills</span>
-│   │   └── my-skill.md
+│   ├── <span class="dir">skills/</span>  <span class="note">← slash commands</span>
+│   │   └── my-skill/SKILL.md
 │   ├── <span class="dir">hooks/</span>
 │   │   └── pre-tool.sh
 │   └── <span class="dir">workflows/</span>
@@ -35,11 +35,11 @@ en: `
       <dt>settings.local.json</dt>
       <dd>Personal overrides: extra permissions, local tokens. Goes in <code class="inline">.gitignore</code> — never to the repo.</dd>
 
-      <dt>mcp.json</dt>
-      <dd>Project MCP servers: defines which external tools (databases, APIs, services) are available to Claude in this context.</dd>
+      <dt>.mcp.json</dt>
+      <dd>Project MCP servers — lives at the repo root and is versioned with it: defines which external tools (databases, APIs, services) are available to Claude.</dd>
 
-      <dt>commands/</dt>
-      <dd>Skills (custom commands). Each <code class="inline">.md</code> file adds a <code class="inline">/name</code> command, auto-triggered by its <code class="inline">description</code> frontmatter.</dd>
+      <dt>skills/</dt>
+      <dd>Skills: each <code class="inline">.claude/skills/&lt;name&gt;/SKILL.md</code> adds a <code class="inline">/name</code> command, auto-triggered by its <code class="inline">description</code>. Legacy <code class="inline">.claude/commands/*.md</code> still work.</dd>
 
       <dt>hooks/</dt>
       <dd>Scripts that run automatically on lifecycle events: before/after each tool, when starting or stopping the session. Configured in <code class="inline">settings.json</code>.</dd>
@@ -64,14 +64,14 @@ es: `
     <div class="filetree">
 <span class="dir">mi-proyecto/</span>
 ├── <span class="dir">CLAUDE.md</span>
+├── <span class="dir">.mcp.json</span>  <span class="note">← servidores MCP</span>
 ├── <span class="dir">.claude/</span>
 │   ├── settings.json
 │   ├── <span class="optional">settings.local.json</span>  <span class="note">← gitignore</span>
-│   ├── mcp.json
 │   ├── <span class="dir">agents/</span>  <span class="note">← subagents</span>
 │   │   └── my-subagent.md
-│   ├── <span class="dir">commands/</span>  <span class="note">← skills</span>
-│   │   └── mi-skill.md
+│   ├── <span class="dir">skills/</span>  <span class="note">← slash commands</span>
+│   │   └── mi-skill/SKILL.md
 │   ├── <span class="dir">hooks/</span>
 │   │   └── pre-tool.sh
 │   └── <span class="dir">workflows/</span>
@@ -91,11 +91,11 @@ es: `
       <dt>settings.local.json</dt>
       <dd>Overrides personales: permisos extra, tokens locales. Va en <code class="inline">.gitignore</code> — nunca al repo.</dd>
 
-      <dt>mcp.json</dt>
-      <dd>Servidores MCP del proyecto: define qué herramientas externas (bases de datos, APIs, servicios) están disponibles para Claude en este contexto.</dd>
+      <dt>.mcp.json</dt>
+      <dd>Servidores MCP del proyecto — vive en la raíz del repo y se versiona con él: define qué herramientas externas (bases de datos, APIs, servicios) están disponibles para Claude.</dd>
 
-      <dt>commands/</dt>
-      <dd>Skills (comandos personalizados). Cada archivo <code class="inline">.md</code> añade un comando <code class="inline">/nombre</code>, auto-activado por su campo <code class="inline">description</code>.</dd>
+      <dt>skills/</dt>
+      <dd>Skills: cada <code class="inline">.claude/skills/&lt;nombre&gt;/SKILL.md</code> añade un comando <code class="inline">/nombre</code>, auto-activado por su <code class="inline">description</code>. Los <code class="inline">.claude/commands/*.md</code> heredados siguen funcionando.</dd>
 
       <dt>hooks/</dt>
       <dd>Scripts que se ejecutan automáticamente en eventos del ciclo de vida: antes/después de cada herramienta, al iniciar o detener la sesión. Se configuran en <code class="inline">settings.json</code>.</dd>
