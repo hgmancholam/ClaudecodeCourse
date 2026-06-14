@@ -34,8 +34,9 @@ A bilingual (English/Spanish) internal training deck about **Claude Code (the CL
   | 11 | `slides/11-slash-commands.js` | `slash-commands` | `slide no-export s-cli` |
   | 12 | `slides/12-atajos-cli.js` | `atajos-cli` | `slide no-export s-flag` |
   | 13 | `slides/13-features-map.js` | `features-map` | `slide no-export s-proj` |
+  | 14 | `slides/14-bonus-skills.js` | `bonus-skills` | `slide no-export s-short` |
 
-  Next slide: `14` → `slides/14-nombre.js`. Add `no-export` to slides too dense for 1080×1080 (reference grids, tables).
+  Next slide: `15` → `slides/15-nombre.js`. Add `no-export` to slides too dense for 1080×1080 (reference grids, tables).
 - `claude-commands-infografia.html` — a standalone single-page cheat-sheet of Claude Code commands (1600px wide, 3-column layout). Also consumes `theme.css` for its palette and typography.
 
 ## Running
@@ -61,6 +62,7 @@ Authoring rules:
 - **`data-title` attribute:** becomes the exported PNG filename (`NN-<data-title>.png`).
 - **Reusable content components** (used inside `.body`): `ul.points` (numbered list), `.cmdrow` with `.cmd`/`.desc` (cheat-sheet rows), `.callout` + `code.inline`, and the `.cover` variant for title slides.
 - **`.refgrid`** — dense reference grid (the full command cheat-sheet on one slide). A CSS multi-column container holding `.cat` cards (3 columns on the square export, 5 on a wide screen). Each `.cat` carries its own `.s-*` class so it sets its own `--accent` locally; inner rows use `.ln` with `.k` (command) / `.d` (description). This is the deck-native re-implementation of `claude-commands-infografia.html` — keep the two in sync if commands change.
+  - **MUST — auto-fit font size:** `.refgrid` font sizes use the CSS custom properties `--rg-fs` (row text) and `--rg-h3` (category header) via `var(--rg-fs, fallback)`. The `fitRefgrid()` JS function (called on every `show()` and `resize`) binary-searches for the largest `cqmin` value where `scrollHeight ≤ clientHeight`, then sets both variables as inline styles on the `.refgrid` element so the content always expands to fill the available slide height. **Every slide that contains a `.refgrid` automatically benefits from this — no per-slide JS needed. Per-slide CSS overrides must use `var(--rg-fs, X)` so the auto-fit can override them.**
 
 ### Export (social-media images)
 

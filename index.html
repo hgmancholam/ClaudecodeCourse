@@ -93,8 +93,8 @@
     max-height:calc(100cqb - 18cqmin);
   }
   .refgrid .cat{break-inside:avoid; border:1px solid var(--line); border-radius:1cqmin; padding:.9cqmin 1.2cqmin .6cqmin; margin-bottom:1.4cqmin;}
-  .refgrid .cat h3{font-size:1.4cqmin; font-weight:800; letter-spacing:.12cqmin; text-transform:uppercase; color:#fff; background:var(--accent,var(--proj)); padding:.4cqmin .8cqmin; border-radius:.5cqmin; display:inline-block; margin-bottom:.6cqmin;}
-  .refgrid .ln{display:flex; gap:.8cqmin; padding:.28cqmin 0; border-bottom:.1cqmin dashed var(--line); font-size:1.38cqmin; line-height:1.25;}
+  .refgrid .cat h3{font-size:var(--rg-h3,1.4cqmin); font-weight:800; letter-spacing:.12cqmin; text-transform:uppercase; color:#fff; background:var(--accent,var(--proj)); padding:.4cqmin .8cqmin; border-radius:.5cqmin; display:inline-block; margin-bottom:.6cqmin;}
+  .refgrid .ln{display:flex; gap:.8cqmin; padding:.28cqmin 0; border-bottom:.1cqmin dashed var(--line); font-size:var(--rg-fs,1.38cqmin); line-height:1.25;}
   .refgrid .ln:last-child{border-bottom:none;}
   .refgrid .ln .k{font-family:var(--mono); font-weight:700; color:var(--accent,var(--proj)); white-space:nowrap; flex-shrink:0;}
   .refgrid .ln a.k{text-decoration:none; color:var(--accent,var(--proj));}
@@ -182,8 +182,8 @@
     .refgrid.refgrid-4{columns:4;}
     .refgrid.refgrid-3{columns:3;}
     .refgrid .cat{margin-bottom:1.1cqmin;}
-    .refgrid .cat h3{font-size:1.1cqmin;}
-    .refgrid .ln{font-size:1.08cqmin; padding:.22cqmin 0;}
+    .refgrid .cat h3{font-size:var(--rg-h3,1.1cqmin);}
+    .refgrid .ln{font-size:var(--rg-fs,1.08cqmin); padding:.22cqmin 0;}
     /* Slide 11 · Slash commands (7 cats, 4 cols) — más espacio disponible */
     .slide[data-title="slash-commands"] .refgrid .cat{padding:1cqmin 1.3cqmin .7cqmin; margin-bottom:1.2cqmin;}
     .slide[data-title="slash-commands"] .refgrid .cat h3{font-size:1.4cqmin;}
@@ -191,8 +191,8 @@
     /* Slide 14 · Bonus Skills (7 cats, 43 skills) — máxima densidad */
     .slide[data-title="bonus-skills"] .refgrid{columns:5; max-height:calc(100cqb - 14cqmin);}
     .slide[data-title="bonus-skills"] .refgrid .cat{padding:.6cqmin .9cqmin .4cqmin; margin-bottom:.9cqmin;}
-    .slide[data-title="bonus-skills"] .refgrid .cat h3{font-size:.95cqmin;}
-    .slide[data-title="bonus-skills"] .refgrid .ln{font-size:.9cqmin; padding:.15cqmin 0; gap:.5cqmin;}
+    .slide[data-title="bonus-skills"] .refgrid .cat h3{font-size:var(--rg-h3,.95cqmin);}
+    .slide[data-title="bonus-skills"] .refgrid .ln{font-size:var(--rg-fs,.9cqmin); padding:.15cqmin 0; gap:.5cqmin;}
     /* Slide 12 · Atajos & CLI (3 cats, 3 cols) — mucho más espacio, fuente mayor */
     .slide[data-title="atajos-cli"] .refgrid .cat{padding:1.5cqmin 2cqmin 1.2cqmin; margin-bottom:1.8cqmin;}
     .slide[data-title="atajos-cli"] .refgrid .cat h3{font-size:2.1cqmin;}
@@ -338,6 +338,7 @@
 <script src="slides/12-atajos-cli.js"></script>
 <script src="slides/13-features-map.js"></script>
 <script src="slides/14-bonus-skills.js"></script>
+<script src="slides/15-gracias.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
@@ -366,12 +367,41 @@
     show(Math.min(savedIdx, slides.length - 1));
   }
 
+  // ── Auto-fit: grow .refgrid font to fill available height ──
+  // Uses CSS custom properties --rg-fs / --rg-h3 (set as inline style on .refgrid).
+  // Binary-searches for the largest value where scrollHeight ≤ clientHeight.
+  // Skipped during PNG export to preserve the 1080×1080 layout.
+  function fitRefgrid(slide) {
+    if (!slide || document.body.classList.contains('exporting')) return;
+    const grid = slide.querySelector('.refgrid');
+    if (!grid) return;
+    grid.style.removeProperty('--rg-fs');
+    grid.style.removeProperty('--rg-h3');
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const avail = grid.clientHeight;
+      const nat   = grid.scrollHeight;
+      if (!avail || !nat || nat >= avail) return;
+      let lo = 0.3, hi = Math.min(12, (avail / nat) * 1.05);
+      for (let i = 0; i < 30; i++) {
+        const m = (lo + hi) / 2;
+        grid.style.setProperty('--rg-fs', m.toFixed(4) + 'cqmin');
+        grid.style.setProperty('--rg-h3', (m * 0.95).toFixed(4) + 'cqmin');
+        grid.scrollHeight <= avail ? (lo = m) : (hi = m);
+      }
+      grid.style.setProperty('--rg-fs', lo.toFixed(4) + 'cqmin');
+      grid.style.setProperty('--rg-h3', (lo * 0.95).toFixed(4) + 'cqmin');
+    }));
+  }
+  let _fitTimer;
+  addEventListener('resize', () => { clearTimeout(_fitTimer); _fitTimer = setTimeout(() => fitRefgrid(slides[idx]), 150); });
+
   function show(n){
     idx = (n + slides.length) % slides.length;
     slides.forEach((s,i)=> s.classList.toggle('active', i===idx));
     document.getElementById('cur').textContent = idx+1;
     bar.classList.toggle('no-export', slides[idx].classList.contains('no-export'));
     if(picker.classList.contains('open')) refreshPickerActive();
+    fitRefgrid(slides[idx]);
   }
   const next=()=>show(idx+1), prev=()=>show(idx-1);
 

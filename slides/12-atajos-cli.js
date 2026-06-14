@@ -56,7 +56,7 @@ en: `
     </div>
 
   </div>
-  <footer><span class="brand">Inspyr Global Solutions <span class="dot">·</span> Claude Code</span><span class="pg"></span></footer>
+  <footer><span class="brand">AI capabilities Training <span class="dot">·</span> Claude Code</span><span class="pg"></span></footer>
 </section>
 `,
 es: `
@@ -116,7 +116,7 @@ es: `
     </div>
 
   </div>
-  <footer><span class="brand">Inspyr Global Solutions <span class="dot">·</span> Claude Code</span><span class="pg"></span></footer>
+  <footer><span class="brand">AI capabilities Training <span class="dot">·</span> Claude Code</span><span class="pg"></span></footer>
 </section>
 `
 });
