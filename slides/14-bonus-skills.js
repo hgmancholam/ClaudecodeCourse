@@ -101,7 +101,7 @@ es: `
     <div class="cat s-env">
       <h3>Backend</h3>
       <div class="ln"><a class="k" href="https://github.com/AlmogBaku/debug-skill" target="_blank" rel="noopener" style="text-decoration:none">debug-skill</a><span class="d">Debugger real: breakpoints, stepping e inspección de variables</span></div>
-      <div class="ln"><a class="k" href="https://github.com/zxkane/aws-skills" target="_blank" rel="noopener" style="text-decoration:none">aws-skills</a><span class="d">CDK best practices, cost optimization y serverless/event-driven</span></div>
+      <div class="ln"><a class="k" href="https://github.com/zxkane/aws-skills" target="_blank" rel="noopener" style="text-decoration:none">aws-skills</a><span class="d">Buenas prácticas CDK, optimización de costos y arquitecturas serverless/event-driven</span></div>
       <div class="ln"><a class="k" href="https://github.com/hashicorp/agent-skills" target="_blank" rel="noopener" style="text-decoration:none">hashicorp-agent-skills</a><span class="d">Skills oficiales HashiCorp para Terraform e infraestructura</span></div>
       <div class="ln"><a class="k" href="https://github.com/sanjay3290/ai-skills" target="_blank" rel="noopener" style="text-decoration:none">postgres / mysql / mssql</a><span class="d">Queries SQL de solo lectura con soporte multi-conexión</span></div>
       <div class="ln"><a class="k" href="https://github.com/qdrant/skills" target="_blank" rel="noopener" style="text-decoration:none">qdrant-skills</a><span class="d">Vector search, performance, deployment y SDK usage</span></div>
@@ -122,7 +122,7 @@ es: `
     </div>
 
     <div class="cat s-cli">
-      <h3>Software Design</h3>
+      <h3>Diseño de Software</h3>
       <div class="ln"><a class="k" href="https://github.com/melodic-software/claude-code-plugins" target="_blank" rel="noopener" style="text-decoration:none">uml-modeling</a><span class="d">Diagramas UML 2.5 completos (clase, secuencia, actividad, casos de uso, estados) en PlantUML y Mermaid. Documentation-first</span></div>
       <div class="ln"><a class="k" href="https://github.com/SpillwaveSolutions/plantuml" target="_blank" rel="noopener" style="text-decoration:none">plantuml-architect</a><span class="d">UML pro + C4 desde lenguaje natural. 19+ tipos, templates Spring Boot/FastAPI, export a Confluence/Notion</span></div>
       <div class="ln"><a class="k" href="https://github.com/bitsmuggler/c4-skill" target="_blank" rel="noopener" style="text-decoration:none">c4-skill</a><span class="d">Infiere sistemas, containers y componentes de un codebase. Structurizr DSL → PlantUML/Mermaid/HTML. Comando /c4</span></div>
@@ -130,7 +130,7 @@ es: `
       <div class="ln"><a class="k" href="https://mcpmarket.com/tools/skills/domain-driven-design-architect" target="_blank" rel="noopener" style="text-decoration:none">domain-driven-design-architect</a><span class="d">Arquitecto DDD senior: bounded contexts, aggregates, entities. Monolito modular vs. microservicios</span></div>
       <div class="ln"><a class="k" href="https://github.com/45ck/business-analysis-skills" target="_blank" rel="noopener" style="text-decoration:none">business-analysis-skills</a><span class="d">Pack BA: requirements-analyst, system-modeler, opciones/vistas/riesgos de arquitectura, Fagan inspection</span></div>
       <div class="ln"><a class="k" href="https://github.com/DavidROliverBA/Daves-Claude-Code-Skills" target="_blank" rel="noopener" style="text-decoration:none">DavidROliverBA skills</a><span class="d">42 skills de arquitectura con sub-agentes paralelos: NFRs, ADRs, comparación de escenarios, impact analysis</span></div>
-      <div class="ln"><a class="k" href="https://github.com/rohitg00/awesome-claude-code-toolkit" target="_blank" rel="noopener" style="text-decoration:none">business-analyst agent</a><span class="d">Requerimientos, process y gap analysis. RACI matrix, trazabilidad, feasibility analysis</span></div>
+      <div class="ln"><a class="k" href="https://github.com/rohitg00/awesome-claude-code-toolkit" target="_blank" rel="noopener" style="text-decoration:none">business-analyst agent</a><span class="d">Análisis de requerimientos, procesos y brechas. Matriz RACI, trazabilidad, análisis de viabilidad</span></div>
     </div>
 
     <div class="cat s-info">
@@ -140,11 +140,11 @@ es: `
       <div class="ln"><a class="k" href="https://github.com/jeffallan/claude-skills" target="_blank" rel="noopener" style="text-decoration:none">claude-skills (jeffallan)</a><span class="d">65 skills full-stack: React, NestJS, Python, DevOps, 30+ frameworks</span></div>
       <div class="ln"><a class="k" href="https://github.com/raphaelchristi/harness-evolver" target="_blank" rel="noopener" style="text-decoration:none">harness-evolver</a><span class="d">Evoluciona prompts y arquitectura con regression guards vía LangSmith</span></div>
       <div class="ln"><a class="k" href="https://github.com/swarmclawai/swarmclaw/blob/main/skills/swarmclaw.md" target="_blank" rel="noopener" style="text-decoration:none">swarmclaw</a><span class="d">Runtime multi-agente self-hosted para delegar entre CLIs</span></div>
-      <div class="ln"><a class="k" href="https://github.com/raintree-technology/claude-starter" target="_blank" rel="noopener" style="text-decoration:none">claude-starter</a><span class="d">Template prod-ready: 40 skills auto-activating + 30–60% token savings</span></div>
+      <div class="ln"><a class="k" href="https://github.com/raintree-technology/claude-starter" target="_blank" rel="noopener" style="text-decoration:none">claude-starter</a><span class="d">Template listo para producción: 40 skills de auto-activación + 30–60% de ahorro de tokens</span></div>
     </div>
 
     <div class="cat s-proj">
-      <h3>Project Management</h3>
+      <h3>Gestión de Proyectos</h3>
       <div class="ln"><a class="k" href="https://github.com/sanjay3290/ai-skills/tree/main/skills/azure-devops" target="_blank" rel="noopener" style="text-decoration:none">azure-devops</a><span class="d">Proyectos, repos, PRs, pipelines y work items vía REST API</span></div>
       <div class="ln"><a class="k" href="https://github.com/sanjay3290/ai-skills/tree/main/skills/jules" target="_blank" rel="noopener" style="text-decoration:none">jules</a><span class="d">Delega a Google Jules AI: bugs, docs y features async en GitHub</span></div>
       <div class="ln"><a class="k" href="https://github.com/luoyuctl/agenttrace/tree/master/skills/agenttrace-session-audit" target="_blank" rel="noopener" style="text-decoration:none">agenttrace-session-audit</a><span class="d">Audita sesiones AI: costo, fallos, latencia y CI gates</span></div>
@@ -154,7 +154,7 @@ es: `
     </div>
 
     <div class="cat s-feat">
-      <h3>Planning</h3>
+      <h3>Planificación</h3>
       <div class="ln"><a class="k" href="https://github.com/JuliusBrussee/blueprint" target="_blank" rel="noopener" style="text-decoration:none">blueprint (JuliusBrussee)</a><span class="d">Spec-driven: requerimientos → blueprints → planes de build</span></div>
       <div class="ln"><a class="k" href="https://github.com/imbue-ai/blueprint" target="_blank" rel="noopener" style="text-decoration:none">blueprint (imbue-ai)</a><span class="d">Planning copilot: explora codebase y genera plan markdown ejecutable</span></div>
       <div class="ln"><a class="k" href="https://github.com/avifenesh/agnix" target="_blank" rel="noopener" style="text-decoration:none">agnix</a><span class="d">Linter para agentes: valida SKILL.md, hooks y MCP con 156 reglas</span></div>
@@ -163,7 +163,7 @@ es: `
     </div>
 
     <div class="cat s-integ">
-      <h3>Presenting</h3>
+      <h3>Presentaciones</h3>
       <div class="ln"><a class="k" href="https://github.com/anthropics/skills/tree/main/skills/pptx" target="_blank" rel="noopener" style="text-decoration:none">pptx</a><span class="d">Lee, genera y ajusta slides, layouts y templates PowerPoint</span></div>
       <div class="ln"><a class="k" href="https://github.com/ryanbbrown/revealjs-skill/tree/main" target="_blank" rel="noopener" style="text-decoration:none">revealjs-skill</a><span class="d">Genera presentaciones HTML profesionales con Reveal.js</span></div>
       <div class="ln"><a class="k" href="https://github.com/sanjay3290/ai-skills/tree/main/skills/notebooklm" target="_blank" rel="noopener" style="text-decoration:none">notebooklm</a><span class="d">Consulta y gestiona notebooks de NotebookLM con exports</span></div>

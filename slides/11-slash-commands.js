@@ -114,7 +114,7 @@ es: `
   <div class="refgrid refgrid-4">
 
     <div class="cat s-proj">
-      <h3>Project Management</h3>
+      <h3>Gestión del proyecto</h3>
       <div class="ln"><span class="k">/init</span><span class="d">Auto-genera un CLAUDE.md del proyecto</span></div>
       <div class="ln"><span class="k">/memory</span><span class="d">Edita CLAUDE.md y archivos de memoria</span></div>
       <div class="ln"><span class="k">/compact</span><span class="d">Comprime el contexto para liberar espacio</span></div>
@@ -130,7 +130,7 @@ es: `
     </div>
 
     <div class="cat s-mode">
-      <h3>Mode &amp; Model</h3>
+      <h3>Modo y modelo</h3>
       <div class="ln"><span class="k">/model</span><span class="d">Cambia entre Opus, Sonnet y Haiku</span></div>
       <div class="ln"><span class="k">/fast</span><span class="d">Alterna modo rápido (Opus más veloz)</span></div>
       <div class="ln"><span class="k">/plan</span><span class="d">Modo plan, con verbosidad opcional</span></div>
@@ -142,7 +142,7 @@ es: `
     </div>
 
     <div class="cat s-feat">
-      <h3>Feature Management</h3>
+      <h3>Gestión de funciones</h3>
       <div class="ln"><span class="k">/hooks</span><span class="d">Configura hooks del ciclo de vida</span></div>
       <div class="ln"><span class="k">/agents</span><span class="d">Crea y gestiona subagentes</span></div>
       <div class="ln"><span class="k">/permissions</span><span class="d">Cambia ajustes de permisos</span></div>
@@ -157,7 +157,7 @@ es: `
     </div>
 
     <div class="cat s-info">
-      <h3>Information &amp; Status</h3>
+      <h3>Información y estado</h3>
       <div class="ln"><span class="k">/usage</span><span class="d">Uso de tokens vs. límites del plan</span></div>
       <div class="ln"><span class="k">/cost</span><span class="d">Costo de la sesión actual</span></div>
       <div class="ln"><span class="k">/usage-credits</span><span class="d">Habilita el uso por créditos</span></div>
@@ -172,7 +172,7 @@ es: `
     </div>
 
     <div class="cat s-env">
-      <h3>Environment</h3>
+      <h3>Entorno</h3>
       <div class="ln"><span class="k">/terminal-setup</span><span class="d">Configura el atajo Shift+Enter</span></div>
       <div class="ln"><span class="k">/keybindings</span><span class="d">Abre la config de atajos</span></div>
       <div class="ln"><span class="k">/theme</span><span class="d">Cambia el tema de color</span></div>
@@ -180,8 +180,8 @@ es: `
     </div>
 
     <div class="cat s-integ">
-      <h3>Integrations</h3>
-      <div class="ln"><span class="k">/install-github-app</span><span class="d">Auto-review de GitHub PR</span></div>
+      <h3>Integraciones</h3>
+      <div class="ln"><span class="k">/install-github-app</span><span class="d">Auto-revisión de PRs de GitHub</span></div>
       <div class="ln"><span class="k">/install-slack-app</span><span class="d">Instala Claude en Slack</span></div>
       <div class="ln"><span class="k">/plugin</span><span class="d">Gestión y marketplace de plugins</span></div>
       <div class="ln"><span class="k">/mcp</span><span class="d">Estado y autenticación de MCP</span></div>
@@ -194,7 +194,7 @@ es: `
     </div>
 
     <div class="cat s-flow">
-      <h3>Workflows &amp; Automation</h3>
+      <h3>Flujos y automatización</h3>
       <div class="ln"><span class="k">/workflows</span><span class="d">Ver, pausar y reanudar workflows</span></div>
       <div class="ln"><span class="k">/code-review</span><span class="d">Revisa tu diff en busca de bugs</span></div>
       <div class="ln"><span class="k">/review</span><span class="d">Revisa un PR</span></div>

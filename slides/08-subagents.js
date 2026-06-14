@@ -9,7 +9,7 @@ en: `
       <ul class="points">
         <li><span class="ico">1</span><span><b>Isolated workers.</b> Each subagent has its own context window — the main session stays focused and uncluttered.</span></li>
         <li><span class="ico">2</span><span><b>Run in parallel.</b> Spawn multiple agents for independent tasks; they work concurrently and report back when done.</span></li>
-        <li><span class="ico">3</span><span><b>Built-in types:</b> General, Explore (code search), code-reviewer, Plan. Define custom agents in <code class="inline">CLAUDE.md</code>.</span></li>
+        <li><span class="ico">3</span><span><b>Built-in types:</b> general-purpose, Explore (code search), Plan, statusline-setup. Define custom agents in <code class="inline">.claude/agents/</code>.</span></li>
         <li><span class="ico">4</span><span>Trigger via the <b>Agent tool</b> in chat, or programmatically with the <b>Claude Agent SDK</b> for automated pipelines.</span></li>
       </ul>
     </div>
@@ -45,7 +45,7 @@ es: `
       <ul class="points">
         <li><span class="ico">1</span><span><b>Trabajadores aislados.</b> Cada subagente tiene su propia ventana de contexto — la sesión principal se mantiene enfocada.</span></li>
         <li><span class="ico">2</span><span><b>Ejecución paralela.</b> Lanza múltiples agentes para tareas independientes; trabajan de forma concurrente e informan al terminar.</span></li>
-        <li><span class="ico">3</span><span><b>Tipos integrados:</b> General, Explore (búsqueda de código), code-reviewer, Plan. Define agentes personalizados en <code class="inline">CLAUDE.md</code>.</span></li>
+        <li><span class="ico">3</span><span><b>Tipos integrados:</b> general-purpose, Explore (búsqueda de código), Plan, statusline-setup. Define agentes personalizados en <code class="inline">.claude/agents/</code>.</span></li>
         <li><span class="ico">4</span><span>Se activan con la <b>herramienta Agent</b> en el chat, o programáticamente con el <b>Claude Agent SDK</b> para pipelines automatizados.</span></li>
       </ul>
     </div>

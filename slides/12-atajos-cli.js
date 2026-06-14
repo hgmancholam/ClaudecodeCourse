@@ -66,7 +66,7 @@ es: `
   <div class="refgrid refgrid-3">
 
     <div class="cat s-cli">
-      <h3>CLI Commands</h3>
+      <h3>Comandos CLI</h3>
       <div class="ln"><span class="k">claude</span><span class="d">Inicia sesión interactiva</span></div>
       <div class="ln"><span class="k">claude "query"</span><span class="d">Inicia con un prompt inicial</span></div>
       <div class="ln"><span class="k">claude -p "q"</span><span class="d">Modo no interactivo, luego sale</span></div>
@@ -85,7 +85,7 @@ es: `
     </div>
 
     <div class="cat s-flag">
-      <h3>CLI Flags</h3>
+      <h3>Flags CLI</h3>
       <div class="ln"><span class="k">--worktree</span><span class="d">Worktree aislado para trabajo paralelo</span></div>
       <div class="ln"><span class="k">--tmux</span><span class="d">Sesión tmux para el worktree</span></div>
       <div class="ln"><span class="k">--model opus</span><span class="d">Especifica el modelo al iniciar</span></div>
@@ -95,7 +95,7 @@ es: `
       <div class="ln"><span class="k">--fallback-model</span><span class="d">Modelo de reserva si se sobrecarga</span></div>
       <div class="ln"><span class="k">--max-budget-usd</span><span class="d">Límite de gasto fijo</span></div>
       <div class="ln"><span class="k">--bare</span><span class="d">Mínimo, sin personalización</span></div>
-      <div class="ln"><span class="k">--safe-mode</span><span class="d">Troubleshooting sin customizaciones</span></div>
+      <div class="ln"><span class="k">--safe-mode</span><span class="d">Diagnóstico sin personalizaciones</span></div>
     </div>
 
     <div class="cat s-short">

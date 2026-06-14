@@ -25,7 +25,7 @@ es: `
               background:var(--accent); color:#fff; border-radius:100px;
               font-size:2.2cqmin; font-weight:600; text-decoration:none; letter-spacing:.02em;
               justify-self:center; width:fit-content;">
-      ¡Apreciamos tu feedback — haz clic aqui!
+      Tu opinión nos importa: escríbenos aquí
     </a>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Claude Code</span><span class="author">Giovanny Manchola</span><span>2026</span></footer>
