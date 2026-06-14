@@ -21,7 +21,7 @@
   #stage{
     position:relative; width:100%; height:100%;
     container-type:size; container-name:slide;
-    background:var(--paper);
+    background:var(--paper); overflow:hidden;
   }
 
   .slide{
@@ -31,6 +31,15 @@
     background:var(--paper); overflow:hidden;
   }
   .slide.active{display:flex;}
+
+  /* Transición de deslizamiento al cambiar de slide */
+  @keyframes slideInNext{ from{ transform:translateX(100%); } to{ transform:translateX(0); } }
+  @keyframes slideInPrev{ from{ transform:translateX(-100%); } to{ transform:translateX(0); } }
+  .slide.active.anim-next{ animation:slideInNext .3s cubic-bezier(.22,.61,.36,1); }
+  .slide.active.anim-prev{ animation:slideInPrev .3s cubic-bezier(.22,.61,.36,1); }
+  @media (prefers-reduced-motion: reduce){
+    .slide.active.anim-next, .slide.active.anim-prev{ animation:none; }
+  }
 
   /* Cinta de color superior identificadora de sección */
   .slide::before{
@@ -505,15 +514,20 @@
   let _fitTimer;
   addEventListener('resize', () => { clearTimeout(_fitTimer); _fitTimer = setTimeout(() => fitRefgrid(slides[idx]), 150); });
 
-  function show(n){
+  function show(n, dir){
     idx = (n + slides.length) % slides.length;
-    slides.forEach((s,i)=> s.classList.toggle('active', i===idx));
+    slides.forEach((s,i)=>{
+      const on = i===idx;
+      s.classList.toggle('active', on);
+      s.classList.remove('anim-next','anim-prev');
+      if(on && dir) s.classList.add(dir>0 ? 'anim-next' : 'anim-prev');
+    });
     document.getElementById('cur').textContent = idx+1;
     bar.classList.toggle('no-export', slides[idx].classList.contains('no-export'));
     if(picker.classList.contains('open')) refreshPickerActive();
     fitRefgrid(slides[idx]);
   }
-  const next=()=>show(idx+1), prev=()=>show(idx-1);
+  const next=()=>show(idx+1, 1), prev=()=>show(idx-1, -1);
 
   document.getElementById('next').onclick=next;
   document.getElementById('prev').onclick=prev;
