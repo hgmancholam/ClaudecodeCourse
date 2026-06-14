@@ -309,8 +309,7 @@
   #picker-list li .pi-num{font-family:var(--mono); font-size:11px; color:#5b5b7b; min-width:20px; flex-shrink:0;}
   #picker-list li .pi-title{flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
   #picker-list li.picker-active .pi-num{color:var(--accent-default);}
-  #hint{position:fixed; top:14px; left:50%; transform:translateX(-50%); color:#6a6a82; font-size:13px; z-index:50; opacity:.6;}
-  body.exporting #bar, body.exporting #hint{display:none;}
+  body.exporting #bar{display:none;}
 
   /* ───────────────────────────────────────────────────────────────
      VISTA MÓVIL (pantallas angostas). En vertical el lado menor del
@@ -324,8 +323,6 @@
      No afecta presentación de escritorio ni la exportación 1:1.
      ─────────────────────────────────────────────────────────────── */
   @media (max-width: 700px){
-    #hint{display:none;}                 /* la barra de ayuda no aplica en táctil */
-
     .slide{
       overflow-y:auto; overflow-x:hidden;
       -webkit-overflow-scrolling:touch;
@@ -402,8 +399,6 @@
 </style>
 </head>
 <body>
-
-<div id="hint">← → navigate · F fullscreen · E export slide (1:1) · A export all · L language</div>
 
 <div id="stage">
   <!-- [slides injected by JS from slides/*.js] -->
