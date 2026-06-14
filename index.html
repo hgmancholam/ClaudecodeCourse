@@ -97,6 +97,8 @@
   .refgrid .ln{display:flex; gap:.8cqmin; padding:.28cqmin 0; border-bottom:.1cqmin dashed var(--line); font-size:1.38cqmin; line-height:1.25;}
   .refgrid .ln:last-child{border-bottom:none;}
   .refgrid .ln .k{font-family:var(--mono); font-weight:700; color:var(--accent,var(--proj)); white-space:nowrap; flex-shrink:0;}
+  .refgrid .ln a.k{text-decoration:none; color:var(--accent,var(--proj));}
+  .refgrid .ln a.k:hover{text-decoration:underline;}
   .refgrid .ln .d{color:var(--muted);}
 
   /* Tabla comparativa de features (slide features-map) */
@@ -186,6 +188,11 @@
     .slide[data-title="slash-commands"] .refgrid .cat{padding:1cqmin 1.3cqmin .7cqmin; margin-bottom:1.2cqmin;}
     .slide[data-title="slash-commands"] .refgrid .cat h3{font-size:1.4cqmin;}
     .slide[data-title="slash-commands"] .refgrid .ln{font-size:1.38cqmin; padding:.34cqmin 0;}
+    /* Slide 14 · Bonus Skills (7 cats, 43 skills) — máxima densidad */
+    .slide[data-title="bonus-skills"] .refgrid{columns:5; max-height:calc(100cqb - 14cqmin);}
+    .slide[data-title="bonus-skills"] .refgrid .cat{padding:.6cqmin .9cqmin .4cqmin; margin-bottom:.9cqmin;}
+    .slide[data-title="bonus-skills"] .refgrid .cat h3{font-size:.95cqmin;}
+    .slide[data-title="bonus-skills"] .refgrid .ln{font-size:.9cqmin; padding:.15cqmin 0; gap:.5cqmin;}
     /* Slide 12 · Atajos & CLI (3 cats, 3 cols) — mucho más espacio, fuente mayor */
     .slide[data-title="atajos-cli"] .refgrid .cat{padding:1.5cqmin 2cqmin 1.2cqmin; margin-bottom:1.8cqmin;}
     .slide[data-title="atajos-cli"] .refgrid .cat h3{font-size:2.1cqmin;}
@@ -330,6 +337,7 @@
 <script src="slides/11-slash-commands.js"></script>
 <script src="slides/12-atajos-cli.js"></script>
 <script src="slides/13-features-map.js"></script>
+<script src="slides/14-bonus-skills.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <script>
