@@ -100,6 +100,11 @@
   .refgrid .ln a.k{text-decoration:none; color:var(--accent,var(--proj));}
   .refgrid .ln a.k:hover{text-decoration:underline;}
   .refgrid .ln .d{color:var(--muted);}
+  /* Bonus-skills: .k stacked above .d so long names don't crowd descriptions.
+     Without this, nowrap .k names eat the column width and descriptions wrap to many lines. */
+  .slide[data-title="bonus-skills"] .refgrid .ln{flex-direction:column; gap:.15cqmin;}
+  .slide[data-title="bonus-skills"] .refgrid .ln .k{white-space:normal; overflow-wrap:break-word; flex-shrink:1;}
+  .slide[data-title="bonus-skills"] .refgrid .ln .d{font-size:.85em;}
 
   /* Tabla comparativa de features (slide features-map) */
   .ctable{width:100%;border-collapse:collapse;table-layout:fixed;flex:1;margin-top:1.2cqmin;}
@@ -192,7 +197,7 @@
     .slide[data-title="bonus-skills"] .refgrid{columns:5; max-height:calc(100cqb - 14cqmin);}
     .slide[data-title="bonus-skills"] .refgrid .cat{padding:.6cqmin .9cqmin .4cqmin; margin-bottom:.9cqmin;}
     .slide[data-title="bonus-skills"] .refgrid .cat h3{font-size:var(--rg-h3,.95cqmin);}
-    .slide[data-title="bonus-skills"] .refgrid .ln{font-size:var(--rg-fs,.9cqmin); padding:.15cqmin 0; gap:.5cqmin;}
+    .slide[data-title="bonus-skills"] .refgrid .ln{font-size:var(--rg-fs,.9cqmin); padding:.2cqmin 0; gap:.1cqmin;}
     /* Slide 12 · Atajos & CLI (3 cats, 3 cols) — mucho más espacio, fuente mayor */
     .slide[data-title="atajos-cli"] .refgrid .cat{padding:1.5cqmin 2cqmin 1.2cqmin; margin-bottom:1.8cqmin;}
     .slide[data-title="atajos-cli"] .refgrid .cat h3{font-size:2.1cqmin;}
@@ -368,8 +373,10 @@
   }
 
   // ── Auto-fit: grow .refgrid font to fill available height ──
-  // Uses CSS custom properties --rg-fs / --rg-h3 (set as inline style on .refgrid).
-  // Binary-searches for the largest value where scrollHeight ≤ clientHeight.
+  // Uses CSS custom properties --rg-fs / --rg-h3 (inline style on .refgrid).
+  // Multi-column layouts don't expose overflow via scrollHeight, so we measure
+  // the bottom edge of the lowest .cat via getBoundingClientRect() instead.
+  // Binary-searches for the largest cqmin value where content fits in the grid.
   // Skipped during PNG export to preserve the 1080×1080 layout.
   function fitRefgrid(slide) {
     if (!slide || document.body.classList.contains('exporting')) return;
@@ -378,15 +385,28 @@
     grid.style.removeProperty('--rg-fs');
     grid.style.removeProperty('--rg-h3');
     requestAnimationFrame(() => requestAnimationFrame(() => {
-      const avail = grid.clientHeight;
-      const nat   = grid.scrollHeight;
-      if (!avail || !nat || nat >= avail) return;
+      const avail = grid.getBoundingClientRect().height;
+      if (!avail) return;
+
+      // True rendered content height in the multi-column layout.
+      function usedHeight() {
+        const top = grid.getBoundingClientRect().top;
+        let max = 0;
+        grid.querySelectorAll('.cat').forEach(c => {
+          max = Math.max(max, c.getBoundingClientRect().bottom - top);
+        });
+        return max;
+      }
+
+      const nat = usedHeight();
+      if (!nat || nat >= avail * 0.98) return; // already fills space
+
       let lo = 0.3, hi = Math.min(12, (avail / nat) * 1.05);
       for (let i = 0; i < 30; i++) {
         const m = (lo + hi) / 2;
         grid.style.setProperty('--rg-fs', m.toFixed(4) + 'cqmin');
         grid.style.setProperty('--rg-h3', (m * 0.95).toFixed(4) + 'cqmin');
-        grid.scrollHeight <= avail ? (lo = m) : (hi = m);
+        usedHeight() <= avail ? (lo = m) : (hi = m);
       }
       grid.style.setProperty('--rg-fs', lo.toFixed(4) + 'cqmin');
       grid.style.setProperty('--rg-h3', (lo * 0.95).toFixed(4) + 'cqmin');
