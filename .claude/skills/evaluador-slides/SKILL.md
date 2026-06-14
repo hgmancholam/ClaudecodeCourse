@@ -47,9 +47,16 @@ Evalúa cada slide en estas dimensiones:
    no solo un "qué es"? Mejor un ejemplo concreto que una definición abstracta.
 3. **Claridad y concisión** — Una idea central clara. Frases cortas. Sin relleno. El
    título comunica el mensaje. Densidad apropiada para una diapositiva (no un párrafo).
-4. **Estructura y jerarquía visual** — Uso correcto de los componentes (`ul.points`,
-   `.callout`, `.cmdrow`, `.refgrid`). Jerarquía: kicker → título → cuerpo. ¿Cabe legible
-   en 1080×1080? Si es muy denso, ¿debería llevar `no-export`?
+4. **Estructura y jerarquía visual (incluye móvil)** — Uso correcto de los componentes
+   (`ul.points`, `.callout`, `.cmdrow`, `.refgrid`). Jerarquía: kicker → título → cuerpo.
+   ¿Cabe legible en 1080×1080? Si es muy denso, ¿debería llevar `no-export`? **Legibilidad
+   móvil:** el slide debe leerse en un teléfono angosto. Reutiliza componentes existentes
+   para heredar el bloque `@media (max-width:700px)`. Si una mejora **introduce un
+   componente nuevo** con sus propios tamaños `cqmin`, añade un override (px fijo, una
+   columna) dentro de esa media query en `index.html`. Si una mejora **oculta un elemento**
+   en el layout cuadrado (`display:none`), re-muéstralo en esa misma media query (con
+   `!important`) o quedará invisible en móvil. Esa media query debe permanecer al final del
+   `<style>`.
 5. **Enganche / memorabilidad** — ¿Hay un gancho, contraste, analogía o dato que se quede?
    ("No es un chatbot — es un agente" es un buen ejemplo de contraste memorable.)
 6. **Paridad bilingüe** — EN y ES transmiten exactamente lo mismo, con la misma estructura.

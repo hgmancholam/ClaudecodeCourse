@@ -28,6 +28,18 @@ en: `
       <div class="ln"><a class="k" href="https://www.tasteskill.dev" target="_blank" rel="noopener" style="text-decoration:none">Taste Skill</a><span class="d">Anti-slop: 13 sub-skills, infers design direction from brief</span></div>
     </div>
 
+    <div class="cat s-cli">
+      <h3>Software Design</h3>
+      <div class="ln"><a class="k" href="https://github.com/melodic-software/claude-code-plugins" target="_blank" rel="noopener" style="text-decoration:none">uml-modeling</a><span class="d">Full UML 2.5 diagrams (class, sequence, activity, use case, state) in PlantUML &amp; Mermaid. Documentation-first</span></div>
+      <div class="ln"><a class="k" href="https://github.com/SpillwaveSolutions/plantuml" target="_blank" rel="noopener" style="text-decoration:none">plantuml-architect</a><span class="d">Pro UML + C4 from natural language. 19+ types, Spring Boot/FastAPI templates, export to Confluence/Notion</span></div>
+      <div class="ln"><a class="k" href="https://github.com/bitsmuggler/c4-skill" target="_blank" rel="noopener" style="text-decoration:none">c4-skill</a><span class="d">Infers systems, containers &amp; components from a codebase. Structurizr DSL → PlantUML/Mermaid/HTML. /c4 command</span></div>
+      <div class="ln"><a class="k" href="https://github.com/davila7/claude-code-templates" target="_blank" rel="noopener" style="text-decoration:none">c4-architecture (davila7)</a><span class="d">C4 Mermaid diagrams (Context, Container, Component, Deployment) from code. Event-driven &amp; microservices</span></div>
+      <div class="ln"><a class="k" href="https://mcpmarket.com/tools/skills/domain-driven-design-architect" target="_blank" rel="noopener" style="text-decoration:none">domain-driven-design-architect</a><span class="d">Senior DDD architect: bounded contexts, aggregates, entities. Modular monolith vs. microservices</span></div>
+      <div class="ln"><a class="k" href="https://github.com/45ck/business-analysis-skills" target="_blank" rel="noopener" style="text-decoration:none">business-analysis-skills</a><span class="d">BA pack: requirements-analyst, system-modeler, architecture options/views/risks, Fagan inspection</span></div>
+      <div class="ln"><a class="k" href="https://github.com/DavidROliverBA/Daves-Claude-Code-Skills" target="_blank" rel="noopener" style="text-decoration:none">DavidROliverBA skills</a><span class="d">42 architecture skills with parallel sub-agents: NFRs, ADRs, scenario comparison, impact analysis</span></div>
+      <div class="ln"><a class="k" href="https://github.com/rohitg00/awesome-claude-code-toolkit" target="_blank" rel="noopener" style="text-decoration:none">business-analyst agent</a><span class="d">Requirements, process &amp; gap analysis. RACI matrix, traceability, feasibility analysis</span></div>
+    </div>
+
     <div class="cat s-info">
       <h3>Architecture</h3>
       <div class="ln"><a class="k" href="https://github.com/vidanov/aws-architecture-diagram-skill" target="_blank" rel="noopener" style="text-decoration:none">aws-architecture-diagram-skill</a><span class="d">Editable AWS diagrams with verified icons &amp; export formats</span></div>
@@ -107,6 +119,18 @@ es: `
       <div class="ln"><a class="k" href="https://github.com/emilkowalski/skill" target="_blank" rel="noopener" style="text-decoration:none">Emil Kowalski</a><span class="d">Movimiento real, transiciones y micro-interacciones de calidad</span></div>
       <div class="ln"><a class="k" href="https://github.com/pbakaus/impeccable" target="_blank" rel="noopener" style="text-decoration:none">Impeccable</a><span class="d">7 refs + 23 comandos + 27 reglas anti-patrón determinísticas</span></div>
       <div class="ln"><a class="k" href="https://www.tasteskill.dev" target="_blank" rel="noopener" style="text-decoration:none">Taste Skill</a><span class="d">Anti-slop: 13 sub-skills, infiere dirección de diseño desde el brief</span></div>
+    </div>
+
+    <div class="cat s-cli">
+      <h3>Software Design</h3>
+      <div class="ln"><a class="k" href="https://github.com/melodic-software/claude-code-plugins" target="_blank" rel="noopener" style="text-decoration:none">uml-modeling</a><span class="d">Diagramas UML 2.5 completos (clase, secuencia, actividad, casos de uso, estados) en PlantUML y Mermaid. Documentation-first</span></div>
+      <div class="ln"><a class="k" href="https://github.com/SpillwaveSolutions/plantuml" target="_blank" rel="noopener" style="text-decoration:none">plantuml-architect</a><span class="d">UML pro + C4 desde lenguaje natural. 19+ tipos, templates Spring Boot/FastAPI, export a Confluence/Notion</span></div>
+      <div class="ln"><a class="k" href="https://github.com/bitsmuggler/c4-skill" target="_blank" rel="noopener" style="text-decoration:none">c4-skill</a><span class="d">Infiere sistemas, containers y componentes de un codebase. Structurizr DSL → PlantUML/Mermaid/HTML. Comando /c4</span></div>
+      <div class="ln"><a class="k" href="https://github.com/davila7/claude-code-templates" target="_blank" rel="noopener" style="text-decoration:none">c4-architecture (davila7)</a><span class="d">Diagramas C4 en Mermaid (Context, Container, Component, Deployment) desde el código. Event-driven y microservicios</span></div>
+      <div class="ln"><a class="k" href="https://mcpmarket.com/tools/skills/domain-driven-design-architect" target="_blank" rel="noopener" style="text-decoration:none">domain-driven-design-architect</a><span class="d">Arquitecto DDD senior: bounded contexts, aggregates, entities. Monolito modular vs. microservicios</span></div>
+      <div class="ln"><a class="k" href="https://github.com/45ck/business-analysis-skills" target="_blank" rel="noopener" style="text-decoration:none">business-analysis-skills</a><span class="d">Pack BA: requirements-analyst, system-modeler, opciones/vistas/riesgos de arquitectura, Fagan inspection</span></div>
+      <div class="ln"><a class="k" href="https://github.com/DavidROliverBA/Daves-Claude-Code-Skills" target="_blank" rel="noopener" style="text-decoration:none">DavidROliverBA skills</a><span class="d">42 skills de arquitectura con sub-agentes paralelos: NFRs, ADRs, comparación de escenarios, impact analysis</span></div>
+      <div class="ln"><a class="k" href="https://github.com/rohitg00/awesome-claude-code-toolkit" target="_blank" rel="noopener" style="text-decoration:none">business-analyst agent</a><span class="d">Requerimientos, process y gap analysis. RACI matrix, trazabilidad, feasibility analysis</span></div>
     </div>
 
     <div class="cat s-info">
