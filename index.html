@@ -32,14 +32,15 @@
   }
   .slide.active{display:flex;}
 
-  /* Transición de deslizamiento al cambiar de slide */
-  @keyframes slideInNext{ from{ transform:translateX(100%); } to{ transform:translateX(0); } }
-  @keyframes slideInPrev{ from{ transform:translateX(-100%); } to{ transform:translateX(0); } }
-  .slide.active.anim-next{ animation:slideInNext .3s cubic-bezier(.22,.61,.36,1); }
-  .slide.active.anim-prev{ animation:slideInPrev .3s cubic-bezier(.22,.61,.36,1); }
-  @media (prefers-reduced-motion: reduce){
-    .slide.active.anim-next, .slide.active.anim-prev{ animation:none; }
-  }
+  /* Transición de deslizamiento: el slide actual sale y el nuevo entra */
+  @keyframes enterRight{ from{transform:translateX(100%)} to{transform:translateX(0)} }
+  @keyframes leaveLeft { from{transform:translateX(0)}    to{transform:translateX(-100%)} }
+  @keyframes enterLeft { from{transform:translateX(-100%)} to{transform:translateX(0)} }
+  @keyframes leaveRight{ from{transform:translateX(0)}    to{transform:translateX(100%)} }
+  .slide.enter-next{ display:flex; animation:enterRight .35s cubic-bezier(.4,0,.2,1) both; }
+  .slide.leave-next{ display:flex; animation:leaveLeft  .35s cubic-bezier(.4,0,.2,1) both; }
+  .slide.enter-prev{ display:flex; animation:enterLeft  .35s cubic-bezier(.4,0,.2,1) both; }
+  .slide.leave-prev{ display:flex; animation:leaveRight .35s cubic-bezier(.4,0,.2,1) both; }
 
   /* Cinta de color superior identificadora de sección */
   .slide::before{
@@ -514,14 +515,31 @@
   let _fitTimer;
   addEventListener('resize', () => { clearTimeout(_fitTimer); _fitTimer = setTimeout(() => fitRefgrid(slides[idx]), 150); });
 
+  const ANIM_CLS = ['enter-next','leave-next','enter-prev','leave-prev'];
+  let _animCleanup = null;
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function show(n, dir){
+    const prev = idx;
     idx = (n + slides.length) % slides.length;
-    slides.forEach((s,i)=>{
-      const on = i===idx;
-      s.classList.toggle('active', on);
-      s.classList.remove('anim-next','anim-prev');
-      if(on && dir) s.classList.add(dir>0 ? 'anim-next' : 'anim-prev');
-    });
+    if(_animCleanup){ _animCleanup(); _animCleanup = null; }   // cierra cualquier transición en curso
+
+    if(dir && prev !== idx && !reduceMotion){
+      const oldS = slides[prev], newS = slides[idx];
+      slides.forEach(s=> s.classList.remove('active', ...ANIM_CLS));
+      oldS.classList.add('active', dir>0 ? 'leave-next' : 'leave-prev');
+      newS.classList.add('active', dir>0 ? 'enter-next' : 'enter-prev');
+      const cleanup = (e)=>{
+        if(e && e.target !== newS) return;   // ignora animaciones de elementos hijos
+        newS.removeEventListener('animationend', cleanup);
+        oldS.classList.remove('active', ...ANIM_CLS);
+        newS.classList.remove(...ANIM_CLS);
+      };
+      _animCleanup = cleanup;
+      newS.addEventListener('animationend', cleanup);
+    } else {
+      slides.forEach((s,i)=>{ s.classList.toggle('active', i===idx); s.classList.remove(...ANIM_CLS); });
+    }
     document.getElementById('cur').textContent = idx+1;
     bar.classList.toggle('no-export', slides[idx].classList.contains('no-export'));
     if(picker.classList.contains('open')) refreshPickerActive();
