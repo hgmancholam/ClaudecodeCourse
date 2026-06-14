@@ -275,6 +275,12 @@
     .body{align-content:start; gap:14px; margin-top:14px;}
     .body, .body.grid2{grid-template-columns:1fr !important;}
 
+    /* El layout 1:1 (cuadrado) oculta callouts, codeblocks, diagramas y dl.defs
+       para caber en 1080×1080. En móvil hay scroll, así que se muestra TODO el
+       contenido (!important para anular el display:none del bloque cuadrado, que
+       tiene mayor especificidad). */
+    .callout, .codeblock{display:block !important;}
+
     /* Tipografía fija y legible (independiente del cqmin de ajuste) */
     .kicker{font-size:13px; letter-spacing:.5px;}
     .slide h1{font-size:30px; margin:14px 0 6px;}   /* más aire entre el kicker y el título */
@@ -317,12 +323,15 @@
 
     .slide footer{font-size:13px; gap:14px; margin-top:18px; padding-top:12px; flex-wrap:wrap;}
 
-    /* La barra de controles: una sola línea, siempre al fondo de la pantalla.
+    /* La barra de controles: una sola línea, full-width pegada al borde inferior
+       (sin márgenes ni esquinas redondeadas) para aprovechar todo el ancho.
        La exportación 1:1 es una acción de escritorio, así que se oculta en móvil
        para que naveg./idioma/pantalla completa quepan sin envolver. */
     #bar{
-      bottom:10px; gap:6px; padding:6px 8px;
-      max-width:calc(100vw - 16px);
+      left:0; right:0; bottom:0; transform:none;
+      width:100%; max-width:none;
+      border-radius:0; border:none; border-top:1px solid #2a2a3a;
+      gap:6px; padding:8px 10px;
       flex-wrap:nowrap; justify-content:center; opacity:1;
     }
     #bar button{padding:6px 9px; font-size:13px;}
