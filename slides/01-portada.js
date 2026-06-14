@@ -6,7 +6,7 @@ en: `
     <h1><span class="accent">Claude Code</span><br>from zero to productive</h1>
     <div class="lead">A practical guide based on Anthropic's official courses.</div>
   </div>
-  <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Claude Code</span><span>2026</span></footer>
+  <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Claude Code</span><span class="author">Giovanny Manchola</span><span>2026</span></footer>
 </section>
 `,
 es: `
@@ -16,7 +16,7 @@ es: `
     <h1><span class="accent">Claude Code</span><br>de cero a productivo</h1>
     <div class="lead">Una guía práctica basada en los cursos oficiales de Anthropic.</div>
   </div>
-  <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Claude Code</span><span>2026</span></footer>
+  <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Claude Code</span><span class="author">Giovanny Manchola</span><span>2026</span></footer>
 </section>
 `
 });

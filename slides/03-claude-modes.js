@@ -35,7 +35,7 @@ en: `
     </div>
 
   </div>
-  <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Claude Code</span><span class="pg"></span></footer>
+  <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Claude Code</span><span class="author">Giovanny Manchola</span><span class="pg"></span></footer>
 </section>
 `,
 es: `
@@ -74,7 +74,7 @@ es: `
     </div>
 
   </div>
-  <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Claude Code</span><span class="pg"></span></footer>
+  <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Claude Code</span><span class="author">Giovanny Manchola</span><span class="pg"></span></footer>
 </section>
 `
 });
