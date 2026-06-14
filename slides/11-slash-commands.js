@@ -60,7 +60,7 @@ en: `
       <div class="ln"><span class="k">/doctor</span><span class="d">Environment diagnostics</span></div>
       <div class="ln"><span class="k">/insights</span><span class="d">Session analytics</span></div>
       <div class="ln"><span class="k">/release-notes</span><span class="d">View the changelog</span></div>
-      <div class="ln"><span class="k">/power-up</span><span class="d">Interactive feature lessons</span></div>
+      <div class="ln"><span class="k">/powerup</span><span class="d">Interactive feature lessons</span></div>
     </div>
 
     <div class="cat s-env">
@@ -168,7 +168,7 @@ es: `
       <div class="ln"><span class="k">/doctor</span><span class="d">Diagnóstico del entorno</span></div>
       <div class="ln"><span class="k">/insights</span><span class="d">Análisis de la sesión</span></div>
       <div class="ln"><span class="k">/release-notes</span><span class="d">Ver el changelog</span></div>
-      <div class="ln"><span class="k">/power-up</span><span class="d">Lecciones interactivas de funciones</span></div>
+      <div class="ln"><span class="k">/powerup</span><span class="d">Lecciones interactivas de funciones</span></div>
     </div>
 
     <div class="cat s-env">
