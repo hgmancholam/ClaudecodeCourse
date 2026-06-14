@@ -57,7 +57,10 @@ Evalúa cada slide en estas dimensiones:
    Español natural, no traducción literal forzada.
 7. **Consistencia con el deck** — Clase `s-*` adecuada al tema, `data-title` correcto,
    footer presente, uso de `cqmin` (no `px` en contenido), backticks escapados como \`
-   dentro del template literal.
+   dentro del template literal. **El footer (en ambos idiomas) debe incluir la nota de
+   autor `<span class="author">Giovanny Manchola</span>` inmediatamente a la izquierda del
+   paginador** (justo antes de `<span class="pg"></span>`, o `<span>2026</span>` en la
+   portada). Si editas un footer, conserva esta nota; si falta, agrégala.
 
 ## Principios de un buen slide de capacitación (guíate por esto al proponer mejoras)
 

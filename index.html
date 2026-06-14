@@ -253,6 +253,83 @@
     .slide[data-title="installing-claude"] .install-left{width:100%;}
   }
 
+  /* ───────────────────────────────────────────────────────────────
+     VISTA MÓVIL (pantallas angostas). En vertical el lado menor del
+     contenedor es el ancho, por lo que las unidades cqmin generan texto
+     diminuto y, al estar todo comprimido para "caber" (overflow:hidden),
+     resulta ilegible. Aquí desacoplamos la tipografía del escalado
+     fit-to-screen: tamaños fijos y legibles, el contenido fluye desde
+     arriba y la slide hace scroll vertical si no cabe.
+     No afecta presentación de escritorio ni la exportación 1:1.
+     ─────────────────────────────────────────────────────────────── */
+  @media (max-width: 700px){
+    #hint{display:none;}                 /* la barra de ayuda no aplica en táctil */
+
+    .slide{
+      overflow-y:auto; overflow-x:hidden;
+      -webkit-overflow-scrolling:touch;
+      padding:26px 20px 96px;            /* el extra inferior libera la barra de controles flotante */
+    }
+
+    /* El contenido fluye desde arriba y conserva su altura natural */
+    .body{align-content:start; gap:14px; margin-top:14px;}
+    .body, .body.grid2{grid-template-columns:1fr !important;}
+
+    /* Tipografía fija y legible (independiente del cqmin de ajuste) */
+    .kicker{font-size:13px; letter-spacing:.5px;}
+    .slide h1{font-size:30px; margin:14px 0 6px;}   /* más aire entre el kicker y el título */
+    .slide.cover h1{font-size:34px;}
+    .slide h2{font-size:21px; margin:10px 0 6px;}
+    .lead, .slide.cover .lead{font-size:16px; line-height:1.5; margin-top:8px;}
+
+    ul.points li{font-size:15px; line-height:1.4; gap:10px;}
+    ul.points li .ico{width:26px; height:26px; font-size:14px; border-radius:7px;}
+
+    .cmdrow{font-size:14px; gap:10px; padding:8px 0; flex-wrap:wrap;}
+    .cmdrow .cmd{min-width:0;}
+
+    .callout{font-size:15px; padding:14px 16px; border-left-width:4px;}
+    code.inline{font-size:13px;}
+
+    .codeblock{font-size:12px;}
+    .codeblock pre{overflow-x:auto;}
+    .codeblock .cb-lang{font-size:11px;}
+
+    .filetree{font-size:13px; line-height:1.6; padding:14px 16px; overflow-x:auto;}
+
+    dl.defs{display:grid !important; grid-template-columns:1fr;}
+    dl.defs dt{font-size:14px;} dl.defs dd{font-size:14px; margin-bottom:6px;}
+
+    /* Rejillas de referencia: una columna y filas legibles
+       (con !important para anular las vars inline que fija fitRefgrid). */
+    .refgrid{columns:1 !important; max-height:none !important; overflow:visible;}
+    .refgrid .cat{margin-bottom:12px;}
+    .refgrid .cat h3{font-size:13px !important;}
+    .refgrid .ln{font-size:14px !important; padding:4px 0; gap:8px;}
+    .slide[data-title="bonus-skills"] .refgrid .ln{flex-direction:row;}
+    .slide[data-title="bonus-skills"] .refgrid .ln .d{font-size:.9em;}
+
+    /* Tabla comparativa de features */
+    .ctable th{font-size:12px !important; padding:8px 10px !important;}
+    .ctable td{font-size:13px !important; padding:8px 10px !important;}
+    .ctable .feat{font-size:13px !important; white-space:normal;}
+    .ctable .loc, .ctable .trg{font-size:12px !important;}
+
+    .slide footer{font-size:13px; gap:14px; margin-top:18px; padding-top:12px; flex-wrap:wrap;}
+
+    /* La barra de controles: una sola línea, siempre al fondo de la pantalla.
+       La exportación 1:1 es una acción de escritorio, así que se oculta en móvil
+       para que naveg./idioma/pantalla completa quepan sin envolver. */
+    #bar{
+      bottom:10px; gap:6px; padding:6px 8px;
+      max-width:calc(100vw - 16px);
+      flex-wrap:nowrap; justify-content:center; opacity:1;
+    }
+    #bar button{padding:6px 9px; font-size:13px;}
+    #bar .count{min-width:auto; font-size:13px; padding:4px 6px;}
+    #exp, #expAll, #bar .sep{display:none;}
+  }
+
   /* ── Controles (no se exportan) ── */
   #bar{
     position:fixed; bottom:18px; left:50%; transform:translateX(-50%);
@@ -381,6 +458,8 @@
   // Skipped during PNG export to preserve the 1080×1080 layout.
   function fitRefgrid(slide) {
     if (!slide || document.body.classList.contains('exporting')) return;
+    // En móvil la rejilla usa tamaños fijos legibles con scroll — no se autoajusta.
+    if (window.matchMedia('(max-width: 700px)').matches) return;
     const grid = slide.querySelector('.refgrid');
     if (!grid) return;
     grid.style.removeProperty('--rg-fs');
