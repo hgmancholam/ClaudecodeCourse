@@ -538,6 +538,21 @@
     else if(e.key==='End') show(slides.length-1);
   });
 
+  // ── Swipe táctil (móvil): deslizar ←/→ para cambiar de slide ──
+  let _tx=0, _ty=0, _tt=0;
+  stage.addEventListener('touchstart', e=>{
+    if(e.touches.length!==1) return;
+    _tx=e.touches[0].clientX; _ty=e.touches[0].clientY; _tt=e.timeStamp;
+  }, {passive:true});
+  stage.addEventListener('touchend', e=>{
+    const t=e.changedTouches[0]; if(!t) return;
+    const dx=t.clientX-_tx, dy=t.clientY-_ty, dt=e.timeStamp-_tt;
+    // gesto horizontal: desplazamiento amplio, más horizontal que vertical, y rápido
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)*1.5 && dt<700){
+      if(dx<0) next(); else prev();
+    }
+  }, {passive:true});
+
   // ── Exportación a PNG 1:1 ──
   function download(canvas, name){ const a=document.createElement('a'); a.href=canvas.toDataURL('image/png'); a.download=name+'.png'; a.click(); }
   async function exportSlide(i){
