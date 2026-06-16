@@ -108,6 +108,28 @@
   .slide[data-title="bonus-skills"] .refgrid .ln .k{white-space:normal; overflow-wrap:break-word; flex-shrink:1;}
   .slide[data-title="bonus-skills"] .refgrid .ln .d{font-size:.85em;}
 
+  /* ── Tarjetas tipo métrica (variante .metricgrid) ──
+     Reusa .refgrid pero como GRID real de columnas iguales en vez del flujo
+     multi-columna: tarjetas de igual altura, encabezado a sangre completa,
+     una cifra protagonista por fila (.ln.m) y la fuente (.ln.src) anclada al
+     pie. Las filas cualitativas (sin .m) quedan como viñetas limpias.
+     Selectores con doble clase (.refgrid.metricgrid …) para ganar a las
+     reglas .refgrid … del bloque @container sin depender del orden. */
+  .refgrid.metricgrid{display:grid; grid-template-columns:repeat(3,1fr); column-gap:1.8cqmin; align-items:stretch;}
+  .refgrid.metricgrid .cat{display:flex; flex-direction:column; margin-bottom:0; padding:0 0 .2cqmin; border-radius:1.2cqmin; overflow:hidden;}
+  .refgrid.metricgrid .cat h3{display:flex; align-items:center; min-height:2.7em; margin:0 0 .6cqmin; padding:.55cqmin 1.1cqmin; border-radius:0; line-height:1.12; font-size:var(--rg-h3,1.55cqmin);}
+  /* fila base = viñeta cualitativa (glifo + texto en una línea) */
+  .refgrid.metricgrid .ln{display:flex; flex-direction:row; align-items:baseline; gap:.7cqmin; padding:.55cqmin 1.1cqmin; border-bottom:.1cqmin solid var(--line); line-height:1.28; font-size:var(--rg-fs,1.55cqmin);}
+  .refgrid.metricgrid .ln .k{font-size:1.15em; flex-shrink:0;}
+  .refgrid.metricgrid .ln .d{color:var(--muted);}
+  /* fila métrica: la cifra es protagonista, descripción como caption debajo */
+  .refgrid.metricgrid .ln.m{flex-direction:column; align-items:flex-start; gap:.05cqmin;}
+  .refgrid.metricgrid .ln.m .k{font-size:2.5em; line-height:.95; font-weight:800;}
+  .refgrid.metricgrid .ln.m .d{font-size:1em;}
+  /* fuente: pegada al pie de la tarjeta, separada y discreta */
+  .refgrid.metricgrid .ln.src{margin-top:auto; border-bottom:none; border-top:.12cqmin solid var(--line); padding-top:.7cqmin; font-size:calc(var(--rg-fs,1.55cqmin) * .82); opacity:.8;}
+  .refgrid.metricgrid .ln.src .k{font-size:1em; font-weight:700;}
+
   /* Tabla comparativa de features (slide features-map) */
   .ctable{width:100%;border-collapse:collapse;table-layout:fixed;flex:1;margin-top:1.2cqmin;}
   .ctable th{background:var(--accent,var(--proj));color:#fff;padding:.75cqmin 1.3cqmin;text-align:left;font-size:calc(var(--ct-fs, 1.9cqmin) * 0.921);letter-spacing:.06cqmin;text-transform:uppercase;font-weight:800;white-space:nowrap;}
@@ -364,6 +386,11 @@
     .refgrid .ln{font-size:14px !important; padding:4px 0; gap:8px;}
     .slide[data-title="bonus-skills"] .refgrid .ln{flex-direction:row;}
     .slide[data-title="bonus-skills"] .refgrid .ln .d{font-size:.9em;}
+    /* Tarjetas métrica: una columna en móvil; la cifra grande se conserva */
+    .refgrid.metricgrid{display:block;}
+    .refgrid.metricgrid .cat h3{min-height:0; font-size:13px !important;}
+    .refgrid.metricgrid .ln.m .k{font-size:30px;}
+    .refgrid.metricgrid .ln.src{margin-top:8px; font-size:12px !important;}
 
     /* Tabla comparativa de features */
     .ctable th{font-size:12px !important; padding:8px 10px !important;}
