@@ -9,7 +9,7 @@ en: `
       <ul class="points">
         <li><span class="ico">📦</span><span><b>npm</b> (macOS / Linux / Windows): <code class="inline">npm install -g @anthropic-ai/claude-code</code> — requires Node.js 18+.</span></li>
         <li><span class="ico">⚡</span><span><b>Native binary:</b> after npm setup, run <code class="inline">claude install</code> to replace the Node.js wrapper with a faster native binary.</span></li>
-        <li><span class="ico">🔑</span><span><b>Authenticate:</b> <code class="inline">claude auth login</code> (Pro / Max / Enterprise) or export <code class="inline">ANTHROPIC_API_KEY</code> for API-key access.</span></li>
+        <li><span class="ico">🔑</span><span><b>Authenticate:</b> just run <code class="inline">claude</code> — it opens a browser to log in (Pro / Max / Enterprise). For CI use <code class="inline">claude setup-token</code> or export <code class="inline">ANTHROPIC_API_KEY</code>.</span></li>
         <li><span class="ico">🖥</span><span><b>IDEs:</b> <b>VS Code</b> extension and <b>JetBrains</b> plugin (IntelliJ, WebStorm, PyCharm…) — install from each marketplace or run <code class="inline">/ide</code> inside a session.</span></li>
         <li><span class="ico">🌐</span><span><b>No install:</b> full Claude Code on the web at <b>claude.ai/code</b>, or download the <b>Claude Desktop</b> app — both work without npm.</span></li>
       </ul>
@@ -26,9 +26,10 @@ en: `
 <span class="cm"># 2 · Optional: native binary</span>
 <span class="st">claude install</span>
 
-<span class="cm"># 3 · Authenticate</span>
-<span class="st">claude auth login</span>
-<span class="cm"># or:</span>
+<span class="cm"># 3 · Authenticate (opens browser)</span>
+<span class="st">claude</span>
+<span class="cm"># CI / API key alternatives:</span>
+<span class="st">claude setup-token</span>
 <span class="kw">export</span> <span class="fn">ANTHROPIC_API_KEY</span>=sk-...
 
 <span class="cm"># 4 · Start a session</span>

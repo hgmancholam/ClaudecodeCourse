@@ -2,7 +2,7 @@
 en: `
 <section class="slide s-cli" data-title="temas">
   <div class="kicker">Chapter 6 · Topics</div>
-  <h2>What we'll <span class="accent">cover</span></h2>
+  <h2>Judge code you didn't <span class="accent">write</span></h2>
   <div class="body grid2">
     <ul class="points">
       <li><span class="ico">🔍</span><span><b>Reviewing PRs</b> — what to look for and what to ask.</span></li>
@@ -20,7 +20,7 @@ en: `
 es: `
 <section class="slide s-cli" data-title="temas">
   <div class="kicker">Capítulo 6 · Temas</div>
-  <h2>Qué <span class="accent">veremos</span></h2>
+  <h2>Juzgar código que no <span class="accent">escribiste</span></h2>
   <div class="body grid2">
     <ul class="points">
       <li><span class="ico">🔍</span><span><b>Revisión de PRs</b> — qué mirar y qué preguntar.</span></li>

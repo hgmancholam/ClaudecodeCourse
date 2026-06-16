@@ -2,7 +2,7 @@
 en: `
 <section class="slide s-short" data-title="custom-commands">
   <div class="kicker">Skills &amp; Commands</div>
-  <h2><span class="accent">Custom</span> commands</h2>
+  <h2>Custom commands are now <span class="accent">Skills</span></h2>
   <div class="body grid2">
 
     <div class="skills-left">
@@ -40,7 +40,7 @@ Analyze the changes and list:
 es: `
 <section class="slide s-short" data-title="custom-commands">
   <div class="kicker">Skills &amp; Comandos</div>
-  <h2>Comandos <span class="accent">personalizados</span></h2>
+  <h2>Los comandos personalizados ahora son <span class="accent">Skills</span></h2>
   <div class="body grid2">
 
     <div class="skills-left">

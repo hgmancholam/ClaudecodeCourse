@@ -13,7 +13,7 @@ es: `
 <section class="slide cover s-feat" data-title="portada">
   <div class="kicker">Capítulo 3 — Alfabetización Técnica</div>
   <div class="body">
-    <h1>Entendimiento de <span class="accent">Sistemas</span></h1>
+    <h1>Entender los <span class="accent">Sistemas</span></h1>
     <div class="lead">El modelo mental de cómo se construye y entrega el software — lo justo para hacer las preguntas correctas.</div>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span>2026</span></footer>

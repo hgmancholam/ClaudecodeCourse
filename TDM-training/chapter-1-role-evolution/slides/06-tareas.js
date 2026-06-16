@@ -2,7 +2,7 @@
 en: `
 <section class="slide no-export s-feat" data-title="tareas-ia">
   <div class="kicker">Chapter 1 · The Daily Work</div>
-  <h2>A TDM/PM's day · <span class="accent">manual vs AI-augmented</span></h2>
+  <h2>AI absorbs the routine half of the <span class="accent">PM's day</span></h2>
   <table class="ctable">
     <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
     <thead>
@@ -33,7 +33,7 @@ en: `
 es: `
 <section class="slide no-export s-feat" data-title="tareas-ia">
   <div class="kicker">Capítulo 1 · El Trabajo Diario</div>
-  <h2>El día de un TDM/PM · <span class="accent">manual vs aumentado con IA</span></h2>
+  <h2>La IA absorbe la mitad rutinaria del <span class="accent">día del PM</span></h2>
   <table class="ctable">
     <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
     <thead>

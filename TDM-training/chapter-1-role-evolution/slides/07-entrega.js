@@ -2,7 +2,7 @@
 en: `
 <section class="slide no-export s-flow" data-title="entrega-ia">
   <div class="kicker">Chapter 1 · The Payoff</div>
-  <h2>Delivery outcomes · <span class="accent">without vs with AI</span></h2>
+  <h2>AI delivery teams win on <span class="accent">time, value and ROI</span></h2>
   <table class="ctable">
     <colgroup><col style="width:40%"><col style="width:18%"><col style="width:18%"><col style="width:24%"></colgroup>
     <thead>
@@ -32,7 +32,7 @@ en: `
 es: `
 <section class="slide no-export s-flow" data-title="entrega-ia">
   <div class="kicker">Capítulo 1 · El Resultado</div>
-  <h2>Resultados de entrega · <span class="accent">sin vs con IA</span></h2>
+  <h2>Los equipos con IA ganan en <span class="accent">tiempo, valor y ROI</span></h2>
   <table class="ctable">
     <colgroup><col style="width:40%"><col style="width:18%"><col style="width:18%"><col style="width:24%"></colgroup>
     <thead>

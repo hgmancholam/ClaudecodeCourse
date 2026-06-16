@@ -2,7 +2,7 @@
 en: `
 <section class="slide s-flag" data-title="temas">
   <div class="kicker">Chapter 7 · Topics</div>
-  <h2>What we'll <span class="accent">cover</span></h2>
+  <h2>From idea to <span class="accent">working demo</span></h2>
   <div class="body grid2">
     <ul class="points">
       <li><span class="ico">💡</span><span><b>Frame the problem</b> — scope a PoC small enough to finish.</span></li>
@@ -20,7 +20,7 @@ en: `
 es: `
 <section class="slide s-flag" data-title="temas">
   <div class="kicker">Capítulo 7 · Temas</div>
-  <h2>Qué <span class="accent">veremos</span></h2>
+  <h2>De la idea a una <span class="accent">demo funcional</span></h2>
   <div class="body grid2">
     <ul class="points">
       <li><span class="ico">💡</span><span><b>Enmarcar el problema</b> — acotar un PoC lo bastante pequeño para terminarlo.</span></li>

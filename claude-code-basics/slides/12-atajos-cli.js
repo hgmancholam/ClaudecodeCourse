@@ -45,7 +45,7 @@ en: `
       <div class="ln"><span class="k">Shift+Tab</span><span class="d">Toggle modes (default, plan, auto)</span></div>
       <div class="ln"><span class="k">Option+T</span><span class="d">Toggle extended thinking</span></div>
       <div class="ln"><span class="k">Ctrl+B</span><span class="d">Background command</span></div>
-      <div class="ln"><span class="k">Ctrl+T Ctrl+K</span><span class="d">Kill background commands</span></div>
+      <div class="ln"><span class="k">Ctrl+X Ctrl+K</span><span class="d">Stop background subagents</span></div>
       <div class="ln"><span class="k">Ctrl+O</span><span class="d">Toggle the transcript viewer</span></div>
       <div class="ln"><span class="k">Ctrl+T</span><span class="d">Toggle the task list</span></div>
       <div class="ln"><span class="k">Ctrl+V</span><span class="d">Paste an image from clipboard</span></div>
@@ -105,7 +105,7 @@ es: `
       <div class="ln"><span class="k">Shift+Tab</span><span class="d">Alterna modos (default, plan, auto)</span></div>
       <div class="ln"><span class="k">Option+T</span><span class="d">Alterna pensamiento extendido</span></div>
       <div class="ln"><span class="k">Ctrl+B</span><span class="d">Comando en background</span></div>
-      <div class="ln"><span class="k">Ctrl+T Ctrl+K</span><span class="d">Mata comandos en background</span></div>
+      <div class="ln"><span class="k">Ctrl+X Ctrl+K</span><span class="d">Detiene subagentes en background</span></div>
       <div class="ln"><span class="k">Ctrl+O</span><span class="d">Alterna el visor de transcripción</span></div>
       <div class="ln"><span class="k">Ctrl+T</span><span class="d">Alterna la lista de tareas</span></div>
       <div class="ln"><span class="k">Ctrl+V</span><span class="d">Pega una imagen del portapapeles</span></div>

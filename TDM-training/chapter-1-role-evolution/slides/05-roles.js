@@ -2,7 +2,7 @@
 en: `
 <section class="slide no-export s-mode" data-title="roles-ia">
   <div class="kicker">Chapter 1 · Structural Shift</div>
-  <h2>The delivery role · <span class="accent">before vs with AI</span></h2>
+  <h2>The role shifts from executor to <span class="accent">interpreter of judgment</span></h2>
   <table class="ctable">
     <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
     <thead>
@@ -33,7 +33,7 @@ en: `
 es: `
 <section class="slide no-export s-mode" data-title="roles-ia">
   <div class="kicker">Capítulo 1 · Cambio Estructural</div>
-  <h2>El rol de delivery · <span class="accent">antes vs con IA</span></h2>
+  <h2>El rol pasa de ejecutor a <span class="accent">intérprete de criterio</span></h2>
   <table class="ctable">
     <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
     <thead>
