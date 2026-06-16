@@ -5,9 +5,9 @@ en: `
   <h2>Proactive Risk <span class="accent">Identification</span></h2>
   <div class="body grid2">
     <ul class="points">
-      <li><span class="ico">🎯</span><span><b>Use case:</b> identify the 5 most probable risks before a sprint or milestone — before they surprise you.</span></li>
-      <li><span class="ico">⏱</span><span><b>When:</b> start of every sprint planning. Structured risk list in under 3 minutes.</span></li>
-      <li><span class="ico">📤</span><span><b>Output:</b> probability + impact + one concrete mitigation per risk.</span></li>
+      <li><span class="ico">💡</span><span><b>Key tip:</b> "identify all risks" returns a generic list. Bound it: "top 5 risks for the next 2 weeks." Bounded scope = ranked, actionable output.</span></li>
+      <li><span class="ico">⚠️</span><span><b>Common mistake:</b> omitting open bugs and recent incidents. AI can't infer your specific situation — every P1 open is risk context.</span></li>
+      <li><span class="ico">🔗</span><span><b>With ADO MCP:</b> Claude queries open bugs (severity ≥ P2) and blocked work items from the current sprint automatically — no manual data gathering.</span></li>
     </ul>
     <div class="codeblock">
       <div class="cb-bar">
@@ -15,18 +15,21 @@ en: `
         <span class="cb-lang">PROMPT R-01</span>
       </div>
       <pre><span class="st">You are a risk manager specialized
-in technology projects.</span>
-Identify the 5 most likely risks
-in the next 2 weeks.
+in agile technology delivery.</span>
+<span class="cm">// ADO MCP: fetch open P1/P2 bugs +
+// blocked stories from current sprint</span>
+<span class="kw">Project:</span> <span class="fn">[ADO PROJECT]</span> <span class="kw">Team:</span> <span class="fn">[TEAM]</span>
+<span class="kw">Committed delivery:</span> <span class="fn">[DATE]</span>
+<span class="kw">Additional context:</span> <span class="fn">[recent incidents · client mood]</span>
 
-<span class="kw">Industry:</span>      <span class="fn">[INDUSTRY]</span>
-<span class="kw">Team size:</span>     <span class="fn">[N]</span> people
-<span class="kw">Stack:</span>         <span class="fn">[TECHNOLOGY]</span>
-<span class="kw">Situation:</span>     <span class="fn">[3 LINES MAX]</span>
-<span class="kw">Delivery date:</span> <span class="fn">[DATE]</span>
+Identify the <span class="kw">top 5 risks for next 2 weeks</span>.
+Score each: <span class="kw">Probability × Impact</span> (H=3 M=2 L=1)
 
-Per risk: probability (H/M/L),
-impact (H/M/L), mitigation action.</pre>
+<span class="kw">[OUTPUT]</span> Sorted Markdown risk table (desc. score):
+<span class="cm">| Risk | Probability | Impact | Score | Owner | Mitigation |</span>
+Flag risks requiring <span class="fn">sponsor awareness</span>.
+<span class="kw">[CONSTRAINT]</span> Don't repeat raw sprint data back.
+Base mitigations on actual team capacity.</pre>
     </div>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span class="pg"></span></footer>
@@ -38,9 +41,9 @@ es: `
   <h2>Identificación <span class="accent">Proactiva</span> de Riesgos</h2>
   <div class="body grid2">
     <ul class="points">
-      <li><span class="ico">🎯</span><span><b>Cuándo usar:</b> identifica los 5 riesgos más probables antes de un sprint o milestone — antes de que te sorprendan.</span></li>
-      <li><span class="ico">⏱</span><span><b>Tiempo:</b> inicio de cada sprint planning. Lista estructurada en menos de 3 minutos.</span></li>
-      <li><span class="ico">📤</span><span><b>Resultado:</b> probabilidad + impacto + una acción de mitigación concreta por riesgo.</span></li>
+      <li><span class="ico">💡</span><span><b>Clave:</b> "identifica todos los riesgos" devuelve una lista genérica. Acótalo: "top 5 riesgos de las próximas 2 semanas." Alcance acotado = output rankeado y accionable.</span></li>
+      <li><span class="ico">⚠️</span><span><b>Error común:</b> omitir bugs abiertos e incidentes recientes. La IA no infiere tu situación específica — cada P1 abierto es contexto de riesgo.</span></li>
+      <li><span class="ico">🔗</span><span><b>Con ADO MCP:</b> Claude consulta bugs abiertos (severidad ≥ P2) y work items bloqueados del sprint actual automáticamente — sin recolección manual.</span></li>
     </ul>
     <div class="codeblock">
       <div class="cb-bar">
@@ -48,18 +51,21 @@ es: `
         <span class="cb-lang">PROMPT R-01</span>
       </div>
       <pre><span class="st">Eres un risk manager especializado
-en proyectos de tecnología.</span>
-Identifica los 5 riesgos más probables
-para las próximas 2 semanas.
+en delivery ágil de tecnología.</span>
+<span class="cm">// ADO MCP: obtén bugs P1/P2 abiertos +
+// historias bloqueadas del sprint actual</span>
+<span class="kw">Proyecto:</span> <span class="fn">[PROYECTO ADO]</span> <span class="kw">Equipo:</span> <span class="fn">[EQUIPO]</span>
+<span class="kw">Entrega comprometida:</span> <span class="fn">[FECHA]</span>
+<span class="kw">Contexto adicional:</span> <span class="fn">[incidentes · ánimo cliente]</span>
 
-<span class="kw">Industria:</span>    <span class="fn">[INDUSTRIA]</span>
-<span class="kw">Equipo:</span>       <span class="fn">[N]</span> personas
-<span class="kw">Stack:</span>        <span class="fn">[TECNOLOGÍA]</span>
-<span class="kw">Situación:</span>    <span class="fn">[MÁX 3 LÍNEAS]</span>
-<span class="kw">Fecha entrega:</span> <span class="fn">[FECHA]</span>
+Identifica los <span class="kw">top 5 riesgos de las próximas 2 semanas</span>.
+Puntúa cada uno: <span class="kw">Probabilidad × Impacto</span> (A=3 M=2 B=1)
 
-Por riesgo: probabilidad (A/M/B),
-impacto (A/M/B), acción de mitigación.</pre>
+<span class="kw">[OUTPUT]</span> Tabla de riesgos Markdown (orden desc.):
+<span class="cm">| Riesgo | Prob | Impacto | Score | Dueño | Mitigación |</span>
+Marca riesgos que requieran <span class="fn">atención del sponsor</span>.
+<span class="kw">[RESTRICCIÓN]</span> No repitas los datos del sprint.
+Basa mitigaciones en la capacidad real del equipo.</pre>
     </div>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span class="pg"></span></footer>

@@ -11,20 +11,23 @@ en: `
           <div class="cb-dots"><span></span><span></span><span></span></div>
           <span class="cb-lang">PROMPT R-02</span>
         </div>
-        <pre><span class="st">You are an experienced Scrum Master.</span>
-Generate a stoplight report (🔴🟡🟢)
-for: Velocity · Quality · Risks ·
-Team morale · Stakeholders.
+        <pre><span class="st">You are a Scrum Master and
+delivery metrics specialist.</span>
+<span class="cm">// ADO MCP: get_iteration_work_items</span>
+<span class="kw">Project:</span> <span class="fn">[PROJECT]</span> <span class="kw">Sprint:</span> <span class="fn">[N/TOTAL]</span>
+<span class="kw">Done SP:</span> <span class="fn">[N]</span> / <span class="kw">Committed:</span> <span class="fn">[N]</span>
+<span class="kw">Open bugs:</span> <span class="fn">[N]</span> P1, <span class="fn">[N]</span> P2
+<span class="kw">Blockers:</span> <span class="fn">[describe]</span> <span class="kw">Remaining days:</span> <span class="fn">[N]</span>
 
-<span class="kw">Sprint:</span>       <span class="fn">[N]</span> of <span class="fn">[TOTAL]</span>
-<span class="kw">Committed SP:</span> <span class="fn">[N]</span> · <span class="kw">Done:</span> <span class="fn">[N]</span>
-<span class="kw">Open bugs:</span>    <span class="fn">[N]</span> critical, <span class="fn">[N]</span> minor
-<span class="kw">Blockers:</span>     <span class="fn">[DESCRIBE]</span>
-<span class="kw">Client feedback:</span> <span class="fn">[DESCRIBE]</span>
-
-For each 🔴/🟡: one immediate action.</pre>
+<span class="kw">[OUTPUT]</span> Stoplight table:
+<span class="cm">| Dimension | 🔴/🟡/🟢 | Trend | Action | Owner |</span>
+Dimensions: Velocity · Quality · Risk
+  · Team Morale · Stakeholder Relationship
+<span class="kw">[CONSTRAINT]</span> 🟢 only if velocity ≥ 70% of
+commitment. Each 🔴/🟡 = specific action + owner.
+Don't mark 🟢 to avoid difficult conversations.</pre>
       </div>
-      <div style="font-size:1.7cqmin;color:var(--muted);margin-top:.7cqmin;">Use in: mid-sprint check-in, stakeholder updates.</div>
+      <div style="font-size:1.65cqmin;color:var(--muted);margin-top:.6cqmin;">💡 The Trend column ("↑ ↓ →") is as important as the color — a 🟡 improving is different from a 🟡 worsening.</div>
     </div>
     <div>
       <div style="font-size:1.7cqmin;font-weight:800;color:var(--accent);margin-bottom:.7cqmin;text-transform:uppercase;letter-spacing:.12cqmin;">R-03 · When &amp; How to Escalate</div>
@@ -33,20 +36,23 @@ For each 🔴/🟡: one immediate action.</pre>
           <div class="cb-dots"><span></span><span></span><span></span></div>
           <span class="cb-lang">PROMPT R-03</span>
         </div>
-        <pre><span class="st">You are a senior delivery manager.</span>
-I have this risk and need to decide
-if I escalate to the sponsor today.
+        <pre><span class="st">You are a senior delivery manager with
+experience in difficult conversations.</span>
+<span class="kw">Situation:</span>      <span class="fn">[specific — dates, facts, numbers]</span>
+<span class="kw">Scope at risk:</span>  <span class="fn">[date · budget · feature affected]</span>
+<span class="kw">Already tried:</span> <span class="fn">[actions + dates]</span>
+<span class="kw">Sponsor expects:</span><span class="fn">[what they were last told]</span>
 
-<span class="kw">Situation:</span>        <span class="fn">[DESCRIBE]</span>
-<span class="kw">Potential impact:</span> <span class="fn">[DESCRIBE]</span>
-<span class="kw">Already tried:</span>    <span class="fn">[DESCRIBE]</span>
-
-Tell me:
-<span class="nu">1.</span> Should I escalate? Why?
-<span class="nu">2.</span> If yes, draft the exact message
-<span class="nu">3.</span> What info do I need ready?</pre>
+<span class="kw">[OUTPUT]</span> Three labeled sections:
+<span class="nu">1.</span> <span class="fn">Escalate?</span> Yes/No + 2-line reasoning
+<span class="nu">2.</span> <span class="fn">Message draft:</span> Subject + 3 paragraphs max
+   <span class="cm">(situation · impact · ask — no history recap)</span>
+<span class="nu">3.</span> <span class="fn">3 facts</span> to have ready before the call
+<span class="kw">[CONSTRAINT]</span> Don't soften the recommendation.
+Message tone: direct, not apologetic.
+If scope/date is at risk, say it plainly.</pre>
       </div>
-      <div style="font-size:1.7cqmin;color:var(--muted);margin-top:.7cqmin;">Use in: any risk that may affect scope, date or budget.</div>
+      <div style="font-size:1.65cqmin;color:var(--muted);margin-top:.6cqmin;">⚠️ Escalate too late = loss of credibility. Escalate with no draft message = wasted sponsor time.</div>
     </div>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span class="pg"></span></footer>
@@ -64,20 +70,23 @@ es: `
           <div class="cb-dots"><span></span><span></span><span></span></div>
           <span class="cb-lang">PROMPT R-02</span>
         </div>
-        <pre><span class="st">Eres un Scrum Master experimentado.</span>
-Genera un reporte de salud (🔴🟡🟢)
-para: Velocidad · Calidad · Riesgos ·
-Moral del equipo · Stakeholders.
+        <pre><span class="st">Eres un Scrum Master y especialista
+en métricas de delivery.</span>
+<span class="cm">// ADO MCP: get_iteration_work_items</span>
+<span class="kw">Proyecto:</span> <span class="fn">[PROYECTO]</span> <span class="kw">Sprint:</span> <span class="fn">[N/TOTAL]</span>
+<span class="kw">SP hechos:</span> <span class="fn">[N]</span> / <span class="kw">Comprometidos:</span> <span class="fn">[N]</span>
+<span class="kw">Bugs abiertos:</span> <span class="fn">[N]</span> P1, <span class="fn">[N]</span> P2
+<span class="kw">Bloqueos:</span> <span class="fn">[describe]</span> <span class="kw">Días restantes:</span> <span class="fn">[N]</span>
 
-<span class="kw">Sprint:</span>      <span class="fn">[N]</span> de <span class="fn">[TOTAL]</span>
-<span class="kw">SP comprometidos:</span> <span class="fn">[N]</span> · <span class="kw">Completados:</span> <span class="fn">[N]</span>
-<span class="kw">Bugs abiertos:</span> <span class="fn">[N]</span> críticos, <span class="fn">[N]</span> menores
-<span class="kw">Bloqueos:</span>    <span class="fn">[DESCRIBE]</span>
-<span class="kw">Feedback cliente:</span> <span class="fn">[DESCRIBE]</span>
-
-Por cada 🔴/🟡: una acción inmediata.</pre>
+<span class="kw">[OUTPUT]</span> Tabla semáforo:
+<span class="cm">| Dimensión | 🔴/🟡/🟢 | Tendencia | Acción | Dueño |</span>
+Dimensiones: Velocidad · Calidad · Riesgo
+  · Moral del equipo · Relación stakeholders
+<span class="kw">[RESTRICCIÓN]</span> 🟢 solo si velocidad ≥ 70% del
+compromiso. Cada 🔴/🟡 = acción concreta + dueño.
+No pongas 🟢 para evitar conversaciones difíciles.</pre>
       </div>
-      <div style="font-size:1.7cqmin;color:var(--muted);margin-top:.7cqmin;">Usar en: revisión mid-sprint, actualizaciones a stakeholders.</div>
+      <div style="font-size:1.65cqmin;color:var(--muted);margin-top:.6cqmin;">💡 La columna Tendencia ("↑ ↓ →") es tan importante como el color — un 🟡 mejorando es distinto a un 🟡 empeorando.</div>
     </div>
     <div>
       <div style="font-size:1.7cqmin;font-weight:800;color:var(--accent);margin-bottom:.7cqmin;text-transform:uppercase;letter-spacing:.12cqmin;">R-03 · ¿Cuándo y Cómo Escalar?</div>
@@ -86,21 +95,23 @@ Por cada 🔴/🟡: una acción inmediata.</pre>
           <div class="cb-dots"><span></span><span></span><span></span></div>
           <span class="cb-lang">PROMPT R-03</span>
         </div>
-        <pre><span class="st">Eres un delivery manager senior.</span>
-Tengo esta situación de riesgo y
-necesito decidir si escalo al
-sponsor hoy.
+        <pre><span class="st">Eres un delivery manager senior con
+experiencia en conversaciones difíciles.</span>
+<span class="kw">Situación:</span>      <span class="fn">[específica — fechas, hechos, números]</span>
+<span class="kw">Alcance en riesgo:</span><span class="fn">[fecha · presupuesto · feature]</span>
+<span class="kw">Lo que intenté:</span><span class="fn">[acciones + fechas]</span>
+<span class="kw">Sponsor espera:</span> <span class="fn">[qué se le comunicó la última vez]</span>
 
-<span class="kw">Situación:</span>       <span class="fn">[DESCRIBE]</span>
-<span class="kw">Impacto potencial:</span> <span class="fn">[DESCRIBE]</span>
-<span class="kw">Lo que intenté:</span>  <span class="fn">[DESCRIBE]</span>
-
-Dime:
-<span class="nu">1.</span> ¿Debo escalar? ¿Por qué?
-<span class="nu">2.</span> Si escalo, redacta el mensaje exacto
-<span class="nu">3.</span> ¿Qué información debo tener lista?</pre>
+<span class="kw">[OUTPUT]</span> Tres secciones etiquetadas:
+<span class="nu">1.</span> <span class="fn">¿Escalar?</span> Sí/No + 2 líneas de razonamiento
+<span class="nu">2.</span> <span class="fn">Borrador del mensaje:</span> Asunto + 3 párrafos máx
+   <span class="cm">(situación · impacto · pedido — sin historial)</span>
+<span class="nu">3.</span> <span class="fn">3 datos</span> que debo tener listos antes de la llamada
+<span class="kw">[RESTRICCIÓN]</span> No suavices la recomendación.
+Tono: directo, no apologético.
+Si fecha/alcance está en riesgo, dilo claramente.</pre>
       </div>
-      <div style="font-size:1.7cqmin;color:var(--muted);margin-top:.7cqmin;">Usar en: cualquier riesgo que pueda afectar alcance, fecha o presupuesto.</div>
+      <div style="font-size:1.65cqmin;color:var(--muted);margin-top:.6cqmin;">⚠️ Escalar tarde = pérdida de credibilidad. Escalar sin borrador = desperdiciar el tiempo del sponsor.</div>
     </div>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span class="pg"></span></footer>

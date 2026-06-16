@@ -11,21 +11,24 @@ en: `
           <div class="cb-dots"><span></span><span></span><span></span></div>
           <span class="cb-lang">PROMPT RP-02</span>
         </div>
-        <pre><span class="st">You are an Agile Coach with experience
-in difficult retrospectives.</span>
-Build an honest but constructive narrative.
+        <pre><span class="st">You are an Agile Coach specialized in
+psychologically safe retrospectives.</span>
+<span class="kw">What went well:</span>     <span class="fn">[LIST — be specific]</span>
+<span class="kw">What went wrong:</span>    <span class="fn">[LIST — facts, not blame]</span>
+<span class="kw">Broken commitments:</span> <span class="fn">[LIST + root cause if known]</span>
+<span class="kw">Team tensions:</span>      <span class="fn">[describe honestly]</span>
 
-<span class="kw">What went well:</span>       <span class="fn">[LIST]</span>
-<span class="kw">What went wrong:</span>      <span class="fn">[LIST]</span>
-<span class="kw">Team tensions:</span>        <span class="fn">[DESCRIBE]</span>
-<span class="kw">Broken commitments:</span>   <span class="fn">[LIST]</span>
-
-Generate:
-<span class="nu">1.</span> Opening that doesn't sound like a scolding
-<span class="nu">2.</span> 3 facilitation questions
-<span class="nu">3.</span> Improvement agreement template</pre>
+<span class="kw">[OUTPUT]</span> Three labeled Markdown sections:
+<span class="nu">1.</span> <span class="fn">Opening</span> (2 sentences, non-blaming framing)
+<span class="nu">2.</span> <span class="fn">3 facilitation questions</span>
+   <span class="cm">(one per tension — invite reflection, not defense)</span>
+<span class="nu">3.</span> <span class="fn">Agreement template</span> per improvement:
+   <span class="cm">What · Who · By when (SMART)</span>
+<span class="kw">[CONSTRAINT]</span> Don't minimize tensions — name them.
+Agreements must be specific and time-bound.
+No open-ended "we'll try to improve X."</pre>
       </div>
-      <div style="font-size:1.7cqmin;color:var(--muted);margin-top:.7cqmin;">Use in: the night before every retrospective.</div>
+      <div style="font-size:1.65cqmin;color:var(--muted);margin-top:.6cqmin;">💡 The night before the retro, not the morning of. Give the AI enough time to generate questions you can actually rehearse.</div>
     </div>
     <div>
       <div style="font-size:1.7cqmin;font-weight:800;color:var(--accent);margin-bottom:.7cqmin;text-transform:uppercase;letter-spacing:.12cqmin;">RP-03 · Metrics → Business Language</div>
@@ -34,21 +37,24 @@ Generate:
           <div class="cb-dots"><span></span><span></span><span></span></div>
           <span class="cb-lang">PROMPT RP-03</span>
         </div>
-        <pre><span class="st">You are a delivery manager who speaks
-C-Level.</span>
-Translate these metrics to business
-impact for the steering committee.
+        <pre><span class="st">You are a delivery manager who
+speaks fluent C-Level.</span>
+<span class="cm">// ADO MCP: fetch last 4 sprint metrics
+// for project [PROJECT] team [TEAM]</span>
+<span class="kw">Velocity trend:</span>      <span class="fn">[N] SP avg (prev: [N])</span>
+<span class="kw">Lead time:</span>           <span class="fn">[N] days avg</span>
+<span class="kw">Bug escape rate:</span>     <span class="fn">[N]% (target: [N]%)</span>
+<span class="kw">Deploy frequency:</span>    <span class="fn">[N]/week</span>
+<span class="kw">Business context:</span>   <span class="fn">[product + who uses it + Q goal]</span>
 
-<span class="kw">Velocity:</span>        <span class="fn">[N]</span> avg SP
-<span class="kw">Lead time:</span>       <span class="fn">[N]</span> days avg
-<span class="kw">Bug escape rate:</span> <span class="fn">[N]</span>%
-<span class="kw">Deploy frequency:</span> <span class="fn">[N]</span>/week
-<span class="kw">Product context:</span> <span class="fn">[DESCRIBE]</span>
-
-Turn each metric into a business sentence.
-Write a 3-line opening paragraph.</pre>
+<span class="kw">[OUTPUT]</span> Three sections:
+<span class="nu">1.</span> One business sentence per metric
+   <span class="cm">(no units — "SP" → "features", "deploys" → "improvements shipped")</span>
+<span class="nu">2.</span> 3-line steering committee opening
+<span class="nu">3.</span> One risk in business terms to flag
+<span class="kw">[CONSTRAINT]</span> No technical units in final output.</pre>
       </div>
-      <div style="font-size:1.7cqmin;color:var(--muted);margin-top:.7cqmin;">Use in: steering committee, QBR, exec presentations.</div>
+      <div style="font-size:1.65cqmin;color:var(--muted);margin-top:.6cqmin;">⚠️ Include velocity trend (not just current) — a 🟢 number going down is a hidden risk worth surfacing.</div>
     </div>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span class="pg"></span></footer>
@@ -66,21 +72,24 @@ es: `
           <div class="cb-dots"><span></span><span></span><span></span></div>
           <span class="cb-lang">PROMPT RP-02</span>
         </div>
-        <pre><span class="st">Eres un Agile Coach con experiencia
-en retrospectivas difíciles.</span>
-Construye una narrativa honesta y constructiva.
+        <pre><span class="st">Eres un Agile Coach especializado en
+retrospectivas psicológicamente seguras.</span>
+<span class="kw">Qué salió bien:</span>      <span class="fn">[LISTA — sé específico]</span>
+<span class="kw">Qué salió mal:</span>       <span class="fn">[LISTA — hechos, no culpas]</span>
+<span class="kw">Compromisos rotos:</span>   <span class="fn">[LISTA + causa raíz si conocida]</span>
+<span class="kw">Tensiones del equipo:</span><span class="fn">[describe con honestidad]</span>
 
-<span class="kw">Qué salió bien:</span>       <span class="fn">[LISTA]</span>
-<span class="kw">Qué salió mal:</span>        <span class="fn">[LISTA]</span>
-<span class="kw">Tensiones del equipo:</span> <span class="fn">[DESCRIBE]</span>
-<span class="kw">Compromisos rotos:</span>    <span class="fn">[LISTA]</span>
-
-Genera:
-<span class="nu">1.</span> Apertura que no suene a regaño
-<span class="nu">2.</span> 3 preguntas para facilitar la conversación
-<span class="nu">3.</span> Plantilla de acuerdos de mejora</pre>
+<span class="kw">[OUTPUT]</span> Tres secciones Markdown:
+<span class="nu">1.</span> <span class="fn">Apertura</span> (2 frases, sin asignar culpa)
+<span class="nu">2.</span> <span class="fn">3 preguntas de facilitación</span>
+   <span class="cm">(una por tensión — invita reflexión, no defensa)</span>
+<span class="nu">3.</span> <span class="fn">Plantilla de acuerdos</span> por mejora:
+   <span class="cm">Qué · Quién · Para cuándo (SMART)</span>
+<span class="kw">[RESTRICCIÓN]</span> No minimices tensiones — nómbralas.
+Acuerdos deben ser específicos y con fecha límite.
+Nada de "intentaremos mejorar X."</pre>
       </div>
-      <div style="font-size:1.7cqmin;color:var(--muted);margin-top:.7cqmin;">Usar en: la noche anterior a cada retrospectiva.</div>
+      <div style="font-size:1.65cqmin;color:var(--muted);margin-top:.6cqmin;">💡 La noche anterior a la retro, no la mañana del día. Dale tiempo a la IA para generar preguntas que puedas ensayar.</div>
     </div>
     <div>
       <div style="font-size:1.7cqmin;font-weight:800;color:var(--accent);margin-bottom:.7cqmin;text-transform:uppercase;letter-spacing:.12cqmin;">RP-03 · Métricas → Lenguaje de Negocio</div>
@@ -90,20 +99,23 @@ Genera:
           <span class="cb-lang">PROMPT RP-03</span>
         </div>
         <pre><span class="st">Eres un delivery manager que
-habla C-Level.</span>
-Traduce estas métricas a impacto
-de negocio para el steering committee.
+habla con fluidez C-Level.</span>
+<span class="cm">// ADO MCP: obtén métricas de los últimos
+// 4 sprints para proyecto [X] equipo [Y]</span>
+<span class="kw">Velocidad (tendencia):</span> <span class="fn">[N] SP prom (ant: [N])</span>
+<span class="kw">Lead time:</span>            <span class="fn">[N] días promedio</span>
+<span class="kw">Bug escape rate:</span>      <span class="fn">[N]% (objetivo: [N]%)</span>
+<span class="kw">Frecuencia de deploy:</span> <span class="fn">[N]/semana</span>
+<span class="kw">Contexto negocio:</span>    <span class="fn">[producto + usuarios + meta Q]</span>
 
-<span class="kw">Velocity:</span>          <span class="fn">[N]</span> SP promedio
-<span class="kw">Lead time:</span>         <span class="fn">[N]</span> días promedio
-<span class="kw">Bug escape rate:</span>   <span class="fn">[N]</span>%
-<span class="kw">Deploy frequency:</span>  <span class="fn">[N]</span>/semana
-<span class="kw">Contexto producto:</span> <span class="fn">[DESCRIBE]</span>
-
-Convierte cada métrica en frase de negocio.
-Redacta un párrafo de apertura de 3 líneas.</pre>
+<span class="kw">[OUTPUT]</span> Tres secciones:
+<span class="nu">1.</span> Una frase de negocio por métrica
+   <span class="cm">(sin unidades — "SP" → "funcionalidades", "deploys" → "mejoras enviadas")</span>
+<span class="nu">2.</span> Párrafo de apertura para steering committee (3 líneas)
+<span class="nu">3.</span> Un riesgo en términos de negocio para señalar
+<span class="kw">[RESTRICCIÓN]</span> Sin unidades técnicas en el output final.</pre>
       </div>
-      <div style="font-size:1.7cqmin;color:var(--muted);margin-top:.7cqmin;">Usar en: steering committee, QBR, presentaciones ejecutivas.</div>
+      <div style="font-size:1.65cqmin;color:var(--muted);margin-top:.6cqmin;">⚠️ Incluye la tendencia de velocidad (no solo el valor actual) — un número 🟢 que baja es un riesgo oculto que vale la pena mostrar.</div>
     </div>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span class="pg"></span></footer>
