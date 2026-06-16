@@ -22,8 +22,8 @@ en: `
     </tbody>
     <tfoot>
       <tr><td colspan="3" style="font-size:1.55cqmin;color:var(--muted);background:#f8f8fb;">
-        <a href="https://www.resumly.ai/blog/how-ai-will-affect-project-management-roles-2025-outlook/" target="_blank" rel="noopener" style="color:var(--accent,var(--proj));font-weight:700;text-decoration:none;">↗ source</a>
-        · McKinsey 2024 — 45% of a PM's routine activities are automatable today, 70% by 2030
+        <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/four-fundamentals-of-workplace-automation" target="_blank" rel="noopener" style="color:var(--accent,var(--proj));font-weight:700;text-decoration:none;">↗ source</a>
+        · McKinsey — ~45% of all work activities are automatable with today's technology; routine PM tasks sit squarely in that half
       </td></tr>
     </tfoot>
   </table>
@@ -53,8 +53,8 @@ es: `
     </tbody>
     <tfoot>
       <tr><td colspan="3" style="font-size:1.55cqmin;color:var(--muted);background:#f8f8fb;">
-        <a href="https://www.resumly.ai/blog/how-ai-will-affect-project-management-roles-2025-outlook/" target="_blank" rel="noopener" style="color:var(--accent,var(--proj));font-weight:700;text-decoration:none;">↗ fuente</a>
-        · McKinsey 2024 — el 45% de las actividades rutinarias de un PM son automatizables hoy, 70% para 2030
+        <a href="https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/four-fundamentals-of-workplace-automation" target="_blank" rel="noopener" style="color:var(--accent,var(--proj));font-weight:700;text-decoration:none;">↗ fuente</a>
+        · McKinsey — ~45% de las actividades laborales son automatizables con la tecnología actual; las tareas rutinarias del PM están de lleno en esa mitad
       </td></tr>
     </tfoot>
   </table>

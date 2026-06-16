@@ -31,8 +31,8 @@ en: `
     <div class="cat s-env">
       <h3>❌ Gap 5 · Reskilling isn't happening</h3>
       <div class="ln"><span class="k">Wants</span><span class="d">continuous learning as a practice, not an event</span></div>
-      <div class="ln"><span class="k">Today</span><span class="d"><b>40%</b> of workers lack access to adequate reskilling; training programs spend just 25% on Business Acumen &amp; strategic skills</span></div>
-      <div class="ln"><a class="k" href="https://www.libertify.com/interactive-library/wef-future-of-jobs-report-2025-guide/" target="_blank" rel="noopener">↗ source</a><span class="d">WEF Future of Jobs 2025</span></div>
+      <div class="ln"><span class="k">Today</span><span class="d"><b>59%</b> of workers will need reskilling by 2030 — and ~<b>11%</b> are unlikely to get the training they need; continuous learning is still the exception</span></div>
+      <div class="ln"><a class="k" href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/3-skills-outlook/" target="_blank" rel="noopener">↗ source</a><span class="d">WEF Future of Jobs 2025</span></div>
     </div>
     <div class="cat s-flag">
       <h3>📌 The conclusion that opens the program</h3>
@@ -76,8 +76,8 @@ es: `
     <div class="cat s-env">
       <h3>❌ Brecha 5 · El reskilling no está ocurriendo</h3>
       <div class="ln"><span class="k">Pide</span><span class="d">aprendizaje continuo como práctica, no como evento</span></div>
-      <div class="ln"><span class="k">Hoy</span><span class="d">el <b>40%</b> de los trabajadores no tiene acceso a reskilling adecuado; los programas invierten solo 25% en Business Acumen y habilidades estratégicas</span></div>
-      <div class="ln"><a class="k" href="https://www.libertify.com/interactive-library/wef-future-of-jobs-report-2025-guide/" target="_blank" rel="noopener">↗ fuente</a><span class="d">WEF Future of Jobs 2025</span></div>
+      <div class="ln"><span class="k">Hoy</span><span class="d">el <b>59%</b> de los trabajadores necesitará reskilling para 2030 — y ~<b>11%</b> probablemente no reciba la formación que necesita; el aprendizaje continuo sigue siendo la excepción</span></div>
+      <div class="ln"><a class="k" href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/in-full/3-skills-outlook/" target="_blank" rel="noopener">↗ fuente</a><span class="d">WEF Future of Jobs 2025</span></div>
     </div>
     <div class="cat s-flag">
       <h3>📌 La conclusión que abre el programa</h3>

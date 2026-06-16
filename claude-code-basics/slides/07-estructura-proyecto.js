@@ -7,8 +7,8 @@ en: `
 
     <div class="filetree">
 <span class="dir">my-project/</span>
-├── <span class="dir">CLAUDE.md</span>
-├── <span class="dir">.mcp.json</span>  <span class="note">← project MCP servers</span>
+├── CLAUDE.md
+├── .mcp.json  <span class="note">← project MCP servers</span>
 ├── <span class="dir">.claude/</span>
 │   ├── settings.json
 │   ├── <span class="optional">settings.local.json</span>  <span class="note">← gitignore</span>
@@ -63,8 +63,8 @@ es: `
 
     <div class="filetree">
 <span class="dir">mi-proyecto/</span>
-├── <span class="dir">CLAUDE.md</span>
-├── <span class="dir">.mcp.json</span>  <span class="note">← servidores MCP</span>
+├── CLAUDE.md
+├── .mcp.json  <span class="note">← servidores MCP</span>
 ├── <span class="dir">.claude/</span>
 │   ├── settings.json
 │   ├── <span class="optional">settings.local.json</span>  <span class="note">← gitignore</span>

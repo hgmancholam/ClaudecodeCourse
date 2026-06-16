@@ -99,7 +99,7 @@ es: `
     </div>
 
     <div class="cat s-short">
-      <h3>Shortcuts &amp; Notación</h3>
+      <h3>Atajos y notación</h3>
       <div class="ln"><span class="k">Esc</span><span class="d">Detiene el procesamiento</span></div>
       <div class="ln"><span class="k">Esc + Esc</span><span class="d">Limpia borrador / menú rewind</span></div>
       <div class="ln"><span class="k">Shift+Tab</span><span class="d">Alterna modos (default, plan, auto)</span></div>
