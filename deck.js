@@ -165,9 +165,11 @@
     slides.forEach((s,i)=>{
       const li=document.createElement('li');
       li.dataset.idx=i;
-      const rawTitle = s.dataset.title
-        ? s.dataset.title.replace(/-/g,' ')
-        : (s.querySelector('h1,h2')?.textContent||'Slide '+(i+1)).trim();
+      // Preferir el encabezado del slide (bilingüe) sobre el data-title (slug
+      // idéntico en ambos idiomas) para que el picker respete el idioma activo.
+      const heading = s.querySelector('h1,h2')?.textContent?.trim();
+      const rawTitle = heading
+        || (s.dataset.title ? s.dataset.title.replace(/-/g,' ') : 'Slide '+(i+1));
       li.innerHTML=`<span class="pi-num">${String(i+1).padStart(2,'0')}</span><span class="pi-title">${rawTitle}</span>`;
       li.onclick=()=>{ show(i); closePicker(); };
       pickerList.append(li);
