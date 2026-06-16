@@ -124,7 +124,7 @@
   .refgrid.metricgrid .ln .d{color:var(--muted);}
   /* fila métrica: la cifra es protagonista, descripción como caption debajo */
   .refgrid.metricgrid .ln.m{flex-direction:column; align-items:flex-start; gap:.05cqmin;}
-  .refgrid.metricgrid .ln.m .k{font-size:2.5em; line-height:.95; font-weight:800;}
+  .refgrid.metricgrid .ln.m .k{font-size:2.15em; line-height:.95; font-weight:800;}
   .refgrid.metricgrid .ln.m .d{font-size:1em;}
   /* fuente: pegada al pie de la tarjeta, separada y discreta */
   .refgrid.metricgrid .ln.src{margin-top:auto; border-bottom:none; border-top:.12cqmin solid var(--line); padding-top:.7cqmin; font-size:calc(var(--rg-fs,1.55cqmin) * .82); opacity:.8;}

@@ -35,11 +35,19 @@
     if (window.matchMedia('(max-width: 700px)').matches) return;
     const grid = slide.querySelector('.refgrid');
     if (!grid) return;
+    // .metricgrid es un grid con align-items:stretch (tarjetas de igual altura),
+    // así que las .cat siempre llenan el alto disponible y no se puede medir el
+    // contenido natural. Durante la medición desactivamos el estiramiento
+    // (align-items:start) para que cada tarjeta se ajuste a su contenido real;
+    // luego lo restauramos. El tope de fuente también es menor para que las
+    // cifras grandes no se desborden de proporción.
+    const isMetric = grid.classList.contains('metricgrid');
     grid.style.removeProperty('--rg-fs');
     grid.style.removeProperty('--rg-h3');
     requestAnimationFrame(() => requestAnimationFrame(() => {
       const avail = grid.getBoundingClientRect().height;
       if (!avail) return;
+      if (isMetric) grid.style.alignItems = 'start';
 
       // True rendered content height in the multi-column layout.
       // Si una .cat se fragmenta entre columnas (getClientRects().length > 1) la
@@ -47,6 +55,7 @@
       // rompería la monotonía que asume la búsqueda binaria y haría que escogiera
       // una fuente demasiado grande. Tratamos ese estado como "no cabe" (Infinity)
       // para que converja a la mayor fuente donde NINGUNA tarjeta se parte.
+      // (En .metricgrid no aplica el fragmentado: cada .cat es un único ítem grid.)
       function usedHeight() {
         const top = grid.getBoundingClientRect().top;
         let max = 0, broken = false;
@@ -58,9 +67,9 @@
       }
 
       const nat = usedHeight();
-      if (!nat || nat >= avail * 0.98) return; // already fills space
+      if (!nat || nat >= avail * 0.98) { if (isMetric) grid.style.removeProperty('align-items'); return; }
 
-      let lo = 0.3, hi = Math.min(12, (avail / nat) * 1.05);
+      let lo = 0.3, hi = Math.min(isMetric ? 4.2 : 12, (avail / nat) * 1.05);
       for (let i = 0; i < 30; i++) {
         const m = (lo + hi) / 2;
         grid.style.setProperty('--rg-fs', m.toFixed(4) + 'cqmin');
@@ -69,6 +78,7 @@
       }
       grid.style.setProperty('--rg-fs', lo.toFixed(4) + 'cqmin');
       grid.style.setProperty('--rg-h3', (lo * 0.95).toFixed(4) + 'cqmin');
+      if (isMetric) grid.style.removeProperty('align-items'); // restaura stretch (igual altura)
     }));
   }
   // ── Auto-fit: grow .ctable font to fill available height ──
