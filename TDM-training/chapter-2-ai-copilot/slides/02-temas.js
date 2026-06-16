@@ -1,7 +1,7 @@
 (window._deck = window._deck || []).push({
 en: `
 <section class="slide s-mode" data-title="temas">
-  <div class="kicker">Week 2 · Topics</div>
+  <div class="kicker">Chapter 2 · Topics</div>
   <h2>What we'll <span class="accent">cover</span></h2>
   <div class="body grid2">
     <ul class="points">
@@ -19,7 +19,7 @@ en: `
 `,
 es: `
 <section class="slide s-mode" data-title="temas">
-  <div class="kicker">Semana 2 · Temas</div>
+  <div class="kicker">Capítulo 2 · Temas</div>
   <h2>Qué <span class="accent">veremos</span></h2>
   <div class="body grid2">
     <ul class="points">

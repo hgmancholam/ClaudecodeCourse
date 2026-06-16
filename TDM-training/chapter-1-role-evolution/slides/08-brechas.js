@@ -1,7 +1,7 @@
 (window._deck = window._deck || []).push({
 en: `
 <section class="slide no-export s-info" data-title="brechas">
-  <div class="kicker">Week 1 · The Gaps</div>
+  <div class="kicker">Chapter 1 · The Gaps</div>
   <h2>Where the role <span class="accent">falls short</span> today <span style="font-weight:500;color:var(--muted);font-size:.62em;">· market expectation vs reality</span></h2>
   <div class="refgrid refgrid-3">
     <div class="cat s-proj">
@@ -46,7 +46,7 @@ en: `
 `,
 es: `
 <section class="slide no-export s-info" data-title="brechas">
-  <div class="kicker">Semana 1 · Las Brechas</div>
+  <div class="kicker">Capítulo 1 · Las Brechas</div>
   <h2>Dónde está <span class="accent">corto</span> el rol hoy <span style="font-weight:500;color:var(--muted);font-size:.62em;">· lo que pide el mercado vs la realidad</span></h2>
   <div class="refgrid refgrid-3">
     <div class="cat s-proj">

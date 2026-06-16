@@ -1,7 +1,7 @@
 (window._deck = window._deck || []).push({
 en: `
 <section class="slide no-export s-info" data-title="mercado">
-  <div class="kicker">Week 1 · The Market</div>
+  <div class="kicker">Chapter 1 · The Market</div>
   <h2>What the market is <span class="accent">demanding</span> <span style="font-weight:500;color:var(--muted);font-size:.62em;">· the disruption (1/2)</span></h2>
   <div class="refgrid refgrid-3">
     <div class="cat s-proj">
@@ -31,7 +31,7 @@ en: `
 `,
 es: `
 <section class="slide no-export s-info" data-title="mercado">
-  <div class="kicker">Semana 1 · El Mercado</div>
+  <div class="kicker">Capítulo 1 · El Mercado</div>
   <h2>Lo que está demandando el <span class="accent">mercado</span> <span style="font-weight:500;color:var(--muted);font-size:.62em;">· la disrupción (1/2)</span></h2>
   <div class="refgrid refgrid-3">
     <div class="cat s-proj">

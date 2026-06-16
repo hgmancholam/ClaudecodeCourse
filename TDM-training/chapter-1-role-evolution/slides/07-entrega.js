@@ -1,7 +1,7 @@
 (window._deck = window._deck || []).push({
 en: `
 <section class="slide no-export s-flow" data-title="entrega-ia">
-  <div class="kicker">Week 1 · The Payoff</div>
+  <div class="kicker">Chapter 1 · The Payoff</div>
   <h2>Delivery outcomes · <span class="accent">without vs with AI</span></h2>
   <table class="ctable">
     <colgroup><col style="width:40%"><col style="width:18%"><col style="width:18%"><col style="width:24%"></colgroup>
@@ -31,7 +31,7 @@ en: `
 `,
 es: `
 <section class="slide no-export s-flow" data-title="entrega-ia">
-  <div class="kicker">Semana 1 · El Resultado</div>
+  <div class="kicker">Capítulo 1 · El Resultado</div>
   <h2>Resultados de entrega · <span class="accent">sin vs con IA</span></h2>
   <table class="ctable">
     <colgroup><col style="width:40%"><col style="width:18%"><col style="width:18%"><col style="width:24%"></colgroup>

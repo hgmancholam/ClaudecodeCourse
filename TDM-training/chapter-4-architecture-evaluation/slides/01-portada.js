@@ -1,7 +1,7 @@
 (window._deck = window._deck || []).push({
 en: `
 <section class="slide cover s-flow" data-title="portada">
-  <div class="kicker">Week 4 · Phase 2 — Technical Literacy</div>
+  <div class="kicker">Chapter 4 — Technical Literacy</div>
   <div class="body">
     <h1>Evaluating <span class="accent">Architecture</span></h1>
     <div class="lead">Read trade-offs and technical risk — and meet AI architectures for the first time.</div>
@@ -11,7 +11,7 @@ en: `
 `,
 es: `
 <section class="slide cover s-flow" data-title="portada">
-  <div class="kicker">Semana 4 · Fase 2 — Alfabetización Técnica</div>
+  <div class="kicker">Capítulo 4 — Alfabetización Técnica</div>
   <div class="body">
     <h1>Evaluación de <span class="accent">Arquitectura</span></h1>
     <div class="lead">Leer trade-offs y riesgo técnico — y conocer por primera vez las AI architectures.</div>

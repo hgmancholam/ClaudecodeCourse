@@ -36,58 +36,58 @@ window.PRESENTATIONS = [
       },
       {
         slug: 'chapter-1-role-evolution', accent: 's-info', slides: 8,
-        en: { tag: 'Week 1 · Phase 1', title: 'Evolution of the Role',
+        en: { tag: 'Chapter 1', title: 'Evolution of the Role',
               desc: 'Shifting market expectations, capability assessment, gap identification. Deliverable: individual Gap Map.' },
-        es: { tag: 'Semana 1 · Fase 1', title: 'Evolución del Rol',
+        es: { tag: 'Capítulo 1', title: 'Evolución del Rol',
               desc: 'Cambio de expectativas del mercado, assessment de capacidades, identificación de brechas. Entregable: Gap Map individual.' }
       },
       {
         slug: 'chapter-2-ai-copilot', accent: 's-mode', slides: 2,
-        en: { tag: 'Week 2 · Phase 1', title: 'AI as a Copilot',
+        en: { tag: 'Chapter 2', title: 'AI as a Copilot',
               desc: 'Prompting for leaders; AI in backlog, risks and reporting. Deliverable: Prompt Pack.' },
-        es: { tag: 'Semana 2 · Fase 1', title: 'IA como Copiloto',
+        es: { tag: 'Capítulo 2', title: 'IA como Copiloto',
               desc: 'Prompting para líderes; IA en backlog, riesgos y reporting. Entregable: Prompt Pack.' }
       },
       {
         slug: 'chapter-3-systems-understanding', accent: 's-feat', slides: 2,
-        en: { tag: 'Week 3 · Phase 2', title: 'Understanding Systems',
+        en: { tag: 'Chapter 3', title: 'Understanding Systems',
               desc: 'Basic architecture; APIs, CI/CD, repositories. Deliverable: technical checklist.' },
-        es: { tag: 'Semana 3 · Fase 2', title: 'Entendimiento de Sistemas',
+        es: { tag: 'Capítulo 3', title: 'Entendimiento de Sistemas',
               desc: 'Arquitectura básica; APIs, CI/CD, repositorios. Entregable: checklist técnico.' }
       },
       {
         slug: 'chapter-4-architecture-evaluation', accent: 's-flow', slides: 2,
-        en: { tag: 'Week 4 · Phase 2', title: 'Evaluating Architecture',
+        en: { tag: 'Chapter 4', title: 'Evaluating Architecture',
               desc: 'Trade-offs, technical risks, intro to AI architectures. Deliverable: Risk Assessment.' },
-        es: { tag: 'Semana 4 · Fase 2', title: 'Evaluación de Arquitectura',
+        es: { tag: 'Capítulo 4', title: 'Evaluación de Arquitectura',
               desc: 'Trade-offs, riesgos técnicos, introducción a AI architectures. Entregable: Risk Assessment.' }
       },
       {
         slug: 'chapter-5-ai-governance', accent: 's-env', slides: 2,
-        en: { tag: 'Week 5 · Phase 3', title: 'AI-Enabled Governance',
+        en: { tag: 'Chapter 5', title: 'AI-Enabled Governance',
               desc: 'Definition of Ready / Done and real metrics. Deliverable: AI-enabled DoR / DoD.' },
-        es: { tag: 'Semana 5 · Fase 3', title: 'Governance AI-enabled',
+        es: { tag: 'Capítulo 5', title: 'Governance AI-enabled',
               desc: 'DoR / DoD y métricas reales. Entregable: DoR / DoD AI-enabled.' }
       },
       {
         slug: 'chapter-6-code-literacy', accent: 's-cli', slides: 2,
-        en: { tag: 'Week 6 · Phase 3', title: 'Code Literacy',
+        en: { tag: 'Chapter 6', title: 'Code Literacy',
               desc: 'Reviewing PRs and detecting technical debt. Deliverable: Code Review Report.' },
-        es: { tag: 'Semana 6 · Fase 3', title: 'Code Literacy',
+        es: { tag: 'Capítulo 6', title: 'Code Literacy',
               desc: 'Revisión de PRs y detección de deuda técnica. Entregable: Code Review Report.' }
       },
       {
         slug: 'chapter-7-poc-build', accent: 's-flag', slides: 2,
-        en: { tag: 'Week 7 · Phase 4', title: 'Building a PoC',
+        en: { tag: 'Chapter 7', title: 'Building a PoC',
               desc: 'Developing a simple solution with AI. Deliverable: working PoC.' },
-        es: { tag: 'Semana 7 · Fase 4', title: 'Construcción de PoC',
+        es: { tag: 'Capítulo 7', title: 'Construcción de PoC',
               desc: 'Desarrollo de una solución simple con IA. Entregable: PoC funcional.' }
       },
       {
         slug: 'chapter-8-leadership-adoption', accent: 's-short', slides: 2,
-        en: { tag: 'Week 8 · Phase 4', title: 'Leadership & Adoption',
+        en: { tag: 'Chapter 8', title: 'Leadership & Adoption',
               desc: 'Executive communication and organizational scaling. Deliverable: personal Playbook.' },
-        es: { tag: 'Semana 8 · Fase 4', title: 'Liderazgo y Adopción',
+        es: { tag: 'Capítulo 8', title: 'Liderazgo y Adopción',
               desc: 'Comunicación ejecutiva y escalamiento organizacional. Entregable: Playbook personal.' }
       }
     ]

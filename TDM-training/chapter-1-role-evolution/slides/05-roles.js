@@ -1,7 +1,7 @@
 (window._deck = window._deck || []).push({
 en: `
 <section class="slide no-export s-mode" data-title="roles-ia">
-  <div class="kicker">Week 1 · Structural Shift</div>
+  <div class="kicker">Chapter 1 · Structural Shift</div>
   <h2>The delivery role · <span class="accent">before vs with AI</span></h2>
   <table class="ctable">
     <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>
@@ -32,7 +32,7 @@ en: `
 `,
 es: `
 <section class="slide no-export s-mode" data-title="roles-ia">
-  <div class="kicker">Semana 1 · Cambio Estructural</div>
+  <div class="kicker">Capítulo 1 · Cambio Estructural</div>
   <h2>El rol de delivery · <span class="accent">antes vs con IA</span></h2>
   <table class="ctable">
     <colgroup><col style="width:24%"><col style="width:38%"><col style="width:38%"></colgroup>

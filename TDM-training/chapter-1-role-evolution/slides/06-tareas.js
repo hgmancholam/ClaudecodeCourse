@@ -1,7 +1,7 @@
 (window._deck = window._deck || []).push({
 en: `
 <section class="slide no-export s-feat" data-title="tareas-ia">
-  <div class="kicker">Week 1 · The Daily Work</div>
+  <div class="kicker">Chapter 1 · The Daily Work</div>
   <h2>A TDM/PM's day · <span class="accent">manual vs AI-augmented</span></h2>
   <table class="ctable">
     <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>
@@ -32,7 +32,7 @@ en: `
 `,
 es: `
 <section class="slide no-export s-feat" data-title="tareas-ia">
-  <div class="kicker">Semana 1 · El Trabajo Diario</div>
+  <div class="kicker">Capítulo 1 · El Trabajo Diario</div>
   <h2>El día de un TDM/PM · <span class="accent">manual vs aumentado con IA</span></h2>
   <table class="ctable">
     <colgroup><col style="width:26%"><col style="width:37%"><col style="width:37%"></colgroup>

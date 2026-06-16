@@ -1,7 +1,7 @@
 (window._deck = window._deck || []).push({
 en: `
 <section class="slide cover s-mode" data-title="portada">
-  <div class="kicker">Week 2 · Phase 1 — Mental Reset + AI</div>
+  <div class="kicker">Chapter 2 — Mental Reset + AI</div>
   <div class="body">
     <h1>AI as a <span class="accent">Copilot</span></h1>
     <div class="lead">Make AI a daily partner for backlog, risks and reporting — not an occasional toy.</div>
@@ -11,7 +11,7 @@ en: `
 `,
 es: `
 <section class="slide cover s-mode" data-title="portada">
-  <div class="kicker">Semana 2 · Fase 1 — Reset Mental + IA</div>
+  <div class="kicker">Capítulo 2 — Reset Mental + IA</div>
   <div class="body">
     <h1>IA como <span class="accent">Copiloto</span></h1>
     <div class="lead">Convierte la IA en un socio diario para backlog, riesgos y reporting — no en un juguete ocasional.</div>
