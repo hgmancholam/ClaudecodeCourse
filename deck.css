@@ -110,7 +110,7 @@
 
   /* Tabla comparativa de features (slide features-map) */
   .ctable{width:100%;border-collapse:collapse;table-layout:fixed;flex:1;margin-top:1.2cqmin;}
-  .ctable th{background:var(--accent,var(--proj));color:#fff;padding:.75cqmin 1.3cqmin;text-align:left;font-size:calc(var(--ct-fs, 1.9cqmin) * 0.921);letter-spacing:.06cqmin;text-transform:uppercase;font-weight:800;}
+  .ctable th{background:var(--accent,var(--proj));color:#fff;padding:.75cqmin 1.3cqmin;text-align:left;font-size:calc(var(--ct-fs, 1.9cqmin) * 0.921);letter-spacing:.06cqmin;text-transform:uppercase;font-weight:800;white-space:nowrap;}
   .ctable td{padding:.8cqmin 1.3cqmin;border-bottom:.1cqmin solid var(--line);vertical-align:middle;line-height:1.35;color:var(--muted);font-size:var(--ct-fs, 1.9cqmin);overflow-wrap:break-word;}
   .ctable tbody tr:last-child td{border-bottom:none;}
   .ctable tbody tr:nth-child(even) td{background:#f8f8fb;}
