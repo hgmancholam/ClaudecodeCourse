@@ -42,7 +42,7 @@ window.PRESENTATIONS = [
               desc: 'Cambio de expectativas del mercado, assessment de capacidades, identificación de brechas. Entregable: Gap Map individual.' }
       },
       {
-        slug: 'chapter-2-ai-copilot', accent: 's-mode', slides: 2,
+        slug: 'chapter-2-ai-copilot', accent: 's-mode', slides: 12,
         en: { tag: 'Chapter 2', title: 'AI as a Copilot',
               desc: 'Prompting for leaders; AI in backlog, risks and reporting. Deliverable: Prompt Pack.' },
         es: { tag: 'Capítulo 2', title: 'IA como Copiloto',
