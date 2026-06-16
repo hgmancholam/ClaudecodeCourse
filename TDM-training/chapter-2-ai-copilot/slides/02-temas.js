@@ -25,7 +25,7 @@ es: `
     <ul class="points">
       <li><span class="ico">💬</span><span><b>Prompting para líderes</b> — patrones que dan respuestas útiles.</span></li>
       <li><span class="ico">📋</span><span><b>IA en el backlog</b> — refinar, dividir y aclarar historias.</span></li>
-      <li><span class="ico">⚠️</span><span><b>IA para riesgos y reporting</b> — exponer riesgo, redactar status más rápido.</span></li>
+      <li><span class="ico">⚠️</span><span><b>IA para riesgos e informes</b> — exponer riesgo, redactar el estado más rápido.</span></li>
     </ul>
     <div class="callout">
       <b>Entregable</b><br><br>

@@ -27,7 +27,7 @@ es: `
       <li><span class="ico">3</span><span><b>Detectar riesgos técnicos</b> antes de que duelan.</span></li>
       <li><span class="ico">4</span><span><b>Participar en discusiones</b> de arquitectura.</span></li>
       <li><span class="ico">5</span><span><b>Crear PoCs simples</b> con IA.</span></li>
-      <li><span class="ico">6</span><span><b>Definir governance AI-enabled</b>.</span></li>
+      <li><span class="ico">6</span><span><b>Definir una gobernanza habilitada por IA</b>.</span></li>
     </ul>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span class="pg"></span></footer>

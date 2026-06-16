@@ -24,7 +24,7 @@ es: `
   <div class="body grid2">
     <ul class="points">
       <li><span class="ico">📈</span><span><b>Cambio de expectativas del mercado</b> para el rol de delivery.</span></li>
-      <li><span class="ico">🧭</span><span><b>Assessment de capacidades</b> — dónde estás hoy.</span></li>
+      <li><span class="ico">🧭</span><span><b>Evaluación de capacidades</b> — dónde estás hoy.</span></li>
       <li><span class="ico">🧩</span><span><b>Identificación de brechas</b> — nombra las que importan.</span></li>
     </ul>
     <div class="callout">

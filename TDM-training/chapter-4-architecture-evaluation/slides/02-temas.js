@@ -29,7 +29,7 @@ es: `
     </ul>
     <div class="callout">
       <b>Entregable</b><br><br>
-      <b>Risk Assessment</b> — una lectura estructurada del riesgo en una arquitectura real.
+      <b>Evaluación de Riesgos</b> — una lectura estructurada del riesgo en una arquitectura real.
     </div>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span class="pg"></span></footer>

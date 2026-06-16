@@ -26,7 +26,7 @@ es: `
     <ul class="points">
       <li><span class="ico">1</span><span><b>Reset Mental + IA</b> — S1 Evolución del Rol · S2 IA como Copiloto</span></li>
       <li><span class="ico">2</span><span><b>Alfabetización Técnica</b> — S3 Entendimiento de Sistemas · S4 Evaluación de Arquitectura</span></li>
-      <li><span class="ico">3</span><span><b>Control del Delivery</b> — S5 Governance AI-enabled · S6 Code Literacy</span></li>
+      <li><span class="ico">3</span><span><b>Control del Delivery</b> — S5 Gobernanza con IA · S6 Alfabetización de Código</span></li>
       <li><span class="ico">4</span><span><b>Ejecución y Escalamiento</b> — S7 Construcción de PoC · S8 Liderazgo y Adopción</span></li>
     </ul>
     <div class="callout">
