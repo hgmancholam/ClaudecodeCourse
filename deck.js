@@ -177,7 +177,7 @@
     else if(e.key==='ArrowLeft'||e.key==='PageUp') prev();
     else if(e.key==='f'||e.key==='F') document.getElementById('full').click();
     else if(e.key==='e'||e.key==='E') exportSlide(idx);
-    else if(e.key==='a'||e.key==='A') exportAll();
+    else if(e.key==='a'||e.key==='A') exportPdf();
     else if(e.key==='l'||e.key==='L') langBtn.click();
     else if(e.key==='Home') show(0);
     else if(e.key==='End') show(slides.length-1);
@@ -215,9 +215,33 @@
       document.body.classList.remove('exporting');
     }
   }
-  async function exportAll(){ for(let i=0;i<slides.length;i++){ await exportSlide(i); await new Promise(r=>setTimeout(r,300)); } }
+  async function exportPdf(){
+    if(!window.jspdf){ alert('jsPDF not loaded'); return; }
+    const {jsPDF}=window.jspdf;
+    const PAGE=210;
+    const pdf=new jsPDF({orientation:'portrait',unit:'mm',format:[PAGE,PAGE]});
+    document.body.classList.add('exporting');
+    const pw=stage.style.width, ph=stage.style.height;
+    stage.style.width='1080px'; stage.style.height='1080px';
+    const prevActive=idx;
+    try{
+      for(let i=0;i<slides.length;i++){
+        slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+        await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+        const c=await html2canvas(slides[i],{scale:2,backgroundColor:'#ffffff',width:1080,height:1080,windowWidth:1080,windowHeight:1080});
+        if(i>0) pdf.addPage([PAGE,PAGE]);
+        pdf.addImage(c.toDataURL('image/jpeg',.92),'JPEG',0,0,PAGE,PAGE);
+      }
+      const title=(document.title||'deck').replace(/[^a-z0-9]+/gi,'-').toLowerCase().replace(/^-|-$/g,'');
+      pdf.save(title+'.pdf');
+    } finally {
+      slides.forEach((s,k)=>s.classList.toggle('active',k===prevActive));
+      stage.style.width=pw; stage.style.height=ph;
+      document.body.classList.remove('exporting');
+    }
+  }
   document.getElementById('exp').onclick=()=>exportSlide(idx);
-  document.getElementById('expAll').onclick=exportAll;
+  document.getElementById('expPdf').onclick=exportPdf;
 
   // ── Slide picker ──
   function buildPickerList(){

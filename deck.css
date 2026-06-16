@@ -141,7 +141,7 @@
   .ctable .trg{font-family:var(--mono);font-size:calc(var(--ct-fs, 1.9cqmin) * 0.884);overflow-wrap:break-word;}
 
   /* Estado no-exportable (aplicado por JS al #bar cuando el slide activo tiene .no-export) */
-  #bar.no-export #exp, #bar.no-export #expAll{ opacity:.25; pointer-events:none; }
+  #bar.no-export #exp{ opacity:.25; pointer-events:none; }
 
   /* Árbol de carpetas */
   .filetree{
@@ -414,5 +414,5 @@
     #bar button{padding:6px 9px; font-size:13px;}
     #bar .count{min-width:auto; font-size:13px; padding:4px 6px;}
     /* #bar #id (esp. 110) para ganarle a la regla base #bar button (esp. 101) */
-    #bar #full, #bar #exp, #bar #expAll, #bar .sep{display:none;}
+    #bar #full, #bar #exp, #bar #expPdf, #bar .sep{display:none;}
   }

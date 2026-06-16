@@ -133,7 +133,7 @@ Each slide exports to a 1080×1080 PNG at `scale:2` (2160px, sharp). `exportSlid
 
 ### Keyboard
 
-`←/→/space` navigate, `F` fullscreen, `E` export current slide, `A` export all, `L` toggle language, `Home/End` jump to first/last.
+`←/→/space` navigate, `F` fullscreen, `E` export current slide PNG, `A` export deck PDF, `L` toggle language, `Home/End` jump to first/last.
 
 ## Conventions
 
