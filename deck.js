@@ -42,13 +42,19 @@
       if (!avail) return;
 
       // True rendered content height in the multi-column layout.
+      // Si una .cat se fragmenta entre columnas (getClientRects().length > 1) la
+      // altura medida BAJA (el contenido fluye a lo ancho, no a lo alto), lo que
+      // rompería la monotonía que asume la búsqueda binaria y haría que escogiera
+      // una fuente demasiado grande. Tratamos ese estado como "no cabe" (Infinity)
+      // para que converja a la mayor fuente donde NINGUNA tarjeta se parte.
       function usedHeight() {
         const top = grid.getBoundingClientRect().top;
-        let max = 0;
+        let max = 0, broken = false;
         grid.querySelectorAll('.cat').forEach(c => {
+          if (c.getClientRects().length > 1) broken = true;
           max = Math.max(max, c.getBoundingClientRect().bottom - top);
         });
-        return max;
+        return broken ? Infinity : max;
       }
 
       const nat = usedHeight();
