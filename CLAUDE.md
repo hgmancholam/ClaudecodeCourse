@@ -4,62 +4,102 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-A bilingual (English/Spanish) internal training deck about **Claude Code (the CLI)**, built as standalone HTML/JS files. There is no build system, package manager, or test suite — files are opened directly in a browser. The authoritative source for content is Anthropic's official courses at https://anthropic.skilljar.com/ ; content is added incrementally as the author works through those courses.
+A bilingual (English/Spanish) **multi-presentation site** of internal training decks about **Claude Code (the CLI)** and related topics, built as standalone HTML/JS files. There is no build system, package manager, or test suite — files are opened directly in a browser. The authoritative source for content is Anthropic's official courses at https://anthropic.skilljar.com/ ; content is added incrementally as the author works through those courses.
+
+The site hosts **several presentations, each in its own folder with its own URL** (deployed on Vercel). See "Multiple presentations & routing" below.
 
 ## Files
 
-- `theme.css` — **single source of truth for the visual identity** (color tokens, typography tokens, base reset, and the `.s-*` accent classes). Both HTML pages link it. Change a color/font here and it propagates site-wide; do not redefine these tokens inside a page's `<style>`.
-- `index.html` — the **slide deck**. A presentation framework (page-specific layout in inline `<style>` + vanilla JS, plus html2canvas via CDN; shared tokens come from `theme.css`). Loads slides via `<script src="slides/NN-nombre.js">` tags — works with `file://`, no server needed.
-- `slides/` — individual slide files as `.js`. Each file pushes a **bilingual object** to `window._deck`:
+### Shared (root)
+- `theme.css` — **single source of truth for the visual identity** (color tokens, typography tokens, base reset, and the `.s-*` accent classes). Every page links it. Change a color/font here and it propagates site-wide; do not redefine these tokens inside a page's `<style>`.
+- `deck.css` — **the deck framework's styles** (slide layout, components, fluid `cqmin`/`@container` rules, controls bar, mobile media query). Extracted from the old inline `<style>` so every presentation reuses one copy. All the slide-rendering CSS described in this file now lives here.
+- `deck.js` — **the deck framework's behavior** (`renderDeck`, language toggle, navigation, slide picker, `fitRefgrid`, PNG export, touch swipe). Extracted from the old inline `<script>`. Each presentation's `index.html` loads it **last**, after its slide `<script src>` tags and html2canvas.
+- `presentations.js` — **central registry**: `window.PRESENTATIONS = [{slug, accent, slides, en:{tag,title,desc}, es:{…}}]`. `/list` reads it. Add an entry here when you add a presentation.
+- `index.html` — **root redirect** to `/claude-code-basics` (relative meta-refresh + JS; on Vercel the `vercel.json` redirect handles `/` first).
+- `list/index.html` — the **`/list` page**: renders a card per presentation from `presentations.js`, bilingual (EN default, `L` toggles). Cards link to `../<slug>/`.
+- `vercel.json` — hosting config: `trailingSlash: true` and a redirect `/` → `/claude-code-basics`.
+
+### Per presentation (`<slug>/`)
+- `<slug>/index.html` — a **thin wrapper**: links `../theme.css` + `../deck.css`, contains `#stage` and `#bar` (with a `≡` home link to `../list/`), lists its own `slides/NN-*.js` via `<script src>`, then loads `../deck.js` last.
+- `<slug>/slides/` — individual slide files as `.js`. Each file pushes a **bilingual object** to `window._deck`:
   ```js
   (window._deck = window._deck || []).push({
     en: `<section class="slide ...">…English content…</section>`,
     es: `<section class="slide ...">…Spanish content…</section>`
   });
   ```
-  `index.html` calls `renderDeck()` which reads the current `lang` variable (`'en'` or `'es'`) and does `stage.innerHTML = window._deck.map(s => s[lang]).join('\n')`. **If the HTML content contains a backtick, escape it as `\`` inside the template literal.**
+  `deck.js` calls `renderDeck()` which reads the current `lang` variable (`'en'` or `'es'`) and does `stage.innerHTML = window._deck.map(s => s[lang]).join('\n')`. **If the HTML content contains a backtick, escape it as `\`` inside the template literal.**
+
+  Presentations:
+  - **`claude-code-basics/`** — 15 slides (the original deck). Slide table below.
+  - **`TDM-training/`** — Test Data Management deck, in progress (1 cover slide so far).
+
+  `claude-code-basics/slides/`:
 
   | # | File | `data-title` | Class |
   |---|------|-------------|-------|
-  | 1 | `slides/01-portada.js` | `portada` | `slide cover s-proj` |
-  | 2 | `slides/02-que-es-claude-code.js` | `que-es-claude-code` | `slide s-info` |
-  | 3 | `slides/03-claude-modes.js` | `claude-modes` | `slide s-mode` |
-  | 4 | `slides/04-installing-claude.js` | `installing-claude` | `slide s-info` |
-  | 5 | `slides/05-contexto-memoria.js` | `contexto-memoria` | `slide s-flow` |
-  | 6 | `slides/06-claude-agent-sdk.js` | `claude-agent-sdk` | `slide s-mode` |
-  | 7 | `slides/07-estructura-proyecto.js` | `estructura-proyecto` | `slide s-feat` |
-  | 8 | `slides/08-subagents.js` | `subagents` | `slide s-mode` |
-  | 9 | `slides/09-custom-commands.js` | `custom-commands` | `slide s-short` |
-  | 10 | `slides/10-hooks.js` | `hooks` | `slide s-env` |
-  | 11 | `slides/11-slash-commands.js` | `slash-commands` | `slide no-export s-cli` |
-  | 12 | `slides/12-atajos-cli.js` | `atajos-cli` | `slide no-export s-flag` |
-  | 13 | `slides/13-features-map.js` | `features-map` | `slide no-export s-proj` |
-  | 14 | `slides/14-bonus-skills.js` | `bonus-skills` | `slide no-export s-short` |
+  | 1 | `01-portada.js` | `portada` | `slide cover s-proj` |
+  | 2 | `02-que-es-claude-code.js` | `que-es-claude-code` | `slide s-info` |
+  | 3 | `03-claude-modes.js` | `claude-modes` | `slide s-mode` |
+  | 4 | `04-installing-claude.js` | `installing-claude` | `slide s-info` |
+  | 5 | `05-contexto-memoria.js` | `contexto-memoria` | `slide s-flow` |
+  | 6 | `06-claude-agent-sdk.js` | `claude-agent-sdk` | `slide s-mode` |
+  | 7 | `07-estructura-proyecto.js` | `estructura-proyecto` | `slide s-feat` |
+  | 8 | `08-subagents.js` | `subagents` | `slide s-mode` |
+  | 9 | `09-custom-commands.js` | `custom-commands` | `slide s-short` |
+  | 10 | `10-hooks.js` | `hooks` | `slide s-env` |
+  | 11 | `11-slash-commands.js` | `slash-commands` | `slide no-export s-cli` |
+  | 12 | `12-atajos-cli.js` | `atajos-cli` | `slide no-export s-flag` |
+  | 13 | `13-features-map.js` | `features-map` | `slide no-export s-proj` |
+  | 14 | `14-bonus-skills.js` | `bonus-skills` | `slide no-export s-short` |
+  | 15 | `15-gracias.js` | `gracias` | `slide cover s-proj` |
 
-  Next slide: `15` → `slides/15-nombre.js`. Add `no-export` to slides too dense for 1080×1080 (reference grids, tables).
-- `claude-commands-infografia.html` — a standalone single-page cheat-sheet of Claude Code commands (1600px wide, 3-column layout). Also consumes `theme.css` for its palette and typography.
+  Next slide in that deck: `16` → `slides/16-nombre.js`. Add `no-export` to slides too dense for 1080×1080 (reference grids, tables).
+
+## Multiple presentations & routing
+
+The site is a collection of decks, one folder per presentation, served on Vercel with clean URLs:
+
+| URL | Serves |
+|-----|--------|
+| `/` | redirects → `/claude-code-basics` (`vercel.json`; `index.html` is the local/file:// fallback) |
+| `/claude-code-basics` | `claude-code-basics/index.html` |
+| `/TDM-training` | `TDM-training/index.html` |
+| `/list` | `list/index.html` — index of all presentations |
+
+`vercel.json` sets `trailingSlash: true`, so Vercel serves `/claude-code-basics/` and **relative asset paths resolve correctly** (`../theme.css` → `/theme.css`, `slides/NN.js` → `/claude-code-basics/slides/NN.js`). Do **not** switch to absolute paths or these break on `file://` and at the folder root.
+
+**To add a new presentation** (e.g. `/my-deck`):
+1. Create `my-deck/index.html` by copying `claude-code-basics/index.html` (change `<title>` and the slide `<script src>` list).
+2. Create `my-deck/slides/01-portada.js` (and more) using the bilingual `window._deck` pattern.
+3. Add an entry to `presentations.js` (slug `my-deck`, an `accent` `s-*` class, slide count, and EN/ES `tag`/`title`/`desc`). That's all `/list` needs — no other file to touch.
+
+The shared `deck.css`/`deck.js`/`theme.css` are reused by every presentation; never fork them per deck.
 
 ## Running
 
-Open `index.html` directly in a browser (double-click) — **no server needed**. Slides load via `<script src>` tags which work with `file://`. html2canvas loads from a CDN — internet access needed for the export feature.
+Open a presentation's `index.html` directly in a browser (e.g. `claude-code-basics/index.html`) — **no server needed**; slides load via `<script src>` tags which work with `file://`. Opening the **root** `index.html` redirects to the basics deck. html2canvas loads from a CDN — internet access needed for the export feature. The clean `/slug` URLs only apply when deployed (Vercel).
 
 ## Language selector
 
 A **`ES / EN` button** in the control bar (or press `L`) switches the deck language at runtime. Default is **English**. The button shows the language you will switch *to* (so when showing English, it reads "ES"). Switching calls `renderDeck()` which re-injects the slides for the new language and navigates back to the same slide index.
 
-## Slide deck architecture (`index.html`)
+## Slide deck architecture (`deck.css` + `deck.js`)
+
+> The framework now lives in the shared root `deck.css` (styles) and `deck.js` (behavior); each presentation's `index.html` only links them and lists its slides. Where this section says "the `<style>`" it means `deck.css`, and "the main `<script>`" means `deck.js`.
+
 
 The deck is designed so **adding content never requires touching the JavaScript**.
 
 **Dual-format / fluid design (the core idea).** Slides are NOT a fixed size. `#stage` is a CSS **container** (`container-type: size`) that fills the viewport during presentation (any aspect ratio) and is temporarily forced to 1080×1080 during export. A single markup adapts to both because:
 - All typography and spacing use **`cqmin` units** (1% of the container's shorter side), so sizes stay consistent whether the canvas is a 1920×1080 screen or a 1080×1080 export. Avoid fixed `px` for slide content — use `cqmin` (px is fine for the controls UI, which lives outside `#stage`).
 - A single `@container slide (min-aspect-ratio: 1.15)` block switches layout: wide screens get 2-column bodies (`.body.grid2`) and slightly smaller relative type; square/export collapses to one stacked column. Keep new aspect-driven responsive rules inside this block rather than adding more container queries.
-- **Mobile / narrow view (`@media (max-width: 700px)`).** On a portrait phone the container's shorter side is the *width*, so `cqmin` text becomes tiny and the fit-to-screen `overflow:hidden` makes it illegible. A single `@media (max-width: 700px)` block (in `index.html`'s `<style>`) handles this exception: it switches the active slide to `overflow-y:auto` with content flowing from the top, and overrides the key text components to **fixed, legible px sizes** so a slide stays readable and scrolls vertically when it doesn't fit. `fitRefgrid()` early-returns on this breakpoint (the reference grids drop to one column with fixed-size rows). The control bar (`#bar`) becomes a **full-width bottom bar** on mobile — pinned flush to the bottom edge (`left/right/bottom:0`, `transform:none`, `border-radius:0`, no side margins) on **one line** (`flex-wrap:nowrap`, shrunken buttons) — and `#full` (fullscreen) plus the 1:1 export buttons (`#exp`, `#expAll`) and the separator are hidden since fullscreen/exporting are desktop authoring actions. **This media query must stay at the very end of the `<style>`**: media queries don't raise specificity, so it has to come *after* the base `#bar`/`.slide` rules to win the cascade by source order (otherwise the base `#bar { bottom:18px }` overrode the mobile `bottom:0`, leaving a gap above the bottom edge).
+- **Mobile / narrow view (`@media (max-width: 700px)`).** On a portrait phone the container's shorter side is the *width*, so `cqmin` text becomes tiny and the fit-to-screen `overflow:hidden` makes it illegible. A single `@media (max-width: 700px)` block (in `deck.css`) handles this exception: it switches the active slide to `overflow-y:auto` with content flowing from the top, and overrides the key text components to **fixed, legible px sizes** so a slide stays readable and scrolls vertically when it doesn't fit. `fitRefgrid()` early-returns on this breakpoint (the reference grids drop to one column with fixed-size rows). The control bar (`#bar`) becomes a **full-width bottom bar** on mobile — pinned flush to the bottom edge (`left/right/bottom:0`, `transform:none`, `border-radius:0`, no side margins) on **one line** (`flex-wrap:nowrap`, shrunken buttons) — and `#full` (fullscreen) plus the 1:1 export buttons (`#exp`, `#expAll`) and the separator are hidden since fullscreen/exporting are desktop authoring actions. **This media query must stay at the very end of the `<style>`**: media queries don't raise specificity, so it has to come *after* the base `#bar`/`.slide` rules to win the cascade by source order (otherwise the base `#bar { bottom:18px }` overrode the mobile `bottom:0`, leaving a gap above the bottom edge).
 
   **Mobile re-shows everything the square layout hides.** A portrait phone also matches the `max-aspect-ratio: 1.14` container query, so its content-trimming rules (the `display:none` on `.callout`/`.codeblock`/`dl.defs` and the per-slide diagram hides that keep the 1:1 export uncluttered) would otherwise blank out the second-column visuals — callouts, code samples, diagrams — on mobile too. Because mobile scrolls, the media query re-shows them with `.callout, .codeblock{display:block !important}` (and `dl.defs{display:grid !important}`); the `!important` is required to beat the higher-specificity square rules. **If you add a new slide that hides an element in the square layout, also re-show it here**, or it will be invisible on mobile. This is the *only* width-based media query — keep mobile readability fixes here.
 
 Authoring rules:
-- **Adding a slide:** create `slides/NN-nombre.js` with the bilingual object pattern above, then add `<script src="slides/NN-nombre.js"></script>` in `index.html` before the main `<script>`. The slide counter and footer page numbers derive from the DOM after injection, so they update automatically.
+- **Adding a slide:** create `<slug>/slides/NN-nombre.js` with the bilingual object pattern above, then add `<script src="slides/NN-nombre.js"></script>` in **that presentation's** `index.html`, before the `../deck.js` `<script>`. The slide counter and footer page numbers derive from the DOM after injection, so they update automatically.
 - **`.body.grid2`** — add this class to bodies with several parallel items (lists, command rows) so they spread into 2 columns on a wide screen and stack on the square export. Single-focus bodies (one callout, cover) stay plain `.body`.
 - **Section color:** a class `s-proj | s-mode | s-feat | s-info | s-env | s-integ | s-flow | s-cli | s-flag | s-short` (defined in `theme.css`), each mapping a palette var to `--accent`. Components read `var(--accent)` to tint themselves.
 - **`data-title` attribute:** becomes the exported PNG filename (`NN-<data-title>.png`).

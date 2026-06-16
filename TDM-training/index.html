@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TDM Training · Slides</title>
+<!-- Tokens compartidos + framework del deck (raíz, reusado por cada presentación) -->
+<link rel="stylesheet" href="../theme.css">
+<link rel="stylesheet" href="../deck.css">
+</head>
+<body>
+
+<div id="stage">
+  <!-- [slides injected by JS from slides/*.js] -->
+</div>
+
+<div id="bar">
+  <a id="home" class="btn" href="../list/" title="All presentations">≡</a>
+  <span class="sep"></span>
+  <button id="prev">←</button>
+  <span class="count" id="count-wrap" title="Click to choose slide">
+    <span id="cur">1</span> / <span id="tot">1</span>
+    <div id="slide-picker">
+      <input id="picker-input" type="number" min="1" placeholder="Go to slide #…">
+      <ul id="picker-list"></ul>
+    </div>
+  </span>
+  <button id="next">→</button>
+  <span class="sep"></span>
+  <button id="lang-btn">ES</button>
+  <button id="full">⛶ Fullscreen</button>
+  <button id="exp">⬇ Slide 1:1</button>
+  <button id="expAll">⬇ All 1:1</button>
+</div>
+
+<!-- ── Slides: cada archivo pushea {en, es} a window._deck ── -->
+<!-- Para agregar un slide: crea slides/NN-nombre.js y añade la línea aquí -->
+<script src="slides/01-portada.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="../deck.js"></script>
+</body>
+</html>
