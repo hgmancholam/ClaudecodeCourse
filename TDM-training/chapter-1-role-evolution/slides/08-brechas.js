@@ -53,12 +53,12 @@ es: `
       <h3>❌ Brecha 1 · Alfabetización técnica mínima</h3>
       <div class="ln"><span class="k">Pide</span><span class="d">participar en decisiones de arquitectura; entender APIs, CI/CD, deuda técnica, riesgos de sistema</span></div>
       <div class="ln"><span class="k">Hoy</span><span class="d">TDMs, SMs y PMs operan como coordinadores de calendario — entienden el proceso, no lo que el equipo construye ni por qué importa</span></div>
-      <div class="ln"><a class="k" href="https://pmstudycircle.com/pmi-talent-triangle/" target="_blank" rel="noopener">↗ fuente</a><span class="d">PMI Talent Triangle 2024 — 64% de líderes senior necesita nuevas skills técnicas</span></div>
+      <div class="ln"><a class="k" href="https://pmstudycircle.com/pmi-talent-triangle/" target="_blank" rel="noopener">↗ fuente</a><span class="d">PMI Talent Triangle 2024 — 64% de líderes senior necesita nuevas habilidades técnicas</span></div>
     </div>
     <div class="cat s-mode">
       <h3>❌ Brecha 2 · IA no integrada al flujo</h3>
       <div class="ln"><span class="k">Pide</span><span class="d">usar IA para gobernar delivery: generar reportes, detectar riesgos, automatizar el backlog, preparar comunicaciones ejecutivas</span></div>
-      <div class="ln"><span class="k">Hoy</span><span class="d">la IA se usa (si se usa) de forma aislada y experimental — sin workflow sistemático; el PM sigue haciendo a mano lo que debería automatizar</span></div>
+      <div class="ln"><span class="k">Hoy</span><span class="d">la IA se usa (si se usa) de forma aislada y experimental — sin un flujo sistemático; el PM sigue haciendo a mano lo que debería automatizar</span></div>
       <div class="ln"><a class="k" href="https://www.weforum.org/press/2025/01/future-of-jobs-report-2025-78-million-new-job-opportunities-by-2030-but-urgent-upskilling-needed-to-prepare-workforces/" target="_blank" rel="noopener">↗ fuente</a><span class="d">McKinsey 2024 / WEF 2025 — 45% automatizable, solo 70% planea upskilling con IA</span></div>
     </div>
     <div class="cat s-feat">
@@ -69,7 +69,7 @@ es: `
     </div>
     <div class="cat s-flow">
       <h3>❌ Brecha 4 · Rol definido por el framework, no por el valor</h3>
-      <div class="ln"><span class="k">Pide</span><span class="d">organizational enablers que operen entre roles, funciones y tecnologías</span></div>
+      <div class="ln"><span class="k">Pide</span><span class="d">facilitadores organizacionales que operen entre roles, funciones y tecnologías</span></div>
       <div class="ln"><span class="k">Hoy</span><span class="d">SM = facilitar ceremonias, PM = actualizar el Gantt, TDM = escalar tickets — el rol está capturado por el proceso, no orientado al valor</span></div>
       <div class="ln"><a class="k" href="https://www.scrumalliance.org/about/annual-report-2025" target="_blank" rel="noopener">↗ fuente</a><span class="d">Scrum Alliance Annual Report 2025</span></div>
     </div>
@@ -81,8 +81,8 @@ es: `
     </div>
     <div class="cat s-flag">
       <h3>📌 La conclusión que abre el programa</h3>
-      <div class="ln"><span class="k">≠</span><span class="d">el mercado no pide que el SM, PM o TDM se convierta en developer</span></div>
-      <div class="ln"><span class="k">=</span><span class="d"><b>entender suficiente</b> para tomar mejores decisiones · <b>usar IA</b> como palanca de productividad y governance · <b>hablar el lenguaje</b> del negocio y la arquitectura a la vez</span></div>
+      <div class="ln"><span class="k">≠</span><span class="d">el mercado no pide que el SM, PM o TDM se convierta en desarrollador</span></div>
+      <div class="ln"><span class="k">=</span><span class="d"><b>entender suficiente</b> para tomar mejores decisiones · <b>usar IA</b> como palanca de productividad y gobernanza · <b>hablar el lenguaje</b> del negocio y la arquitectura a la vez</span></div>
       <div class="ln"><span class="k">→</span><span class="d"><b>Eso es exactamente lo que construye este programa.</b></span></div>
     </div>
   </div>

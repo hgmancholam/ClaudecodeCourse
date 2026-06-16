@@ -13,7 +13,7 @@ es: `
 <section class="slide cover s-env" data-title="portada">
   <div class="kicker">Capítulo 5 — Control del Delivery</div>
   <div class="body">
-    <h1>Governance <span class="accent">AI-enabled</span></h1>
+    <h1>Gobernanza <span class="accent">habilitada por IA</span></h1>
     <div class="lead">Afina cómo empieza y termina el trabajo, y mide lo que de verdad es real.</div>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span>2026</span></footer>

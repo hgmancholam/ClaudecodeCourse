@@ -19,7 +19,7 @@ en: `
 es: `
 <section class="slide s-feat" data-title="objetivos">
   <div class="kicker">Objetivos de aprendizaje</div>
-  <h2>Al finalizar, podrás <span class="accent">…</span></h2>
+  <h2>Al finalizar, <span class="accent">serás capaz de…</span></h2>
   <div class="body grid2">
     <ul class="points">
       <li><span class="ico">1</span><span><b>Evaluar decisiones técnicas</b> con criterio.</span></li>

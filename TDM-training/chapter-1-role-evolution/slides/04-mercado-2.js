@@ -44,9 +44,9 @@ es: `
     </div>
     <div class="cat s-env">
       <h3>🔄 Scrum Alliance · Annual Report 2025</h3>
-      <div class="ln"><span class="k">↗</span><span class="d">las empresas ya no necesitan roles narrowly defined — necesitan multi-skilled professionals</span></div>
+      <div class="ln"><span class="k">↗</span><span class="d">las empresas ya no necesitan roles definidos de forma estrecha — necesitan profesionales polivalentes</span></div>
       <div class="ln"><span class="k">↳</span><span class="d">el nuevo perfil trabaja entre funciones, integra tecnologías emergentes, navega complejidad organizacional</span></div>
-      <div class="ln"><span class="k">🆕</span><span class="d">lanzó microcredenciales AI-ready como respuesta directa a esta demanda</span></div>
+      <div class="ln"><span class="k">🆕</span><span class="d">lanzó microcredenciales orientadas a IA como respuesta directa a esta demanda</span></div>
       <div class="ln src"><a class="k" href="https://www.scrumalliance.org/about/annual-report-2025" target="_blank" rel="noopener">↗ fuente</a><span class="d">Scrum Alliance Annual Report 2025</span></div>
     </div>
     <div class="cat s-integ">
@@ -54,7 +54,7 @@ es: `
       <div class="ln m"><span class="k">64%</span><span class="d">de los líderes senior cree que sus equipos necesitan nuevas habilidades técnicas</span></div>
       <div class="ln m"><span class="k">3</span><span class="d">pilares: Ways of Working · Business Acumen · Power Skills</span></div>
       <div class="ln m"><span class="k">18%</span><span class="d">tiene alto dominio de Business Acumen + aplicación estratégica</span></div>
-      <div class="ln m"><span class="k">25%</span><span class="d">del presupuesto de training va a Business Acumen vs 46% a skills técnicos</span></div>
+      <div class="ln m"><span class="k">25%</span><span class="d">del presupuesto de formación va a Business Acumen vs 46% a habilidades técnicas</span></div>
       <div class="ln src"><a class="k" href="https://www.pmi.org/blog/pmi-talent-triangle-the-key-to-project-management-success" target="_blank" rel="noopener">↗ fuente</a><span class="d">PMI Blog — Talent Triangle</span></div>
     </div>
   </div>

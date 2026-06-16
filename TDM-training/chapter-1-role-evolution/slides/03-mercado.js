@@ -36,15 +36,15 @@ es: `
   <div class="refgrid refgrid-3 metricgrid">
     <div class="cat s-proj">
       <h3>🌍 WEF · Future of Jobs 2025</h3>
-      <div class="ln m"><span class="k">39%</span><span class="d">de los skill sets actuales serán transformados u obsoletos entre 2025–2030</span></div>
-      <div class="ln m"><span class="k">63%</span><span class="d">de los empleadores citan el skills gap como su principal barrera</span></div>
+      <div class="ln m"><span class="k">39%</span><span class="d">de los perfiles de competencias actuales serán transformados u obsoletos entre 2025–2030</span></div>
+      <div class="ln m"><span class="k">63%</span><span class="d">de los empleadores citan la brecha de habilidades como su principal barrera</span></div>
       <div class="ln"><span class="k">∑</span><span class="d">los perfiles top combinan capacidad técnica + habilidades que la IA no replica: pensamiento crítico, liderazgo, resiliencia</span></div>
       <div class="ln src"><a class="k" href="https://www.weforum.org/press/2025/01/future-of-jobs-report-2025-78-million-new-job-opportunities-by-2030-but-urgent-upskilling-needed-to-prepare-workforces/" target="_blank" rel="noopener">↗ fuente</a><span class="d">WEF Future of Jobs Report 2025</span></div>
     </div>
     <div class="cat s-mode">
       <h3>🔬 Gartner · Predicción PM 2024</h3>
       <div class="ln m"><span class="k">80%</span><span class="d">de las tareas de project management serán eliminadas para 2030 gracias a la IA</span></div>
-      <div class="ln"><span class="k">↳</span><span class="d">más afectadas: recolección de datos, tracking, status reporting, gestión de riesgos rutinaria</span></div>
+      <div class="ln"><span class="k">↳</span><span class="d">más afectadas: recolección de datos, seguimiento, reportes de estado, gestión de riesgos rutinaria</span></div>
       <div class="ln"><span class="k">≠</span><span class="d">el rol no desaparece — se transforma: de ejecutor a intérprete de criterio</span></div>
       <div class="ln src"><a class="k" href="https://www.sciencedirect.com/science/article/pii/S2444569X25001179" target="_blank" rel="noopener">↗ fuente</a><span class="d">citado en ScienceDirect — Impact of AI on PM (2025)</span></div>
     </div>
@@ -52,7 +52,7 @@ es: `
       <h3>📊 McKinsey · Automatización PM 2024</h3>
       <div class="ln m"><span class="k">45%</span><span class="d">de las actividades rutinarias de un PM pueden automatizarse <b>hoy</b></span></div>
       <div class="ln m"><span class="k">70%</span><span class="d">para 2030</span></div>
-      <div class="ln"><span class="k">↳</span><span class="d">ya automatizable: scheduling, predicción de riesgos, status reporting, budget tracking, asignación de recursos</span></div>
+      <div class="ln"><span class="k">↳</span><span class="d">ya automatizable: planificación, predicción de riesgos, reportes de estado, control de presupuesto, asignación de recursos</span></div>
       <div class="ln src"><a class="k" href="https://www.resumly.ai/blog/how-ai-will-affect-project-management-roles-2025-outlook/" target="_blank" rel="noopener">↗ fuente</a><span class="d">IA y Roles de PM — 2025 Outlook (Resumly)</span></div>
     </div>
   </div>

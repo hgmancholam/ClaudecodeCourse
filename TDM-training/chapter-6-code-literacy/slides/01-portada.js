@@ -13,7 +13,7 @@ es: `
 <section class="slide cover s-cli" data-title="portada">
   <div class="kicker">Capítulo 6 — Control del Delivery</div>
   <div class="body">
-    <h1>Code <span class="accent">Literacy</span></h1>
+    <h1>Alfabetización de <span class="accent">código</span></h1>
     <div class="lead">Leer un pull request y detectar deuda técnica — sin escribir el código tú mismo.</div>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span>2026</span></footer>

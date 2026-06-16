@@ -25,7 +25,7 @@ es: `
     <ul class="points">
       <li><span class="ico">⚖️</span><span><b>Trade-offs</b> — nada es gratis; nombra el costo de cada decisión.</span></li>
       <li><span class="ico">⚠️</span><span><b>Riesgos técnicos</b> — detectarlos temprano en un diseño.</span></li>
-      <li><span class="ico">🤖</span><span><b>Introducción a AI architectures</b> — cómo se estructuran los sistemas de IA.</span></li>
+      <li><span class="ico">🤖</span><span><b>Introducción a las arquitecturas de IA</b> — cómo se estructuran los sistemas de IA.</span></li>
     </ul>
     <div class="callout">
       <b>Entregable</b><br><br>

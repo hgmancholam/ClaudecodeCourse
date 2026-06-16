@@ -26,7 +26,7 @@ es: `
   <h2>Las <span class="accent">reglas del juego</span></h2>
   <div class="body grid2">
     <ul class="points">
-      <li><span class="ico">🤝</span><span><b>Real commitment</b> — comprométete y cumple.</span></li>
+      <li><span class="ico">🤝</span><span><b>Compromiso real</b> — comprométete y cumple.</span></li>
       <li><span class="ico">🙋</span><span><b>Participación activa</b> — involúcrate, no seas espectador.</span></li>
       <li><span class="ico">📝</span><span><b>Toda sesión deja una tarea</b> — no hay semana sin entregable.</span></li>
       <li><span class="ico">🔁</span><span><b>Aplícalo en el día a día</b> — implementa los cambios en tu trabajo real.</span></li>

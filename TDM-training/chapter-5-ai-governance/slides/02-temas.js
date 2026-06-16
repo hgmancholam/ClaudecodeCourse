@@ -25,11 +25,11 @@ es: `
     <ul class="points">
       <li><span class="ico">✅</span><span><b>Definition of Ready / Done</b> — que "done" signifique terminado.</span></li>
       <li><span class="ico">📊</span><span><b>Métricas reales</b> — señal por encima de números de vanidad.</span></li>
-      <li><span class="ico">🤖</span><span><b>IA en governance</b> — usar IA para verificar y hacer cumplir las reglas.</span></li>
+      <li><span class="ico">🤖</span><span><b>IA en la gobernanza</b> — usar IA para verificar y hacer cumplir las reglas.</span></li>
     </ul>
     <div class="callout">
       <b>Entregable</b><br><br>
-      <b>DoR / DoD AI-enabled</b> — criterios de listo/terminado que tu equipo sí usará.
+      <b>DoR / DoD habilitado por IA</b> — criterios de listo/terminado que tu equipo sí usará.
     </div>
   </div>
   <footer><span class="brand">AI Capabilities Training <span class="dot">·</span> Delivery Lead</span><span class="author">Giovanny Manchola</span><span class="pg"></span></footer>

@@ -69,7 +69,7 @@ es: `
 │   ├── settings.json
 │   ├── <span class="optional">settings.local.json</span>  <span class="note">← gitignore</span>
 │   ├── <span class="dir">agents/</span>  <span class="note">← subagents</span>
-│   │   └── my-subagent.md
+│   │   └── mi-subagente.md
 │   ├── <span class="dir">skills/</span>  <span class="note">← slash commands</span>
 │   │   └── mi-skill/SKILL.md
 │   ├── <span class="dir">hooks/</span>

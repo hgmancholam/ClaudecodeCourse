@@ -49,7 +49,7 @@ es: `
       <tr><td class="feat">Gestión de riesgo</td><td>Reactiva, basada en experiencia</td><td>Predictiva — la IA detecta señales tempranas</td></tr>
       <tr><td class="feat">Decisiones</td><td>Datos parciales y tardíos</td><td>Datos en tiempo real, asistidos por IA</td></tr>
       <tr><td class="feat">Naturaleza</td><td>Ejecutor del proceso</td><td>Intérprete de criterio y estratega</td></tr>
-      <tr><td class="feat">Skill central</td><td>Dominio del framework (Scrum/PMBOK)</td><td>Criterio + alfabetización en IA y negocio</td></tr>
+      <tr><td class="feat">Habilidad central</td><td>Dominio del framework (Scrum/PMBOK)</td><td>Criterio + alfabetización en IA y negocio</td></tr>
     </tbody>
     <tfoot>
       <tr><td colspan="3" style="font-size:1.55cqmin;color:var(--muted);background:#f8f8fb;">
