@@ -1,0 +1,37 @@
+/* ──────────────────────────────────────────────────────────────────────
+   Galería de tarjetas compartida. La usan:
+     · /list        → lista todas las presentaciones (presentations.js)
+     · /<curso>/     → lista las sesiones de un curso
+   Consume los tokens de theme.css. El comportamiento vive en gallery.js.
+   ────────────────────────────────────────────────────────────────────── */
+html,body{height:100%;}
+body{background:var(--stage-bg); color:var(--ink); min-height:100%; margin:0;
+     font-family:var(--font); display:flex; justify-content:center; padding:6vh 5vw;}
+.wrap{width:100%; max-width:980px;}
+header.top{display:flex; align-items:baseline; gap:1rem; margin-bottom:2.4rem; flex-wrap:wrap;}
+.crumbs{flex-basis:100%; font-family:var(--mono); font-size:.82rem; color:var(--muted); margin-bottom:.4rem;}
+.crumbs a{color:var(--proj); text-decoration:none;}
+.crumbs a:hover{text-decoration:underline;}
+.kicker{font-size:.8rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--proj);}
+h1{font-size:2.6rem; line-height:1.05; letter-spacing:-.02em; margin:.3rem 0 0; color:#fff;}
+.sub{color:var(--muted); font-size:1.05rem; margin:.6rem 0 0; flex-basis:100%;}
+#lang-btn{margin-left:auto; align-self:center; background:#23233a; color:#e8e8f0;
+          border:1px solid #34344e; border-radius:9px; padding:8px 14px; font-size:.9rem;
+          cursor:pointer; font-weight:700;}
+#lang-btn:hover{background:#32324f;}
+.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.4rem;}
+a.card{display:flex; flex-direction:column; text-decoration:none; color:inherit;
+       background:var(--paper); border:1px solid var(--line); border-radius:16px;
+       padding:1.6rem 1.7rem; position:relative; overflow:hidden;
+       transition:transform .15s, box-shadow .15s, border-color .15s;}
+a.card:hover{transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,.35); border-color:var(--accent,var(--proj));}
+a.card::before{content:""; position:absolute; top:0; left:0; right:0; height:6px; background:var(--accent,var(--proj));}
+.card .tag{font-size:.72rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--accent,var(--proj));}
+.card h2{font-size:1.45rem; line-height:1.15; margin:.5rem 0 .6rem; color:var(--ink);}
+.card p{color:var(--muted); font-size:.96rem; line-height:1.5; margin:0 0 1.1rem;}
+.card .meta{margin-top:auto; display:flex; align-items:center; gap:.6rem;
+            font-family:var(--mono); font-size:.82rem; color:var(--muted);}
+.card .slug{color:var(--accent,var(--proj));}
+.card .go{margin-left:auto; font-weight:800; color:var(--accent,var(--proj));}
+footer.foot{margin-top:3rem; color:var(--muted); font-size:.85rem;}
+footer.foot .author{font-style:italic; opacity:.6;}

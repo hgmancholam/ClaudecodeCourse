@@ -3,41 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TDM Training · Slides</title>
-<!-- Tokens compartidos + framework del deck (raíz, reusado por cada presentación) -->
+<title>TDM Training · Chapters</title>
 <link rel="stylesheet" href="../theme.css">
-<link rel="stylesheet" href="../deck.css">
+<link rel="stylesheet" href="../gallery.css">
 </head>
 <body>
+  <div class="wrap">
+    <header class="top">
+      <nav class="crumbs" id="crumbs"></nav>
+      <div>
+        <div class="kicker" id="kicker"></div>
+        <h1 id="title"></h1>
+      </div>
+      <button id="lang-btn">ES</button>
+      <p class="sub" id="sub"></p>
+    </header>
+    <div class="grid" id="grid"></div>
+    <footer class="foot"><span class="author">Giovanny Manchola</span> · 2026</footer>
+  </div>
 
-<div id="stage">
-  <!-- [slides injected by JS from slides/*.js] -->
-</div>
-
-<div id="bar">
-  <a id="home" class="btn" href="../list/" title="All presentations">≡</a>
-  <span class="sep"></span>
-  <button id="prev">←</button>
-  <span class="count" id="count-wrap" title="Click to choose slide">
-    <span id="cur">1</span> / <span id="tot">1</span>
-    <div id="slide-picker">
-      <input id="picker-input" type="number" min="1" placeholder="Go to slide #…">
-      <ul id="picker-list"></ul>
-    </div>
-  </span>
-  <button id="next">→</button>
-  <span class="sep"></span>
-  <button id="lang-btn">ES</button>
-  <button id="full">⛶ Fullscreen</button>
-  <button id="exp">⬇ Slide 1:1</button>
-  <button id="expAll">⬇ All 1:1</button>
-</div>
-
-<!-- ── Slides: cada archivo pushea {en, es} a window._deck ── -->
-<!-- Para agregar un slide: crea slides/NN-nombre.js y añade la línea aquí -->
-<script src="slides/01-portada.js"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script src="../deck.js"></script>
+  <script src="../presentations.js"></script>
+  <script>
+    // Índice de capítulos de este curso. Se localiza en el registro por su slug.
+    const COURSE_SLUG = 'TDM-training';
+    const course = (window.PRESENTATIONS || []).find(p => p.slug === COURSE_SLUG) || {};
+    window.GALLERY_CONFIG = {
+      items: course.chapters || [],
+      hrefFor: ch => `${ch.slug}/`,          // /TDM-training/<chapter>/
+      slugBase: '/' + COURSE_SLUG,
+      crumbs: [
+        { href: '../list/', en: 'All presentations', es: 'Todas las presentaciones' },
+        { en: (course.en && course.en.title) || COURSE_SLUG, es: (course.es && course.es.title) || COURSE_SLUG }
+      ],
+      i18n: {
+        en: { kicker: (course.en && course.en.tag) || 'Course',
+              title:  (course.en && course.en.title) || COURSE_SLUG,
+              sub:    (course.en && course.en.desc) || 'Pick a chapter to open.' },
+        es: { kicker: (course.es && course.es.tag) || 'Curso',
+              title:  (course.es && course.es.title) || COURSE_SLUG,
+              sub:    (course.es && course.es.desc) || 'Elige un capítulo para abrir.' }
+      }
+    };
+  </script>
+  <script src="../gallery.js"></script>
 </body>
 </html>

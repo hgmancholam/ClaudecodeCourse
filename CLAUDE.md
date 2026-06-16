@@ -14,14 +14,17 @@ The site hosts **several presentations, each in its own folder with its own URL*
 - `theme.css` — **single source of truth for the visual identity** (color tokens, typography tokens, base reset, and the `.s-*` accent classes). Every page links it. Change a color/font here and it propagates site-wide; do not redefine these tokens inside a page's `<style>`.
 - `deck.css` — **the deck framework's styles** (slide layout, components, fluid `cqmin`/`@container` rules, controls bar, mobile media query). Extracted from the old inline `<style>` so every presentation reuses one copy. All the slide-rendering CSS described in this file now lives here.
 - `deck.js` — **the deck framework's behavior** (`renderDeck`, language toggle, navigation, slide picker, `fitRefgrid`, PNG export, touch swipe). Extracted from the old inline `<script>`. Each presentation's `index.html` loads it **last**, after its slide `<script src>` tags and html2canvas.
-- `presentations.js` — **central registry**: `window.PRESENTATIONS = [{slug, accent, slides, en:{tag,title,desc}, es:{…}}]`. `/list` reads it. Add an entry here when you add a presentation.
+- `presentations.js` — **central registry**: `window.PRESENTATIONS = [...]`. Each entry is one of two **types** (see "Presentation types & chapters"): a **simple deck** (has `slides:N`) or a **course** (has `chapters:[...]`). Both carry `slug`, `accent`, and bilingual `en`/`es` `{tag,title,desc}`. `/list` and the per-course index read this. Add/update an entry here when you add a presentation or chapter.
+- `gallery.css` / `gallery.js` — the **shared card-gallery component** used by `/list` (lists presentations) **and** each course's index (lists its chapters). `gallery.js` reads a `window.GALLERY_CONFIG = {items, hrefFor, i18n, crumbs?, slugBase?}` that the page sets before loading it; it renders the cards, the bilingual header, breadcrumbs, and the `L` language toggle. A card shows "N chapters" when its item has `chapters`, else "N slides".
 - `index.html` — **root redirect** to `/claude-code-basics` (relative meta-refresh + JS; on Vercel the `vercel.json` redirect handles `/` first).
-- `list/index.html` — the **`/list` page**: renders a card per presentation from `presentations.js`, bilingual (EN default, `L` toggles). Cards link to `../<slug>/`.
+- `list/index.html` — the **`/list` page**: sets `GALLERY_CONFIG` from `presentations.js` (items = all presentations, `hrefFor` → `../<slug>/`) and loads `gallery.js`.
 - `vercel.json` — hosting config: `trailingSlash: true` and a redirect `/` → `/claude-code-basics`.
 
 ### Per presentation (`<slug>/`)
-- `<slug>/index.html` — a **thin wrapper**: links `../theme.css` + `../deck.css`, contains `#stage` and `#bar` (with a `≡` home link to `../list/`), lists its own `slides/NN-*.js` via `<script src>`, then loads `../deck.js` last.
-- `<slug>/slides/` — individual slide files as `.js`. Each file pushes a **bilingual object** to `window._deck`:
+A presentation folder is **either** a deck **or** a course index:
+- **Simple deck** (`claude-code-basics/`): `<slug>/index.html` is a **thin deck wrapper** — links `../theme.css` + `../deck.css`, contains `#stage` and `#bar` (with a `≡` home link to `../list/`), lists its own `slides/NN-*.js` via `<script src>`, then loads `../deck.js` last.
+- **Course** (`TDM-training/`): `<slug>/index.html` is a **chapter index** (uses `../gallery.css`/`../gallery.js`, finds its own course in the registry by `COURSE_SLUG`, lists `course.chapters`). Each chapter lives in `<slug>/<chapter-slug>/` and is itself a deck wrapper, but linking the framework **two levels up** (`../../theme.css`, `../../deck.css`, `../../deck.js`) and with its `≡` home link pointing to `../` (the chapter index).
+- `<slug>/slides/` (deck) or `<slug>/<chapter-slug>/slides/` (course chapter) — individual slide files as `.js`. Each file pushes a **bilingual object** to `window._deck`:
   ```js
   (window._deck = window._deck || []).push({
     en: `<section class="slide ...">…English content…</section>`,
@@ -31,8 +34,8 @@ The site hosts **several presentations, each in its own folder with its own URL*
   `deck.js` calls `renderDeck()` which reads the current `lang` variable (`'en'` or `'es'`) and does `stage.innerHTML = window._deck.map(s => s[lang]).join('\n')`. **If the HTML content contains a backtick, escape it as `\`` inside the template literal.**
 
   Presentations:
-  - **`claude-code-basics/`** — 15 slides (the original deck). Slide table below.
-  - **`TDM-training/`** — Test Data Management deck, in progress (1 cover slide so far).
+  - **`claude-code-basics/`** — simple deck, 15 slides (the original). Slide table below.
+  - **`TDM-training/`** — a **course**; `TDM-training/chapter-0-overview/` is its first chapter (1 cover slide so far). Add more as `TDM-training/chapter-N-name/`.
 
   `claude-code-basics/slides/`:
 
@@ -56,25 +59,42 @@ The site hosts **several presentations, each in its own folder with its own URL*
 
   Next slide in that deck: `16` → `slides/16-nombre.js`. Add `no-export` to slides too dense for 1080×1080 (reference grids, tables).
 
-## Multiple presentations & routing
+## Presentation types & chapters
 
-The site is a collection of decks, one folder per presentation, served on Vercel with clean URLs:
+A registry entry is **one of two types**, decided by which field it carries:
+
+- **Simple deck** — has `slides:N`. `/<slug>/` **is** the deck. (e.g. `claude-code-basics`.)
+- **Course** — has `chapters:[ {slug, accent, slides, en, es}, … ]`. `/<slug>/` is a **chapter index** (a gallery of chapter cards); each chapter is its own deck at `/<slug>/<chapter-slug>/`. (e.g. `TDM-training`.)
+
+This nesting is **one level only** (presentation → chapter → slides). A chapter is just a deck that happens to live one folder deeper, so it links the shared framework with `../../` instead of `../`. Both `/list` and a course index render the same shared gallery (`gallery.js`); a card shows "N chapters" or "N slides" depending on the item.
+
+## Routing
+
+One folder per presentation (and per chapter), served on Vercel with clean URLs:
 
 | URL | Serves |
 |-----|--------|
 | `/` | redirects → `/claude-code-basics` (`vercel.json`; `index.html` is the local/file:// fallback) |
-| `/claude-code-basics` | `claude-code-basics/index.html` |
-| `/TDM-training` | `TDM-training/index.html` |
-| `/list` | `list/index.html` — index of all presentations |
+| `/list` | `list/index.html` — gallery of all presentations |
+| `/claude-code-basics` | `claude-code-basics/index.html` — a deck |
+| `/TDM-training` | `TDM-training/index.html` — chapter index (course) |
+| `/TDM-training/chapter-0-overview` | `TDM-training/chapter-0-overview/index.html` — a chapter deck |
 
-`vercel.json` sets `trailingSlash: true`, so Vercel serves `/claude-code-basics/` and **relative asset paths resolve correctly** (`../theme.css` → `/theme.css`, `slides/NN.js` → `/claude-code-basics/slides/NN.js`). Do **not** switch to absolute paths or these break on `file://` and at the folder root.
+`vercel.json` sets `trailingSlash: true`, so Vercel serves `/<path>/` and **relative asset paths resolve correctly** (a deck's `../deck.css` → `/deck.css`; a chapter's `../../deck.css` → `/deck.css`; `slides/NN.js` resolves under the current folder). Do **not** switch to absolute paths or these break on `file://` and at the folder root.
 
-**To add a new presentation** (e.g. `/my-deck`):
-1. Create `my-deck/index.html` by copying `claude-code-basics/index.html` (change `<title>` and the slide `<script src>` list).
+**To add a simple deck** (e.g. `/my-deck`):
+1. Copy `claude-code-basics/index.html` → `my-deck/index.html` (change `<title>` and the slide `<script src>` list).
 2. Create `my-deck/slides/01-portada.js` (and more) using the bilingual `window._deck` pattern.
-3. Add an entry to `presentations.js` (slug `my-deck`, an `accent` `s-*` class, slide count, and EN/ES `tag`/`title`/`desc`). That's all `/list` needs — no other file to touch.
+3. Add a `{slug:'my-deck', accent, slides:N, en, es}` entry to `presentations.js`.
 
-The shared `deck.css`/`deck.js`/`theme.css` are reused by every presentation; never fork them per deck.
+**To add a course** (e.g. `/my-course` with chapters):
+1. Create `my-course/index.html` by copying `TDM-training/index.html` and setting `COURSE_SLUG = 'my-course'`.
+2. For each chapter, copy `TDM-training/chapter-0-overview/index.html` → `my-course/<chapter-slug>/index.html` (keeps the `../../` framework paths and the `≡` → `../` home link) and add its `slides/`.
+3. Add a registry entry with a `chapters:[…]` array (one object per chapter). That's all the indexes need.
+
+**To add a chapter to an existing course:** create `TDM-training/<chapter-slug>/` (copy the chapter wrapper + add slides) and append a chapter object to that course's `chapters` array in `presentations.js`.
+
+The shared `deck.css`/`deck.js`/`gallery.css`/`gallery.js`/`theme.css` are reused everywhere; never fork them per deck.
 
 ## Running
 
