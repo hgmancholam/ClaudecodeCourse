@@ -71,8 +71,41 @@
       grid.style.setProperty('--rg-h3', (lo * 0.95).toFixed(4) + 'cqmin');
     }));
   }
+  // ── Auto-fit: grow .ctable font to fill available height ──
+  // Las tablas usan flex:1, así que estiran las filas para llenar el alto y dejan
+  // el texto pequeño con mucho espacio en blanco. Aquí escalamos la fuente vía la
+  // propiedad --ct-fs (los demás tamaños se derivan en CSS con calc()). Medimos la
+  // altura NATURAL desactivando flex momentáneamente y buscamos por bisección el
+  // mayor cqmin donde el contenido cabe. Se omite en export (mantiene el 1080×1080)
+  // y en móvil (usa tamaños fijos legibles con scroll).
+  function fitTable(slide) {
+    if (!slide || document.body.classList.contains('exporting')) return;
+    if (window.matchMedia('(max-width: 700px)').matches) return;
+    const table = slide.querySelector('.ctable');
+    if (!table) return;
+    table.style.removeProperty('--ct-fs');
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      const avail = table.getBoundingClientRect().height; // alto disponible (estirado por flex:1)
+      if (!avail) return;
+      // Mide la altura real del contenido sin el estiramiento de flex.
+      const prevFlex = table.style.flex;
+      table.style.flex = 'none';
+      const nat = table.getBoundingClientRect().height;
+      if (!nat || nat >= avail * 0.98) { table.style.flex = prevFlex; return; }
+
+      let lo = 1.9, hi = Math.min(5.5, 1.9 * (avail / nat) * 1.05);
+      for (let i = 0; i < 24; i++) {
+        const m = (lo + hi) / 2;
+        table.style.setProperty('--ct-fs', m.toFixed(4) + 'cqmin');
+        table.getBoundingClientRect().height <= avail ? (lo = m) : (hi = m);
+      }
+      table.style.setProperty('--ct-fs', lo.toFixed(4) + 'cqmin');
+      table.style.flex = prevFlex; // restaura flex:1 del CSS
+    }));
+  }
+
   let _fitTimer;
-  addEventListener('resize', () => { clearTimeout(_fitTimer); _fitTimer = setTimeout(() => fitRefgrid(slides[idx]), 150); });
+  addEventListener('resize', () => { clearTimeout(_fitTimer); _fitTimer = setTimeout(() => { fitRefgrid(slides[idx]); fitTable(slides[idx]); }, 150); });
 
   const ANIM_CLS = ['enter-next','leave-next','enter-prev','leave-prev'];
   let _animCleanup = null;
@@ -103,6 +136,7 @@
     bar.classList.toggle('no-export', slides[idx].classList.contains('no-export'));
     if(picker.classList.contains('open')) refreshPickerActive();
     fitRefgrid(slides[idx]);
+    fitTable(slides[idx]);
   }
   const next=()=>show(idx+1, 1), prev=()=>show(idx-1, -1);
 
