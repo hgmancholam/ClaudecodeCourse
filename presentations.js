@@ -35,7 +35,7 @@ window.PRESENTATIONS = [
               desc: 'Para quién es, objetivos de aprendizaje, la estructura en 4 fases, formato, dinámica de sesiones y takeaways ejecutivos.' }
       },
       {
-        slug: 'chapter-1-role-evolution', accent: 's-info', slides: 2,
+        slug: 'chapter-1-role-evolution', accent: 's-info', slides: 3,
         en: { tag: 'Week 1 · Phase 1', title: 'Evolution of the Role',
               desc: 'Shifting market expectations, capability assessment, gap identification. Deliverable: individual Gap Map.' },
         es: { tag: 'Semana 1 · Fase 1', title: 'Evolución del Rol',
