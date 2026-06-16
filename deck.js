@@ -93,11 +93,21 @@
       const nat = table.getBoundingClientRect().height;
       if (!nat || nat >= avail * 0.98) { table.style.flex = prevFlex; return; }
 
-      let lo = 1.9, hi = Math.min(5.5, 1.9 * (avail / nat) * 1.05);
+      // "Cabe" = la tabla no excede el alto disponible Y ningún th (nowrap) se
+      // desborda de su columna hacia la de al lado. Ambas condiciones crecen de
+      // forma monótona con la fuente, así que la bisección sigue siendo válida.
+      const ths = table.querySelectorAll('th');
+      function fits() {
+        if (table.getBoundingClientRect().height > avail) return false;
+        for (const th of ths) { if (th.scrollWidth > th.clientWidth + 1) return false; }
+        return true;
+      }
+
+      let lo = 1.9, hi = Math.min(3.4, 1.9 * (avail / nat) * 1.05);
       for (let i = 0; i < 24; i++) {
         const m = (lo + hi) / 2;
         table.style.setProperty('--ct-fs', m.toFixed(4) + 'cqmin');
-        table.getBoundingClientRect().height <= avail ? (lo = m) : (hi = m);
+        fits() ? (lo = m) : (hi = m);
       }
       table.style.setProperty('--ct-fs', lo.toFixed(4) + 'cqmin');
       table.style.flex = prevFlex; // restaura flex:1 del CSS
