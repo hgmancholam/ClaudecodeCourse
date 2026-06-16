@@ -28,7 +28,7 @@ window.PRESENTATIONS = [
           desc: 'Un programa de 8 semanas para liderar el delivery con criterio técnico e IA — para Scrum Masters, PMs y Delivery Managers.' },
     chapters: [
       {
-        slug: 'chapter-0-overview', accent: 's-proj', slides: 8,
+        slug: 'chapter-0-overview', accent: 's-proj', slides: 7,
         en: { tag: 'Chapter 0', title: 'Overview',
               desc: 'Who it’s for, learning objectives, the 4-phase structure, format, session dynamics and executive takeaways.' },
         es: { tag: 'Capítulo 0', title: 'Resumen general',
