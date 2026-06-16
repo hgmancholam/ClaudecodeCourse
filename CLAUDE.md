@@ -35,7 +35,7 @@ A presentation folder is **either** a deck **or** a course index:
 
   Presentations:
   - **`claude-code-basics/`** — simple deck, 15 slides (the original). Slide table below.
-  - **`TDM-training/`** — a **course**; `TDM-training/chapter-0-overview/` is its first chapter (1 cover slide so far). Add more as `TDM-training/chapter-N-name/`.
+  - **`TDM-training/`** — a **course** with **9 chapters** (`chapter-0-overview` … `chapter-8-leadership-adoption`), all present in `presentations.js`. `chapter-0-overview` has 6 slides (numbered `01,02,03,04,06,07` — the `05` slot is intentionally skipped and the chapter's `index.html` matches), `chapter-1-role-evolution` has 8, and chapters 2–8 have 2 each (cover + topics). Add new chapters as `TDM-training/chapter-N-name/` and append to the course's `chapters` array.
 
   `claude-code-basics/slides/`:
 
@@ -143,3 +143,10 @@ Each slide exports to a 1080×1080 PNG at `scale:2` (2160px, sharp). `exportSlid
 - Technical terms, command names, and Claude reserved words (e.g. `CLAUDE.md`, `/init`, `PreToolUse`) are kept identical in both languages.
 - **Footer author note:** every `<footer>` (in both languages) must carry an author note `<span class="author">Giovanny Manchola</span>` placed immediately to the **left of the paginator** — i.e. right before the page-number span (`<span class="pg"></span>`, or `<span>2026</span>` on the cover). The footer is a flex row where `.brand` takes `margin-right:auto`, so `.author` and the paginator group together on the right. When adding a new slide, include this author span in every footer. The author note is styled **deliberately small and subdued** (`font-size:1.6cqmin; opacity:.6` — smaller than the rest of the footer's `2.3cqmin`, and `9px` in the mobile block) so it is credited without drawing attention; keep it that way.
 - **Mobile legibility:** a new slide must stay readable on a narrow phone. Build it from the existing components (`ul.points`, `.cmdrow`, `.callout`, `.refgrid`, `.ctable`, …) so the shared `@media (max-width: 700px)` block already gives it fixed legible type + vertical scroll. If a slide introduces a **new** content component with its own `cqmin` font sizes, add a matching override inside that media query (fixed px size, single column) — otherwise it will render too small to read on mobile.
+
+## Authoring tooling (skill + hook)
+
+The repo ships a slide-quality workflow under `.claude/`:
+
+- **`.claude/skills/evaluador-slides/SKILL.md`** — a Skill that evaluates one slide file (`slides/NN-*.js`) against a pedagogical + design rubric (technical accuracy, teaching value, clarity, visual hierarchy incl. mobile, hook/memorability, EN/ES parity, deck consistency) and proposes or applies high-value improvements. It enforces the same rules this file documents (bilingual parity, reusable components, `cqmin`, the author footer note, `no-export`). It converges instead of looping: if a slide already passes, it replies "✅ Slide OK — sin cambios" and edits nothing. Invoke it via the Skill tool with the slide name as argument (e.g. `08-subagents.js`), or through `/evaluador-slides`.
+- **`.claude/hooks/evaluar-slide.ps1`** — a **PostToolUse hook** (PowerShell). After an Edit/Write/MultiEdit, it reads the event JSON from stdin, and **only** when the edited path matches `…/slides/NN-*.js` (and the file still exists) it injects `additionalContext` asking Claude to run the `evaluador-slides` skill on that file. It never blocks the edit (any failure → `exit 0`). Net effect: editing a slide automatically triggers a rubric evaluation of that slide.
