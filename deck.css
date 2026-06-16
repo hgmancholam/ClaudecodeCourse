@@ -386,5 +386,6 @@
     }
     #bar button{padding:6px 9px; font-size:13px;}
     #bar .count{min-width:auto; font-size:13px; padding:4px 6px;}
-    #full, #exp, #expAll, #bar .sep{display:none;}
+    /* #bar #id (esp. 110) para ganarle a la regla base #bar button (esp. 101) */
+    #bar #full, #bar #exp, #bar #expAll, #bar .sep{display:none;}
   }
