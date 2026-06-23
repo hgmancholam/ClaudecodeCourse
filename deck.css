@@ -107,6 +107,10 @@
   .slide[data-title="bonus-skills"] .refgrid .ln{flex-direction:column; gap:.15cqmin;}
   .slide[data-title="bonus-skills"] .refgrid .ln .k{white-space:normal; overflow-wrap:break-word; flex-shrink:1;}
   .slide[data-title="bonus-skills"] .refgrid .ln .d{font-size:.85em;}
+  /* TDM skills: comando arriba, descripción abajo */
+  .slide[data-title="tdm-skills"] .refgrid .ln{flex-direction:column; gap:.2cqmin;}
+  .slide[data-title="tdm-skills"] .refgrid .ln .k{white-space:normal;}
+  .slide[data-title="tdm-skills"] .refgrid .ln .d{font-size:.9em;}
 
   /* ── Tarjetas tipo métrica (variante .metricgrid) ──
      Reusa .refgrid pero como GRID real de columnas iguales en vez del flujo
@@ -139,6 +143,7 @@
   .ctable .feat{font-weight:800;color:var(--ink);font-family:var(--mono);font-size:calc(var(--ct-fs, 1.9cqmin) * 0.947);white-space:nowrap;}
   .ctable .loc{font-family:var(--mono);font-size:calc(var(--ct-fs, 1.9cqmin) * 0.884);color:var(--proj);overflow-wrap:break-word;}
   .ctable .trg{font-family:var(--mono);font-size:calc(var(--ct-fs, 1.9cqmin) * 0.884);overflow-wrap:break-word;}
+  .ctable .grp td{background:#eef0f6; color:var(--muted); font-weight:700; letter-spacing:.06cqmin; text-transform:uppercase; font-size:calc(var(--ct-fs,1.9cqmin) * .78); padding:.42cqmin 1.3cqmin;}
 
   /* Estado no-exportable (aplicado por JS al #bar cuando el slide activo tiene .no-export) */
   #bar.no-export #exp{ opacity:.25; pointer-events:none; }
@@ -152,6 +157,16 @@
   .filetree .dir{color:var(--accent,var(--proj)); font-weight:700;}
   .filetree .note{color:var(--muted); font-family:var(--font); font-style:italic; font-size:.85em;}
   .filetree .optional{opacity:.55;}
+
+  /* ── Mini diagrams: flujo de arquitectura / patrones ── */
+  .diag{display:flex; align-items:center; gap:.55cqmin; flex-wrap:wrap; margin:.35cqmin 0 .55cqmin;}
+  .diag .b{border:1.5px solid var(--accent,var(--proj)); border-radius:.4cqmin; padding:.22cqmin .75cqmin; font-size:var(--rg-fs,1.1cqmin); font-weight:700; color:var(--accent,var(--proj)); white-space:nowrap; line-height:1.2;}
+  .diag .b.hi{background:var(--accent,var(--proj)); color:#fff;}
+  .diag .b.lo{opacity:.65; border-style:dashed;}
+  .diag .ar{font-size:var(--rg-fs,1.1cqmin); color:var(--muted); flex-shrink:0; line-height:1;}
+
+  /* SVG architecture diagrams (2-D, inside .cat cards) */
+  .archsvg{display:block; width:100%; height:auto; max-height:32cqmin; margin:.3cqmin 0 .55cqmin; overflow:visible;}
 
   /* Lista de definiciones (término + descripción) */
   dl.defs{display:grid; grid-template-columns:auto 1fr; gap:.5cqmin 1.8cqmin; align-items:baseline;}
@@ -211,6 +226,7 @@
     .refgrid{columns:5; max-height:calc(100cqb - 15cqmin);}
     .refgrid.refgrid-4{columns:4;}
     .refgrid.refgrid-3{columns:3;}
+    .refgrid.refgrid-2{display:grid; grid-template-columns:1fr 1fr; gap:2cqmin;}
     .refgrid .cat{margin-bottom:1.1cqmin;}
     .refgrid .cat h3{font-size:var(--rg-h3,1.1cqmin);}
     .refgrid .ln{font-size:var(--rg-fs,1.08cqmin); padding:.22cqmin 0;}
@@ -227,6 +243,42 @@
     .slide[data-title="atajos-cli"] .refgrid .cat{padding:1.5cqmin 2cqmin 1.2cqmin; margin-bottom:1.8cqmin;}
     .slide[data-title="atajos-cli"] .refgrid .cat h3{font-size:2.1cqmin;}
     .slide[data-title="atajos-cli"] .refgrid .ln{font-size:2.05cqmin; padding:.58cqmin 0; gap:1.1cqmin;}
+    /* Architecture slides 4-7 + CI/CD & Repos slides 12-15 · fix .ln font size below diagrams */
+    .slide[data-title="arch-tradicionales"] .refgrid .ln,
+    .slide[data-title="arch-hexagonal-nlayer"] .refgrid .ln,
+    .slide[data-title="arch-pipeline-reflection"] .refgrid .ln,
+    .slide[data-title="arch-plan-tool"] .refgrid .ln,
+    .slide[data-title="cicd-intro"] .refgrid .ln,
+    .slide[data-title="azure-devops"] .refgrid .ln,
+    .slide[data-title="git-intro"] .refgrid .ln{font-size:3.2cqmin !important;}
+    .slide[data-title="arch-agenticas"] .refgrid .ln{font-size:2.6cqmin !important;}
+    .slide[data-title="branch-strategies"] .refgrid .ln,
+    .slide[data-title="branch-strategies-2"] .refgrid .ln,
+    .slide[data-title="git-commands"] .refgrid .ln{font-size:3cqmin !important;}
+    .slide[data-title="branch-strategies"] .archsvg,
+    .slide[data-title="branch-strategies-2"] .archsvg{max-height:26cqmin !important;}
+    /* TDM Skills · cap auto-fit so the 3×2 sparse grid doesn't over-scale */
+    .slide[data-title="tdm-skills"] h2{margin-bottom:3.0cqmin;}
+    .slide[data-title="tdm-skills"] .refgrid .cat h3{font-size:3.1cqmin !important;}
+    .slide[data-title="tdm-skills"] .refgrid .ln{font-size:3.4cqmin !important; padding:.5cqmin 0;}
+    /* Slides 10-11 in 2×2 grid: split layout — diagram left, text right */
+    .slide[data-title="design-patterns"] .archsvg,
+    .slide[data-title="ai-patterns"] .archsvg{max-height:18cqmin !important;}
+    .slide[data-title="design-patterns"] .refgrid .ln,
+    .slide[data-title="ai-patterns"] .refgrid .ln{font-size:2cqmin !important;}
+    .cat.cat-split{display:flex; flex-direction:column;}
+    .cat.cat-split .cat-cols{display:flex; gap:1.5cqmin; align-items:center; flex:1; min-height:0;}
+    .cat.cat-split .cat-cols .archsvg{flex:0 0 46%; width:46%; max-height:none !important; margin:0;}
+    .cat.cat-split .cat-text{flex:1; display:flex; flex-direction:column; min-width:0;}
+    /* arch-comparacion: narrow cols 1-4, wide col 5, example col 6 */
+    .slide[data-title="arch-comparacion"] .ctable th:nth-child(1){width:16%;}
+    .slide[data-title="arch-comparacion"] .ctable th:nth-child(2){width:8%;}
+    .slide[data-title="arch-comparacion"] .ctable th:nth-child(3){width:11%;}
+    .slide[data-title="arch-comparacion"] .ctable th:nth-child(4){width:9%;}
+    .slide[data-title="arch-comparacion"] .ctable th:nth-child(6){width:13%;}
+    .slide[data-title="arch-comparacion"] .ctable th{font-size:2.2cqmin; padding:.75cqmin 1.2cqmin;}
+    .slide[data-title="arch-comparacion"] .ctable td{font-size:2.2cqmin; padding:.75cqmin 1.2cqmin;}
+    .slide[data-title="arch-comparacion"] .ctable .feat{font-size:2.1cqmin;}
     /* Features map: wide screen — fuente más grande para llenar el espacio */
     .slide[data-title="features-map"] .ctable th{font-size:2cqmin; padding:.8cqmin 1.5cqmin;}
     .slide[data-title="features-map"] .ctable td{font-size:2.3cqmin; padding:.9cqmin 1.5cqmin;}
@@ -391,12 +443,19 @@
     .refgrid.metricgrid .cat h3{min-height:0; font-size:13px !important;}
     .refgrid.metricgrid .ln.m .k{font-size:30px;}
     .refgrid.metricgrid .ln.src{margin-top:8px; font-size:12px !important;}
+    /* Split layout: stack back to column on mobile */
+    .cat.cat-split .cat-cols{flex-direction:column; align-items:stretch;}
+    .cat.cat-split .cat-cols .archsvg{flex:none; width:100%; max-height:160px !important;}
 
     /* Tabla comparativa de features */
     .ctable th{font-size:12px !important; padding:8px 10px !important;}
     .ctable td{font-size:13px !important; padding:8px 10px !important;}
     .ctable .feat{font-size:13px !important; white-space:normal;}
     .ctable .loc, .ctable .trg{font-size:12px !important;}
+    .diag .b{font-size:11px !important; padding:2px 5px;}
+    .diag .ar{font-size:11px !important;}
+    .ctable .grp td{font-size:11px !important;}
+    .archsvg{max-height:200px !important;}
 
     .slide footer{font-size:13px; gap:14px; margin-top:18px; padding-top:12px; flex-wrap:wrap;}
     .slide footer .author{font-size:9px;}

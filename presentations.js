@@ -49,7 +49,7 @@ window.PRESENTATIONS = [
               desc: 'Prompting para líderes; IA en backlog, riesgos y reporting. Entregable: Prompt Pack.' }
       },
       {
-        slug: 'chapter-3-systems-understanding', accent: 's-feat', slides: 2,
+        slug: 'chapter-3-systems-understanding', accent: 's-feat', slides: 17,
         en: { tag: 'Chapter 3', title: 'Understanding Systems',
               desc: 'Basic architecture; APIs, CI/CD, repositories. Deliverable: technical checklist.' },
         es: { tag: 'Capítulo 3', title: 'Entendimiento de Sistemas',
