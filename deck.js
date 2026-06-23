@@ -153,7 +153,6 @@
       slides.forEach((s,i)=>{ s.classList.toggle('active', i===idx); s.classList.remove(...ANIM_CLS); });
     }
     document.getElementById('cur').textContent = idx+1;
-    bar.classList.toggle('no-export', slides[idx].classList.contains('no-export'));
     if(picker.classList.contains('open')) refreshPickerActive();
     fitRefgrid(slides[idx]);
     fitTable(slides[idx]);
@@ -176,7 +175,6 @@
     if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){ next(); e.preventDefault(); }
     else if(e.key==='ArrowLeft'||e.key==='PageUp') prev();
     else if(e.key==='f'||e.key==='F') document.getElementById('full').click();
-    else if(e.key==='e'||e.key==='E') exportSlide(idx);
     else if(e.key==='a'||e.key==='A') exportPdf();
     else if(e.key==='l'||e.key==='L') langBtn.click();
     else if(e.key==='Home') show(0);
@@ -198,39 +196,23 @@
     }
   }, {passive:true});
 
-  // ── Exportación a PNG 1:1 ──
-  function download(canvas, name){ const a=document.createElement('a'); a.href=canvas.toDataURL('image/png'); a.download=name+'.png'; a.click(); }
-  async function exportSlide(i){
-    document.body.classList.add('exporting');
-    const pw=stage.style.width, ph=stage.style.height;
-    stage.style.width='1080px'; stage.style.height='1080px';
-    const prevActive=idx; slides.forEach((s,k)=> s.classList.toggle('active', k===i));
-    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-    try{
-      const c=await html2canvas(slides[i], {scale:2, backgroundColor:'#ffffff', width:1080, height:1080, windowWidth:1080, windowHeight:1080});
-      download(c, String(i+1).padStart(2,'0')+'-'+(slides[i].dataset.title||('slide-'+(i+1))));
-    } finally {
-      slides.forEach((s,k)=> s.classList.toggle('active', k===prevActive));
-      stage.style.width=pw; stage.style.height=ph;
-      document.body.classList.remove('exporting');
-    }
-  }
+  // ── Exportación a PDF — captura cada slide en 1920×1080 (layout ancho, todo el contenido visible) ──
   async function exportPdf(){
     if(!window.jspdf){ alert('jsPDF not loaded'); return; }
     const {jsPDF}=window.jspdf;
-    const PAGE=210;
-    const pdf=new jsPDF({orientation:'portrait',unit:'mm',format:[PAGE,PAGE]});
+    const PW=297, PH=167;  // mm — 16:9 landscape
+    const pdf=new jsPDF({unit:'mm', format:[PW,PH]});
     document.body.classList.add('exporting');
     const pw=stage.style.width, ph=stage.style.height;
-    stage.style.width='1080px'; stage.style.height='1080px';
+    stage.style.width='1920px'; stage.style.height='1080px';
     const prevActive=idx;
     try{
       for(let i=0;i<slides.length;i++){
         slides.forEach((s,k)=>s.classList.toggle('active',k===i));
         await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-        const c=await html2canvas(slides[i],{scale:2,backgroundColor:'#ffffff',width:1080,height:1080,windowWidth:1080,windowHeight:1080});
-        if(i>0) pdf.addPage([PAGE,PAGE]);
-        pdf.addImage(c.toDataURL('image/jpeg',.92),'JPEG',0,0,PAGE,PAGE);
+        const c=await html2canvas(slides[i],{scale:2,backgroundColor:'#ffffff',width:1920,height:1080,windowWidth:1920,windowHeight:1080});
+        if(i>0) pdf.addPage([PW,PH]);
+        pdf.addImage(c.toDataURL('image/jpeg',.92),'JPEG',0,0,PW,PH);
       }
       const title=(document.title||'deck').replace(/[^a-z0-9]+/gi,'-').toLowerCase().replace(/^-|-$/g,'');
       pdf.save(title+'.pdf');
@@ -240,7 +222,6 @@
       document.body.classList.remove('exporting');
     }
   }
-  document.getElementById('exp').onclick=()=>exportSlide(idx);
   document.getElementById('expPdf').onclick=exportPdf;
 
   // ── Slide picker ──
