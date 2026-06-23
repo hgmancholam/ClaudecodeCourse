@@ -200,6 +200,10 @@
   async function exportPdf(){
     if(!window.jspdf){ alert('jsPDF not loaded'); return; }
     const {jsPDF}=window.jspdf;
+    // Entrar en fullscreen para que el stage renderice a máxima resolución
+    const wasFullscreen=!!document.fullscreenElement;
+    if(!wasFullscreen) await document.documentElement.requestFullscreen().catch(()=>{});
+    await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
     const pdf=new jsPDF({orientation:'landscape', unit:'mm', format:'legal'});
     const PW=pdf.internal.pageSize.getWidth();   // 355.6 mm
     const PH=pdf.internal.pageSize.getHeight();  // 215.9 mm
@@ -223,6 +227,7 @@
       slides.forEach((s,k)=>s.classList.toggle('active',k===prevActive));
       stage.style.width=pw; stage.style.height=ph;
       document.body.classList.remove('exporting');
+      if(!wasFullscreen && document.fullscreenElement) document.exitFullscreen();
     }
   }
   document.getElementById('expPdf').onclick=exportPdf;
