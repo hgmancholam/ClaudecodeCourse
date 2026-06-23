@@ -129,7 +129,7 @@ Authoring rules:
 
 ### PDF export
 
-`exportPdf()` forces `#stage` to `1920×1080` (16:9 landscape), waits two animation frames for the container queries to relayout into wide form (all content visible — callouts, codeblocks, 2-column layouts), captures every slide with html2canvas at `scale:2`, and saves a jsPDF document (297×167 mm per page). `body.exporting` hides the controls during capture. Keep the controls bar (`#bar`) outside `#stage` so it is never part of a capture.
+`exportPdf()` uses **legal landscape** (355.6 × 215.9 mm, one slide per page). It computes the capture pixel dimensions dynamically from the page ratio (`CW=1920`, `CH=round(1920×PH/PW)`) so the capture matches the paper exactly — no distortion, no letterboxing, all content visible (wide container query activates; callouts, codeblocks, and 2-column layouts all render). Each slide is captured with html2canvas at `scale:2` and placed to fill the full page. `body.exporting` hides the controls during capture. Keep `#bar` outside `#stage` so it is never part of a capture.
 
 ### Keyboard
 

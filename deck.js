@@ -196,22 +196,25 @@
     }
   }, {passive:true});
 
-  // ── Exportación a PDF — captura cada slide en 1920×1080 (layout ancho, todo el contenido visible) ──
+  // ── Exportación a PDF — hoja legal landscape, un slide por hoja, sin recorte ──
   async function exportPdf(){
     if(!window.jspdf){ alert('jsPDF not loaded'); return; }
     const {jsPDF}=window.jspdf;
-    const PW=297, PH=167;  // mm — 16:9 landscape
-    const pdf=new jsPDF({unit:'mm', format:[PW,PH]});
+    const pdf=new jsPDF({orientation:'landscape', unit:'mm', format:'legal'});
+    const PW=pdf.internal.pageSize.getWidth();   // 355.6 mm
+    const PH=pdf.internal.pageSize.getHeight();  // 215.9 mm
+    // Capture dimensions match page ratio exactly → zero distortion, full content
+    const CW=1920, CH=Math.round(CW*PH/PW);
     document.body.classList.add('exporting');
     const pw=stage.style.width, ph=stage.style.height;
-    stage.style.width='1920px'; stage.style.height='1080px';
+    stage.style.width=CW+'px'; stage.style.height=CH+'px';
     const prevActive=idx;
     try{
       for(let i=0;i<slides.length;i++){
         slides.forEach((s,k)=>s.classList.toggle('active',k===i));
         await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
-        const c=await html2canvas(slides[i],{scale:2,backgroundColor:'#ffffff',width:1920,height:1080,windowWidth:1920,windowHeight:1080});
-        if(i>0) pdf.addPage([PW,PH]);
+        const c=await html2canvas(slides[i],{scale:2,backgroundColor:'#ffffff',width:CW,height:CH,windowWidth:CW,windowHeight:CH});
+        if(i>0) pdf.addPage('legal','landscape');
         pdf.addImage(c.toDataURL('image/jpeg',.92),'JPEG',0,0,PW,PH);
       }
       const title=(document.title||'deck').replace(/[^a-z0-9]+/gi,'-').toLowerCase().replace(/^-|-$/g,'');
