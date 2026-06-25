@@ -56,7 +56,7 @@ window.PRESENTATIONS = [
               desc: 'Arquitectura básica; APIs, CI/CD, repositorios. Entregable: checklist técnico.' }
       },
       {
-        slug: 'chapter-4-architecture-evaluation', accent: 's-flow', slides: 2,
+        slug: 'chapter-4-architecture-evaluation', accent: 's-flow', slides: 20,
         en: { tag: 'Chapter 4', title: 'Evaluating Architecture',
               desc: 'Trade-offs, technical risks, intro to AI architectures. Deliverable: Risk Assessment.' },
         es: { tag: 'Capítulo 4', title: 'Evaluación de Arquitectura',
