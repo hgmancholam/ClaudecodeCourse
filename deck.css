@@ -258,6 +258,9 @@
     .slide[data-title="tdm-skills"] h2{margin-bottom:3.0cqmin;}
     .slide[data-title="tdm-skills"] .refgrid .cat h3{font-size:3.1cqmin !important;}
     .slide[data-title="tdm-skills"] .refgrid .ln{font-size:3.4cqmin !important; padding:.5cqmin 0;}
+    /* TDM Skills Ch4 · same pattern — 3×2 sparse vertical layout over-scales without a cap */
+    .slide[data-title="tdm-skills-ch4"] .refgrid .cat h3{font-size:2.5cqmin !important;}
+    .slide[data-title="tdm-skills-ch4"] .refgrid .ln{font-size:2.2cqmin !important; padding:.4cqmin 0;}
     /* Slides 10-11 in 2×2 grid: split layout — diagram left, text right */
     .slide[data-title="design-patterns"] .archsvg,
     .slide[data-title="ai-patterns"] .archsvg{max-height:18cqmin !important;}
